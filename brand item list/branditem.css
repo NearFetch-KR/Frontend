@@ -1,0 +1,75 @@
+.hotBrandWrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 15% auto;
+    /* background-color: pink; */
+    width: 90%;
+    box-sizing: content-box;
+    text-align: center;
+}
+
+.mainHotBrand{
+    display: flex;
+    padding: 5vw;
+    justify-content: space-between;
+    /* background: yellow; */
+}
+
+.mainHot{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* background-color: aqua; */
+    width: 30%;
+}
+
+ .two{
+width: 36%;
+/* background-color: tomato; */
+}
+
+.one{
+    /* background: lemonchiffon; */
+    margin-top: 5vh;
+}
+.three{
+    /* background: lightsalmon; */
+    margin-top: 5vh;
+}
+
+.mainHot img{
+    width: 100%;
+}
+
+.mainHot h5{
+    padding: 1vw;
+}
+
+.mainHot:hover{
+    transform: scale(1.1);
+    transition:transform 1s;
+}
+
+.sorting{
+    text-align: right;
+}
+
+.hotItemList li{
+    border: 1px solid rgb(201, 201, 201);
+    margin: 1vh;
+
+}
+
+
+.hotBrandWrapper h1{
+    padding-top: 4vh;
+    /* background-color: red; */
+}
+
+.hotItemList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+

@@ -1,0 +1,38 @@
+.searchItemWrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 12% auto;
+    background-color: pink;
+    width: 90%;
+}
+
+.currentCategory{
+    background-color: red;
+    text-align: center;
+    font-size: 1vw;
+    padding: 2vw;
+}
+
+.filterNtoggle{
+    background-color: blue;
+    padding: 1vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchItem{
+    display: flex;
+}
+
+.searchFilter{
+    width: 10%;
+    padding: 1vw;
+    background-color: yellow;
+}
+
+
+.searchItemList{
+    width: 90%;
+    padding: 1vw;
+    background-color: rgb(43, 255, 0);
+}

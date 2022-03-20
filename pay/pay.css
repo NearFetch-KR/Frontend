@@ -1,0 +1,107 @@
+.pay{
+    display: flex;
+  margin: 12% auto;
+  background-color: pink;
+  padding: 1vw;
+}
+
+
+.payInfo{
+    width: 60%;
+    background-color: rgb(168, 168, 253);
+    /* padding: 5vh; */
+}
+
+.payInfo div{
+    margin:3vh;
+}
+
+.ordererInfo{
+background-color: red;
+padding: 3vh;
+}
+ 
+h3{
+    border-bottom: 1px solid var(--color-black);
+}
+
+.shippingInfo{
+background-color: orange;
+padding: 3vh;
+
+}
+.paymentInfo{
+ background-color: yellow;  
+ padding: 3vh;
+ 
+}
+.basicInfo{
+    background-color: pink;
+    display: inline-block;
+    width: 20vw;
+}
+
+.basicInfo input{
+    width: 200px;
+}
+
+.paymentInfo ul{
+    background-color: green;
+    display: flex;
+    justify-content: space-evenly;
+    padding:5px;
+}
+
+.paymentInfo ul li{
+    background-color: blue;
+    width: 45%;
+    border: 1px solid var(--color-black);
+}
+.orderInfo{
+    width: 40%;
+    background-color: rgb(243, 91, 91);
+    padding: 3vh;
+}
+
+
+.orderInfoDetail{
+    background-color: red;
+    padding: 3vh;
+}
+
+.totalAmount{
+    background-color: orange;
+    padding: 3vh;
+
+}
+
+.orderAgree{
+    background-color: yellow;
+    padding: 3vh;
+
+}
+
+
+.orderItem{
+    background-color: green;
+
+}
+
+.orderItem ul li{
+    background-color: blue;
+}
+
+.orderItem ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.orderAgree input{
+  
+}
+
+.orderAgree button{
+    width: 100%;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
