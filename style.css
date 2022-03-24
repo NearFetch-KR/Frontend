@@ -71,7 +71,7 @@ header{
     position: fixed;
     width: 100%;
     z-index: 1000;
-    background-color: rgb(254, 255, 170);
+    /* background-color: rgb(254, 255, 170); */
 }
 
 .Swiper{

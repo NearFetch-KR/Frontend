@@ -1,0 +1,245 @@
+/* 네브바 */
+.InfoLogo{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    /* background-color: green; */
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* align-items: center; */
+}
+
+.logo{
+    font-size: 4vh;
+}
+
+.appBtns button{
+    border: none;
+    background-color: rgb(241, 241, 241);
+    height: 4vh;
+    box-shadow: 5px 5px 5px rgb(129, 129, 129);
+    padding:0.5vh;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.appBtns button:nth-child(1),
+.appBtns button:hover{
+    background-color: black;
+    color: white;
+}
+
+/* 좌측 페이지 이동 버튼(동그라미) */
+.circleWrap{
+    position: fixed;
+    left: 4vw;
+    top:40vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.circleWrap img{
+    margin: 1vh;
+}
+
+.circle{
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.circle:hover{
+    cursor: pointer;
+    background-color: black;
+}
+
+.circle:nth-child(1){
+    background-color: black;
+}
+
+/* 정보(공용) */
+.infoWrapper{
+    padding-top: 80px;
+    text-align: center;
+}
+
+.appinfo{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.infoInner{
+    width: 80%;
+    height: 80%;
+    /* background-color: plum; */
+    margin-top: 5%;
+}
+
+.infoInner h2{
+    font-weight: 800;
+}
+
+.infoInner h3{
+    color: rgb(160, 160, 160);
+}
+
+/* 정보(개별)_섹션1 */
+.center1{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%); 
+}
+/* 2.75 x 32.5 x 22.7cm  */
+.phone1{
+    position: relative;
+    width: 225px;
+    height: 450px;
+    transform: perspective(500px) rotate(-40deg) skew(25deg);
+    /*원근감,반시계방향으로회전,x축기준25도경사*/box-shadow: -90px 75px 20px rgba(0,0,0,.3);
+    /*그림자*/background: #fff  url(/images/iphoneFrame.png);
+    /* border-radius: 10px; */
+    background-size: cover;
+    background-size: 225px 450px;
+    /*키보드사진사이즈*/background-repeat:no-repeat;
+    background-position: 50% 50%;
+    transition: 0.5s;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color:var(--color-white);
+    background-color:#93949a;
+    /* border-radius: 3px; */
+    /* -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px; */
+}
+
+.phone1:hover{
+    transform: perspective(500px) rotate(-40deg) skew(25deg) translate(50px,-50px);/*원근감, 반시계방향으로 회전, x축 기준 25도 경사*/
+    box-shadow: -150px 115px 100px rgba(0,0,0,0.3);
+}
+
+
+/* .phone1::before{
+    content: '긴 측면';
+    color:antiquewhite;
+    font-size: 25px;
+    width: 450px;
+    height: 11px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: skewY(-39deg) translate(-230px,37px) rotate(90deg) ;
+    background: #000000 ;
+    background-repeat: no-repeat;
+    border-radius: 2px;
+    -webkit-transform: skewY(-39deg) translate(-230px,37px) rotate(90deg) ;
+    -moz-transform: skewY(-39deg) translate(-230px,37px) rotate(90deg) ;
+    -ms-transform: skewY(-39deg) translate(-230px,37px) rotate(90deg) ;
+    -o-transform: skewY(-39deg) translate(-230px,37px) rotate(90deg) ;
+}
+
+.phone1::after{
+    content: '짧은 측면';
+    color:#dc5e73;
+    font-size: 20px;
+    width:225px;
+    height: 9px;
+    position: absolute;
+    top: 83px;
+    left: 28px;
+    transform: skewX(-52deg) translate(435px,366px);
+    background: #000000;
+    background-size: 90px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border-radius: 2px;
+    -webkit-transform: skewX(-52deg) translate(435px,366px);
+    -moz-transform: skewX(-52deg) translate(435px,366px);
+    -ms-transform: skewX(-52deg) translate(435px,366px);
+    -o-transform: skewX(-52deg) translate(435px,366px);
+} */
+
+/* 정보(개별)_섹션2 */
+
+.carouselWrapper{
+    background-color: yellow;
+    padding: 3vh;
+}
+
+/* .carouselWrapper .phone{
+    position: relative;
+} */
+/* 정보(개별)_섹션3 */
+
+.process{
+    position: relative;
+    top: 20vh;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.process img{
+    width: 180px;
+}
+
+.process .arrow{
+    display: flex;
+   width: 120px;
+    align-items: center;
+}
+
+.arrow img:nth-child(1){
+    animation: arrow 0.5s ease-out 0.5s;
+    -webkit-animation: arrow 0.5s ease-out 0.5s;
+}
+
+.arrow img:nth-child(2){
+    animation: arrow 0.5s ease-out 1s;
+    -webkit-animation: arrow 0.5s ease-out 1s;
+}
+
+.arrow img:nth-child(3){
+    animation: arrow 0.5s ease-out 1.5s;
+    -webkit-animation: arrow 0.5s ease-out 1.5s;
+}
+
+.arrow img:nth-child(4){
+    animation: arrow 0.5s ease-out 2s;
+    -webkit-animation: arrow 0.5s ease-out 2s;
+}
+@keyframes arrow{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.barIcon{
+    height: 1.5vh;
+}
+.arrowIcon{
+    height: 5vh;
+}
+/* 정보(개별)_섹션4 */
+
+
+
+
+

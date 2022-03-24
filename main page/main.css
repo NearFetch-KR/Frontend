@@ -23,7 +23,7 @@
 }
 
 .prev, .next {
-    background-color: yellow;
+    /* background-color: yellow; */
   cursor: pointer;
   position: absolute;
   top: 60vh;
@@ -93,7 +93,7 @@ h2{
 .HotDealContents{
   display: flex;
   justify-content: center;
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 }
 
 .HotDealWrapper{
@@ -166,7 +166,7 @@ h2{
 
 /* -----------이번주 베스트셀러----------- */
 .BestSeller{
-  background-color: rgb(197, 230, 191);
+  /* background-color: rgb(197, 230, 191); */
   margin: 0 auto;
   text-align: center;
 }
@@ -181,7 +181,7 @@ h2{
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: space-around;
-  background-color: rgb(230, 170, 173);
+  /* background-color: rgb(230, 170, 173); */
   padding-bottom: 3vh;
 }
 

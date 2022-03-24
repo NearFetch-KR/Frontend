@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">      
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 <title>간지나는 당신 곁엔,NearFetch</title>
 </head>
 <body>
@@ -75,7 +75,6 @@
 
     <!-- 메인 -->
     <main>
-        <!-- qna -->
         <div class="section buy">
             <div class="itemDetail">
                 <ul>
@@ -111,16 +110,31 @@
                         <div>좋아요</div>
                         <div>장바구니</div>
                     </div>
-                    <div class="policyAll">
-                        배송 및 반품 정책
-                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- 정책 -->
+        <div class="informWrapper">
+          <div class="informInner">
+            <div class="inform informDes">
+              상품 설명
+            <div class="inform sizeNfit">
+              사이즈&핏
+            </div>
+            <div class="inform delivery">  
+              배송
+            </div>
+            <div class="inform return">
+              반품
+            </div>
+          </div>
+        </div>
+
         <div class="section sideRecommend">
-            <h2>추천 상품</h2>
             <div class="row">
+             <h2>추천 상품</h2>
+
                 <div class="row__inner">
             
                   <div class="RecomItem">
@@ -239,6 +253,7 @@
        
 
     </footer>
+    <script src="/common.js"></script>
     <script src="/item detail/itemdetail.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
