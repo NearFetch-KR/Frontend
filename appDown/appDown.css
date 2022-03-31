@@ -72,12 +72,16 @@
     display: flex;
     justify-content: center;
 }
-
+/*  */
 .infoInner{
     width: 80%;
     height: 80%;
-    /* background-color: plum; */
     margin-top: 5%;
+    /* background-color: yellow; */
+}
+
+.infoInnerTxt{
+    padding: 2em;
 }
 
 .infoInner h2{
@@ -86,9 +90,117 @@
 
 .infoInner h3{
     color: rgb(160, 160, 160);
+    letter-spacing: -2px;
 }
 
-/* 정보(개별)_섹션1 */
+/* 섹션1*/
+.appinfo .intro{
+    background-color: #f1f1f1;
+    overflow: hidden;
+    min-height: 100vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.brandText{
+    /* background-color: pink; */
+    position: relative;
+    top: 1.5em;
+    width: 6em;
+    height: 2em;
+    color: #fff;
+    font-weight: 900;
+    line-height: 1em;
+    font-size: 11em;
+    text-shadow: -10px 15px 7px rgba(175, 175, 175, 0.507);
+    transform-style: preserve-3d;
+    letter-spacing: -2px;
+    transform: rotate(-28deg) skew(25deg);
+    -webkit-transform: rotate(-28deg) skew(25deg);
+    -moz-transform: rotate(-28deg) skew(25deg);
+    -ms-transform: rotate(-28deg) skew(25deg);
+    -o-transform: rotate(-28deg) skew(25deg);
+}
+.heart{
+    animation: heartmove 4s linear forwards;
+    -webkit-animation: heartmove 4s linear forwards;
+    animation-iteration-count: infinite;
+    position: absolute;
+}
+
+@keyframes heartmove{
+    from{
+        opacity: 0;
+        top: -100px;
+    }
+    to{
+        opacity: 1;
+        top:230px;
+    }
+}
+/* 섹션2*/
+.slider {
+    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, .125);
+    height: 80%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.slider::before, .slider::after {
+    content: "";
+    height: 100px;
+    position: absolute;
+    width: 250px;
+    z-index: 2;
+}
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+.slider::before {
+    left: 0;
+    top: 0;
+}
+.slider .slide-track {
+    animation: scroll 40s linear infinite;
+    width: calc(250px * 14);
+    -webkit-animation: scroll 40s linear infinite;
+    height: 90%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+   }
+    100% {
+        transform: translateX(calc(-250px * 7));
+        -webkit-transform: translateX(calc(-250px * 7));
+        -moz-transform: translateX(calc(-250px * 7));
+        -ms-transform: translateX(calc(-250px * 7));
+        -o-transform: translateX(calc(-250px * 7));
+   }
+}
+
+.slider .slide {
+    height: 200px;
+    width: 250px;
+    padding: 10px;
+    align-items: center;
+}
+.slide img{
+    height: 100%;
+    width: 100%;
+}
+
+
+
+/* ------------ */
 .center1{
     position: absolute;
     top:50%;
@@ -170,7 +282,7 @@
 /* 정보(개별)_섹션2 */
 
 .carouselWrapper{
-    background-color: yellow;
+    /* background-color: yellow; */
     padding: 3vh;
 }
 
@@ -238,8 +350,67 @@
     height: 5vh;
 }
 /* 정보(개별)_섹션4 */
+.keyBox{
+    /* background-color: lemonchiffon; */
+    width: 40%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.key{
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    padding: 8px 15px;
+    margin: 8px 4px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background: linear-gradient(180deg,#282828,#202020);
+    box-shadow:inset -8px 0 8px rgba(0, 0, 0, 0.15),
+    inset 0 -8px 8px rgba(0, 0, 0, 0.25),
+    0 0 0 2px rgba(0, 0, 0, 0.75),
+    10px 20px 25px rgba(0,0,0,0.4);
+    overflow: hidden;
+}
+
+.key::before{
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    bottom: 14px;
+    right: 12px;
+    background: linear-gradient(90deg,#232323,#4a4a4a);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.25),
+    10px 5px 10px rgba(0,0,0,0.15);
+    border-left: 1px solid #0004;
+    border-bottom: 1px solid #0004;
+    border-top: 1px solid #0009;
+
+}
 
 
+.key i{
+    position: relative;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
 
-
-
+.key:last-child{
+    width: 30%;
+}
