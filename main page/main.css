@@ -82,11 +82,6 @@
   text-align: center;
 }
 
-h2{
-  font-size: 3vw;
-  font-weight: 700;
-  padding: 3vw;
-}
 
 
 
@@ -171,19 +166,14 @@ h2{
   text-align: center;
 }
 
-.BestSeller h2{
-  padding:3vw;
-}
-
-.BestSellerWrapper{
+/* .itemListWrapper{
   width: 70%;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: space-around;
-  /* background-color: rgb(230, 170, 173); */
   padding-bottom: 3vh;
-}
+} */
 
 .BestSellerWrapper li{
   width: 300px;
@@ -202,9 +192,6 @@ h2{
   margin:0 auto;
 }
 
-.MustBuyNow h2{
-  padding: 7vh;
-}
 
 
 .cg-carousel__container{
@@ -249,9 +236,7 @@ h2{
   width: 100%;
 }
 
-.RageNow h2{
-  padding: 5vh;
-}
+
 
 .videoWrapper video{
   width: 100%;
@@ -260,12 +245,10 @@ h2{
 
 .videoWrapper button{
   position: relative;
-  bottom:15vh;
-  /* left:50%;
-  transform: translateX(-50%); */
-  content: ' ';
-  font-size: 2vw;
-  font-weight: 700;
+  bottom:200px;
+  border: none;
+  font-size: 1.5vw;
+  font-weight: 600;
   border-radius: 5px;
   padding: 10px;
   background-color: var(--color-white);
@@ -276,9 +259,6 @@ h2{
   text-align: center;
 }
 
-.Recommend h2{
-  padding-top: 5%;
-}
 
 .RecommendWrapper{
   width: 65%;
@@ -286,13 +266,11 @@ h2{
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: space-around;
-  /* background-color: rgb(230, 170, 173); */
 
 }
 
 .RecommendWrapper li{
   width: 300px;
-  /* background-color: rgb(209, 36, 45); */
   margin: 5px 1px;
 
 }
@@ -303,12 +281,6 @@ h2{
   background-color: rgb(216, 216, 214);
 }
 
-.cart_wrap{
-  /* background-color: blue; */
-  position: absolute;
-  padding: 5px;
-  right: 0;  
-}
 
 .RecommendImg_box{
   display: flex;
@@ -316,10 +288,3 @@ h2{
 .RecommendImg_box .bag{
   width: 300px;
 }
-
-.RecommendImg_box .cart{
-  width: 30px;
-  color:gray
-}
-
-

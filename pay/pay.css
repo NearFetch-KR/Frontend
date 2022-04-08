@@ -1,84 +1,116 @@
+
 .pay{
     display: flex;
-  margin: 12% auto;
-  background-color: pink;
-  padding: 1vw;
+    margin: 12% auto;
+    padding: 1vw;
 }
 
-
+/* <!-- 좌측: 주문자 정보 --> */
 .payInfo{
     width: 60%;
-    background-color: rgb(168, 168, 253);
-    /* padding: 5vh; */
 }
 
-.payInfo div{
-    margin:3vh;
-}
 
-.ordererInfo{
-background-color: red;
+.ordererInfo,
+.shippingInfo,
+.paymentInfo,
+.orderInfoDetail,
+.totalAmount,
+.orderAgree{
 padding: 3vh;
 }
+
+.ordererInfo ul,
+.shippingInfo ul,
+.totalAmount ul{
+    padding: 0;
+    padding-top: 10px;
+}
  
-h3{
+.ordererInfo ul li,
+.shippingInfo ul li{
+margin: 10px;
+}
+
+.ordererInfo ul li label,
+.shippingInfo ul li label{
+    width: 10%;
+}
+
+.ordererInfo input,
+.shippingInfo ul input,
+.addressBox input{
+    width: 150px;
+    border: none;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    margin-right: 5px;
+    background-color: rgb(241, 241, 241);
+}
+
+
+.ordererInfo h3,
+.shippingInfo h3,
+.paymentInfo h3{
     border-bottom: 1px solid var(--color-black);
 }
 
-.shippingInfo{
-background-color: orange;
-padding: 3vh;
 
-}
-.paymentInfo{
- background-color: yellow;  
- padding: 3vh;
- 
-}
 .basicInfo{
-    background-color: pink;
-    display: inline-block;
-    width: 20vw;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+
 }
 
 .basicInfo input{
-    width: 200px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+.basicInfo label{
+    width: 10%;
 }
 
 .paymentInfo ul{
-    background-color: green;
     display: flex;
     justify-content: space-evenly;
     padding:5px;
 }
 
 .paymentInfo ul li{
-    background-color: blue;
     width: 45%;
     border: 1px solid var(--color-black);
+    padding: 1vh;
+    text-align: center;
+    align-items: center;
+    font-weight: 600;
 }
+
+.paymentInfo ul li:hover{
+    cursor: pointer;
+}
+
+/* <!-- 우측: 주문상품 및 금액 --> */
 .orderInfo{
-    width: 40%;
-    background-color: rgb(243, 91, 91);
+    width: 35%;
+    /* background-color: rgb(243, 91, 91); */
     padding: 3vh;
 }
 
 
-.orderInfoDetail{
-    background-color: red;
-    padding: 3vh;
+.totalAmount ul{
+    display: flex;
+    /* justify-content: space-evenly; */
+    border-top: 1px solid rgb(173, 173, 173);
 }
 
-.totalAmount{
-    background-color: orange;
-    padding: 3vh;
-
-}
-
-.orderAgree{
-    background-color: yellow;
-    padding: 3vh;
-
+.agreeWrapper input{
+    padding: 15px;
+    background-color:hotpink ;
 }
 
 
@@ -96,12 +128,11 @@ padding: 3vh;
     justify-content: space-evenly;
 }
 
-.orderAgree input{
-  
-}
-
 .orderAgree button{
     width: 100%;
     background-color: var(--color-black);
     color: var(--color-white);
+    padding: 1vh;
+    margin-top: 1vh;
+    border: none;
 }

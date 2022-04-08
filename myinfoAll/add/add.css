@@ -1,0 +1,70 @@
+.myInfoWrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.rowOne div{
+    /* background-color: yellow; */
+    margin: 1vw 5vw;
+    font-weight: 700;
+}
+.addWrapper>.rowOne{
+    /* background-color: teal; */
+    border-bottom: 1px solid grey;
+    display: flex;
+    justify-content: right;
+}
+.addWrapper>.item{
+    /* background-color: rgb(142, 182, 182); */
+    display: flex;
+    border-bottom: 1px solid grey;
+}
+
+
+.item>div{
+    margin:4vh;
+}
+
+
+.imageWrapper img{
+    max-width: 20vw;
+}
+
+
+
+.itemInfoWrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    /* background-color: red; */
+    color: grey;
+}
+
+.itemInfoWrapper>div:nth-child(2){
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: space-around;
+    width:20vw;
+}
+
+.itemInfoWrapper>div>.brand{
+    font-weight: 600;
+    font-size: 1.8vw;
+    color: black;
+}
+
+.totalAmount{
+    text-align: right;
+    /* background-color: green; */
+    padding:2vh;
+}
+
+.myInfoWrapper button{
+    margin-top: 10vh;
+    width: 15%;
+}
+
+.btnWrapper{
+    display: flex;
+    justify-content: right;
+}

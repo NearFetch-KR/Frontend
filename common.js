@@ -6,3 +6,11 @@ offBtn.addEventListener('click',function(){
   swiper.style.display="none";
 }
 )
+
+
+const Item=document.querySelector('.Item');
+Item.addEventListener('scroll',()=>{
+  Item.style.display=none;
+})
+
+

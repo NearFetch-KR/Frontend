@@ -1,0 +1,80 @@
+
+.myInfoAddress{
+    width: 50%;
+    /* margin: 2vh; */
+    padding-left:2vw;
+}
+
+
+
+.imgNextoMyinfo{
+    width: 50%;
+    /* background-color: blue; */
+    /* padding-top: 1vh; */
+
+}
+
+.myInfoAddress h4:before{
+    content: '*';
+}
+
+.myInfoAddress h4{
+    /*background-color: rgb(224, 224, 224);*/
+    font-weight: 300;
+    margin-top: 5vh;
+}
+
+.myInfoWrapper h6{
+    color:#bbbbbb;
+    font-weight: 200;
+    font-size: 0.8vw;
+    margin-bottom: 5vh;
+    margin-top: 0;
+}
+
+
+.myInfoAddress button{
+    width: 90%;
+    margin-top: 5vh;
+    border: none;
+    background-color: black;
+    color:white;
+    padding:0.5vh;
+}
+
+.addressBox{
+    width: 90%;
+    margin-top: 2vh;
+    /* background-color: rgb(226, 164, 164); */
+    /* padding: 10px; */
+}
+
+.member_postWrapper{
+    display: flex;
+}
+ 
+
+.addressBox label{
+    height: 30px;
+    width: 5vw;
+    margin: 5px;
+    margin-left: 10px;
+    background-color: rgb(201, 201, 201);
+    color: white;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.addressBox label:active{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.addressBox input{
+    width: 15vw;
+    height: 30px;
+    margin: 5px;
+    border: 1px solid rgb(117, 117, 117);
+ }

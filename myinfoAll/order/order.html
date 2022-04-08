@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/paydone/paydone.css">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/myinfoAll/order/order.css">
+    <link rel="stylesheet" href="/myinfoAll/myinfoCommon.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">      
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 <title>간지나는 당신 곁엔,NearFetch</title>
 </head>
 <body>
@@ -74,17 +77,95 @@
 
     <!-- 메인 -->
     <main>
-        <div class="section payDoneWrapper">
-            <div class="payDoneNotice">
-                <img src="/images/check.png" alt="">
-                <h2>주문 완료,빨리 배송해줄게</h2>
+        <div class="section myInfoList">
+            <div class="infoBar">
+                <ul>
+                    <li><a>내 정보</a></li>
+                    <li><a>주소록</a></li>
+                    <li><a>주문 내역</a></li>
+                    <li><a>좋아요</a></li>
+                    <li><a>장바구니</a></li>
+                    <li><a>로그아웃</a></li>
+                </ul>
             </div>
-            <div class="horizontalLine">
+            <div class="myInfo">
+                <h3>주문 내역</h3> 
+                <div class="myInfoWrapper">
+                    <h6>더욱 편리한 모던 럭셔리 쇼핑 경험을 위해 고객님의 개인 정보와 주문 내역이 안전하게 저장되었습니다.</h6>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">주문번호</th>
+                            <th scope="col">사진</th>
+                            <th scope="col">상품명</th>
+                            <th scope="col">금액</th>
+                            <th scope="col">주문날짜</th>
+                            <th scope="col">진행상황</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th class="n">1</th>
+                            <td>1982039483920</td>
+                            <td>
+                                <img src="/images/gift.png" alt="">
+                            </td>
+                            <td>샤넬백</td>
+                            <td>7,500,000</td>
+                            <td>22/04/30</td>
+                            <td>
+                                <div class="trkStatus">배송중</div>
+                                <div class="trkInfo">
+                                    <span class="trkCompany">우체국</span>
+                                    <span class="trkNum">6078995174693</span>
+                                    <img src="/images/search.png" width="20px" alt="">
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th class="n">2</th>
+                            <td>1982039483920</td>
+                            <td>
+                                <img src="/images/gift.png" alt="">
+                            </td>
+                            <td>샤넬백</td>
+                            <td>7,500,000</td>
+                            <td>22/04/30</td>
+                            <td>
+                                <div class="trkStatus">배송중</div>
+                                <div class="trkInfo">
+                                    <span class="trkCompany">대한통운</span>
+                                    <span class="trkNum">364160723556</span>
+                                    <img src="/images/search.png" width="20px" alt="">
+                                </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th class="n">3</th>
+                            <td>1982039483920</td>
+                            <td>
+                                <img src="/images/gift.png" alt="">
+                            </td>
+                            <td>샤넬백</td>
+                            <td>7,500,000</td>
+                            <td>22/04/30</td>
+                            <td>
+                                <div class="trkStatus">배송준비</div>
+                                <div class="trkInfo">
+                                    <span class="trkCompany">우체국</span>
+                                    <span class="trkNum">6078995174693</span>
+                                    <img src="/images/search.png" width="20px" alt="">
+                                </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                   
+                   
+                </div>      
             </div>
-            <div class="payDoneBtn">
-                <button>홈으로</button>
-                <button>쇼핑하기</button>
-            </div>
+            
         </div>
     </main>
 
@@ -117,6 +198,7 @@
 
     </footer>
     <script src="/common.js"></script>
+    <script src="/myinfoAll/order/order.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

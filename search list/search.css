@@ -1,38 +1,234 @@
+.itemListWrapper{
+    width: 71%;
+}
+.itemListWrapper li{
+    margin: 2px;
+}
 .searchItemWrapper{
     display: flex;
     flex-direction: column;
-    margin: 12% auto;
+    margin: 15% auto;
     background-color: pink;
-    width: 90%;
 }
 
 .currentCategory{
-    background-color: red;
     text-align: center;
     font-size: 1vw;
     padding: 2vw;
 }
 
-.filterNtoggle{
-    background-color: blue;
-    padding: 1vw;
+
+.hotBrandWrapper{
     display: flex;
+    flex-direction: column;
+    margin: 15% auto;
+    /* box-sizing: content-box; */
+    text-align: center;
+}
+
+.mainHotBrand{
+    display: flex;
+    padding: 5vw;
     justify-content: space-between;
+    /* background: yellow; */
 }
 
-.searchItem{
+.mainHot{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* background-color: aqua; */
+    width: 30%;
+}
+
+ .two{
+width: 36%;
+}
+
+.one{
+    margin-top: 5vh;
+}
+.three{
+    margin-top: 5vh;
+}
+
+.mainHot img{
+    width: 100%;
+}
+
+.mainHot h5{
+    padding: 1vw;
+}
+
+.mainHot:hover{
+    transform: scale(1.1);
+    transition:transform 1s;
+}
+
+.sortingWrapper{
+    font-size: 1.1vw;
+    width: 80%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content:space-between;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+/* 필터 공용 */
+.leftrightBtn.active,
+.updownBtn.active{
+    transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+}
+
+.updownBtn:nth-child
+
+.sortWrapper ul li,
+.filterWrapper ul li{
+    font-size: 0.9vw;
+    margin-top: 0.5vh
+}
+
+
+.sortWrapper ul li:hover{
+    background-color: rgb(201, 201, 201);
+}
+
+.sortDetail,
+.filterDetail,
+#clothing,
+#shoes,
+#bags,
+#acc,
+#jewerly{
+    padding-left: 0;
+    margin-bottom: 0;
+    display:none;
+}
+
+.sortDetail.active,
+.filterDetail.active,
+#clothing.active,
+#shoes.active,
+#bags.active,
+#acc.active,
+#jewerly.active{
+    display: block;
+}
+
+
+
+.sortWrapper.active,
+.filterWrapper.active{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.filterWrapper.active{
+    left: -9vw;
+    width: 13vw;
+}
+
+.filterWrapper,
+.sortWrapper{
+    padding: 1%;
+}
+
+/* 카테고리 필터(좌) */
+.filterWrapper{
+    background-color: teal;
+    position: absolute;
+    top:-3vh;
+    left: 5vw;
+    text-align: left;
+    /* 펼치면 */
+  
+
+}
+
+/* ul{
+    padding-left: 0;
+} */
+
+
+/* 정렬 필터 */
+.sortWrapper{
+    background-color: red;
+    text-align: right;
+    position: absolute;
+    right: 5vw;
+    top:-3vh;
+}
+
+.sortWrapper a,
+.filterWrapper a{
+    font-weight: 600;
+}
+
+
+
+.currentCategory li{
+    display: inline-block;
+}
+
+/* 가격 조정 바 */
+
+.inputWrapper{
+    background-color: tomato;
+    width: 200px;
+}
+
+.rice-range-block{
+    background-color: yellow;
+    width: 300px;
+}
+
+.price-range-block div:nth-child(2){
+    display: flex;
+    width: 130px;
+}
+.price-range-block .inputWrapper{
+    width: 100%;
+    margin: 0;
     display: flex;
 }
-
-.searchFilter{
-    width: 10%;
-    padding: 1vw;
-    background-color: yellow;
+.price-range-block input{
+width: 70px;
+margin: 3px;
 }
 
 
-.searchItemList{
-    width: 90%;
-    padding: 1vw;
-    background-color: rgb(43, 255, 0);
+.ui-slider-horizontal {
+    height: .6em;
 }
+.ui-slider-horizontal {
+    margin-bottom: 15px;
+    width:40%;
+}
+
+
+.price-range-field{
+    width:20%; 
+    min-width: 16%;
+    background-color:#f9f9f9; 
+    border: 1px solid #6e6666; 
+    color: black; 
+    font-family: myFont; 
+    font: normal 14px Arial, Helvetica, sans-serif; 
+    border-radius: 5px; 
+    height:26px; 
+    padding:5px;
+}
+.search-results-block{
+    position: relative;
+    display: block;
+    clear: both;
+}
+
+

@@ -1,4 +1,5 @@
 // 캐러셀 이미지
+// 캐러셀 이미지
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -36,7 +37,7 @@ function showSlides(n) {
 
 // 타이머
 function getTime() {
-  const target = new Date("Fri Mar 25 2022 00:00:00 GMT+0900");
+  const target = new Date("Fri Apr 29 2022 00:00:00 GMT+0900");
   const today = new Date();
   const gap = target - today;
   const d = String(Math.floor(gap / (1000 * 60 * 60 * 24))).padStart(2,"0"); // 일

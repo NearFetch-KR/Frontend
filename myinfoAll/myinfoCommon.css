@@ -1,0 +1,51 @@
+main{
+    height: 100vh;
+}
+.myInfoList{
+    display: flex;
+    margin: 15% auto;
+}
+
+.infoBar{
+    width: 15%;
+    padding:5vw 1vw;
+    /* background-color: tomato; */
+}
+
+.infoBar ul li{
+    margin:1vw;
+}
+
+.infoBar ul li:nth-child(1){
+    font-size: 1.5vw;
+    font-weight: 700;
+}
+
+.myInfo{
+    width: 75%;
+    height: 700px;
+    /* background-color: rgb(253, 252, 189); */
+}
+
+.myInfo h3{
+    text-align: center;
+    font-size: 2vw;
+    font-weight: 300;
+    /* background-color: yellow; */
+}
+.myInfoWrapper{
+    display: flex;
+    padding: 10px;
+    /* background-color: rosybrown; */
+    padding-top: 2vh;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    min-height: 500px
+
+}
+
+.myInfoWrapper h6{
+    color:grey;
+    font-weight: 200;
+    margin-bottom: 5vh;
+}
