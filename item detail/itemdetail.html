@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/item detail/itemdetail.css">
+    <!-- <link rel="stylesheet" href="/item detail/itemdetail.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-<title>간지나는 당신 곁엔,NearFetch</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <title>간지나는 당신 곁엔,NearFetch</title>
 </head>
 <body>
     <!-- 헤더 -->
@@ -76,6 +76,7 @@
     <!-- 메인 -->
     <main>
         <div class="section buy">
+            <!-- 상품 상세 사진(좌) -->
             <div class="itemDetail">
                 <ul>
                     <li>
@@ -92,21 +93,24 @@
                     </li>
                 </ul>
             </div>
+
+            <!-- 상품 구매 버튼(우) -->
             <div class="itemBuy">
                 <div class="itemBuyContents">
                     <ul class="itemDes">
-                        <li>louis vuitton</li>
-                        <li>체인 스팬 모자</li>
-                        <li><span>₩1,100,000</span></li>
-                        <li>Product no.:<span></span></li>
-                        <li>Materials:<span></span></li>
+                        <li class="itemBrand">louis vuitton</li>
+                        <li class="itemName">체인 스팬 모자</li>
+                        <li><span class="price">1,100,000</span>원</li>
+                        <li><span class="sale_price"></span>원</li>
+                        <li>Product no.:<span class="skuNum"></span></li>
+                        <li>Materials:<span class="materials"></span></li>
                     </ul> 
                     <div class="itemBuyBtn">
-                        <button>옵션 선택</button>
-                        <button>바로 구매</button>
+                        <button class="option">옵션 선택</button>
+                        <button class="proceed">바로 구매</button>
                     </div>
                     <div class="likeNadd">
-                        <div>
+                        <div class="like">
                           <a href=""> 
                             좋아요
                             <svg xmlns="http://www.w3.org/2000/svg" width="20"  fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
@@ -114,7 +118,7 @@
                             </svg>
                           </a>
                         </div>
-                        <div>
+                        <div class="add">
                           <a href="">
                             장바구니
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
@@ -129,116 +133,79 @@
 
         <!-- 정책 -->
         <div class="informWrapper">
-          <div class="informInner">
+          <!-- <div class="informInner"> -->
             <div class="inform informDes">
-              <h3>상품 설명</h3>
+              <div>상품 설명</div>
               <p>이 상품은 ...</p>
             </div>
             <div class="inform sizeNfit">
-              <h3>사이즈&핏</h3>
-              <p>정 사이즈</p>
+              <div>사이즈&핏</div>
+              <p class="sizeFit">정 사이즈</p>
             </div>
             <div class="inform delivery">  
-              <h3>배송</h3>
+              <div>배송</div>
               <p>해외배송/구매일로부터 7-10일 소요</p>
             </div>
             <div class="inform return">
-              <h3>반품</h3>
+              <div>반품</div>
               <p>수령한 날을 포함 7일 내 무료 반품 가능</p>
             </div>
-          </div>
+          <!-- </div> -->
         </div>
 
         <div class="section sideRecommend">
             <div class="row">
-             <h2>추천 상품</h2>
-
+                <h2>추천 상품</h2>
                 <div class="row__inner">
-            
-                  <div class="RecomItem">
-                    <div class="RecomItem__content">
-                      <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                    <div class="RecomItem">
+                        <div class="RecomItem__content">
+                            <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                        </div>
+                        <div class="RecomItem__details"></div>
                     </div>
-                    <div class="RecomItem__details">
-                      <div class="RecomItem__title">
-                        hat
-                      </div>
+                    <div class="RecomItem">
+                        <div class="RecomItem__content">
+                            <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                        </div>
+                        <div class="RecomItem__details"></div>
                     </div>
-                  </div>
-                  <div class="RecomItem">
-                    <div class="RecomItem__content">
-                      <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                    <div class="RecomItem">
+                        <div class="RecomItem__content">
+                            <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                        </div>
+                        <div class="RecomItem__details"></div>
                     </div>
-                    <div class="RecomItem__details">
-                      <div class="RecomItem__title">
-                        hat
-                      </div>
+                    <div class="RecomItem">
+                        <div class="RecomItem__content">
+                            <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                        </div>
+                        <div class="RecomItem__details"></div>
                     </div>
-                  </div>
-                  <div class="RecomItem">
-                    <div class="RecomItem__content">
-                      <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                    <div class="RecomItem">
+                        <div class="RecomItem__content">
+                            <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                        </div>
+                        <div class="RecomItem__details"></div>
                     </div>
-                    <div class="RecomItem__details">
-                      <div class="RecomItem__title">
-                        hat
-                      </div>
+                    <div class="RecomItem">
+                        <div class="RecomItem__content">
+                            <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                        </div>
+                        <div class="RecomItem__details"></div>
                     </div>
-                  </div>
-                  <div class="RecomItem">
-                    <div class="RecomItem__content">
-                      <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                    <div class="RecomItem">
+                        <div class="RecomItem__content">
+                            <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                        </div>
+                        <div class="RecomItem__details"></div>
                     </div>
-                    <div class="RecomItem__details">
-                      <div class="RecomItem__title">
-                        hat
-                      </div>
+                    <div class="RecomItem">
+                        <div class="RecomItem__content">
+                            <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                        </div>
+                        <div class="RecomItem__details"></div>
                     </div>
-                  </div>
-                  <div class="RecomItem">
-                    <div class="RecomItem__content">
-                      <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
-                    </div>
-                    <div class="RecomItem__details">
-                      <div class="RecomItem__title">
-                        hat
-                      </div>
-                    </div>
-                  </div>
-                  <div class="RecomItem">
-                    <div class="RecomItem__content">
-                      <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
-                    </div>
-                    <div class="RecomItem__details">
-                      <div class="RecomItem__title">
-                        hat
-                      </div>
-                    </div>
-                  </div>
-                  <div class="RecomItem">
-                    <div class="RecomItem__content">
-                      <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
-                    </div>
-                    <div class="RecomItem__details">
-                      <div class="RecomItem__title">
-                        hat
-                      </div>
-                    </div>
-                  </div>
-                  <div class="RecomItem">
-                    <div class="RecomItem__content">
-                      <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
-                    </div>
-                    <div class="RecomItem__details">
-                      <div class="RecomItem__title">
-                        hat
-                      </div>
-                    </div>
-                  </div>
-            
                 </div>
-              </div>
-            
             </div>
         </div>
     </main>
@@ -272,7 +239,7 @@
 
     </footer>
     <script src="/common.js"></script>
-    <script src="/item detail/itemdetail.js"></script>
+    <script src="/commonJquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

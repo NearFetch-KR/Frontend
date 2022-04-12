@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/pay/pay.css">
     <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,7 +89,7 @@
                     <ul>
                         <li>
                             <label for="name">이름</label>
-                            <input type="text" id="name">
+                            <input type="text" class="customerName">
                         </li>
                         <li>
                             <label for="phone1">연락처</label>
@@ -109,11 +108,11 @@
                     <ul>
                         <li>
                             <label for="name">이름</label>
-                            <input type="text" id="name">
+                            <input type="text" class="customerName">
                         </li>
                         <li>
                             <label for="phone1">연락처</label>
-                            <input type="number" class="phonenumber phone1">-
+                            <input type="number" class="phonenumber phone1" maxlength='3'>-
                             <input type="number" class="phonenumber phone2">-
                             <input type="number" class="phonenumber phone3">
                         </li>
@@ -126,7 +125,6 @@
                             <input id="member_addr" type="text" placeholder="주소(클릭)" readonly>
                             <input type="text" placeholder="상세주소(직접입력)">
                         </div>
-
                     </div>
 
                 </div>
@@ -144,29 +142,53 @@
                <div class="orderInfoDetail">
                     <h3>주문상품 및 금액</h3>
                     <div class="orderItem">
-                        <ul>
-                            <li>이미지</li>
-                            <li>상품명</li>
-                            <li>수량</li>
-                            <li>금액</li>
-                        </ul>
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col"></th>
+                                <th scope="col">상품 정보</th>
+                                <th scope="col">수량</th>
+                                <th scope="col">가격</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="addImg">
+                                    <img src="/images/fashion.jpg" alt="">
+                                </td>
+                                <td class="contents">
+                                    <div class="itemBrand">GUCCI</div>
+                                    <div class="itemName">마티백 18 크링클드 </div> 
+                                    <div class="itemOption">버터컬러</div> 
+                                </td>
+                                <td class="itemQt">1</td>
+                                <td><span class="price">10,000</span>원</td>
+                              </tr>
+                              <tr>
+                                <td class="addImg">
+                                    <img src="/images/fashion.jpg" alt="">
+                                </td>
+                                <td class="contents">
+                                    <div class="itemBrand">GUCCI</div>
+                                    <div class="itemName">마티백 18 크링클드 </div> 
+                                    <div class="itemOption">버터컬러</div> 
+                                </td>
+                                <td class="itemQt">1</td>
+                                <td><span class="price">10,000</span>원</td>
+                              </tr>                      
+                            </tbody>
+                          </table>
                     </div>
-               </div>
-               <div class="totalAmount">
-                    <ul>
-                        <li>총 금액:</li>
-                        <li><span id="amount"></span>원</li>
-                    </ul>
-               </div>
-               <div class="orderAgree">
-                   <div class="agreeWrapper">
-                        <input type="checkbox" name="agree" value="selectAll" onclick="selectAll(this)"> 전체 동의<br>
-                        <input type="checkbox" name="agree"> 주문상품에 대한 정보 및 구매 동의<br>
-                        <input type="checkbox" name="agree"> 배송정보 제공 동의<br>
-                        <input type="checkbox" name="agree"> 제3자 정보 제공,마케팅 수신 동의
+                    <div class="totalAmount">총 금액 <span>30,000</span>원</div>
+                    <div class="orderAgree">
+                        <div class="agreeWrapper">
+                            <input type="checkbox" name="agree" value="selectAll" onclick="selectAll(this)"> 전체 동의<br>
+                            <input type="checkbox" name="agree"> 주문상품에 대한 정보 및 구매 동의<br>
+                            <input type="checkbox" name="agree"> 배송정보 제공 동의<br>
+                            <input type="checkbox" name="agree"> 제3자 정보 제공,마케팅 수신 동의
+                        </div>
+                        <button>결제하기</button>
                     </div>
-                    <button>결제하기</button>
-               </div>
            </div>
         </div>
     </main>
@@ -200,7 +222,7 @@
 
     </footer>
     <script src="/common.js"></script>
-    <script src="/pay/pay.js"></script>
+    <!-- <script src="/pay/pay.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -60,20 +60,21 @@ sortWrapper.addEventListener('click',()=>{
     updownBtn.classList.toggle('active')
 })
 
-// 가격 슬라이드바
-
+// 가격 슬라이드바 실행
 $(document).ready(function(){
+
+	// 슬라이드 이벤트 적용
 	$("#min_price,#max_price").on('change', function () {
 
-	  var min_price_range = parseInt($("#min_price").val());
-	  var max_price_range = parseInt($("#max_price").val());
+	  var min_price_range = parseInt($("#min_price").val());//최소값
+	  var max_price_range = parseInt($("#max_price").val());//최대값
 
 	  if (min_price_range > max_price_range) {
-		$('#max_price').val(min_price_range);
+		$('#max_price').val(min_price_range);//최대값을 최소값으로 지정
 	  }
 
 	  $("#slider-range").slider({
-		values: [min_price_range, max_price_range]
+		  values: [min_price_range, max_price_range]
 	  });
 	});
 
@@ -83,7 +84,7 @@ $(document).ready(function(){
 	  var max_price_range = parseInt($("#max_price").val());
 	  
 	  if(min_price_range == max_price_range){
-			max_price_range = min_price_range + 50000;
+			max_price_range = min_price_range + 5;
 			
 			$("#min_price").val(min_price_range);		
 			$("#max_price").val(max_price_range);
@@ -100,9 +101,9 @@ $(document).ready(function(){
 		range: true,
 		orientation: "horizontal",
 		min: 0,
-		max: 100000000,
-		values: [0, 100000000],
-		step: 50000,
+		max: 10000,
+		values: [0, 10000],
+		step: 5,
 
 		slide: function (event, ui) {
 		  if (ui.values[0] == ui.values[1]) {

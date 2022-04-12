@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/myinfoAll/add/add.css">
-    <link rel="stylesheet" href="/myinfoAll/myinfoCommon.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
@@ -92,76 +90,60 @@
                 <h3>장바구니</h3> 
                 <div class="myInfoWrapper">
                     <h6>더욱 편리한 모던 럭셔리 쇼핑 경험을 위해 고객님의 개인 정보와 주문 내역이 안전하게 저장되었습니다.</h6>
-                    <div class="addWrapper">
-                        <div class="rowOne">
-                            <div>가격</div>
-                            <div>수량</div>
-                        </div>
-
-                        <!-- 아이템1 -->
-                        <div class="item">
-                            <div class="imageWrapper">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col"></th>
+                            <th scope="col">상품 정보</th>
+                            <th scope="col">수량</th>
+                            <th scope="col">가격</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="addImg">
                                 <img src="/images/fashion.jpg" alt="">
-                            </div>
-                            <div class="itemInfoWrapper">
-                                <div>
-                                    <div class="brand">
-                                        GUCCI
-                                    </div>
-                                    <div class="itemName">
-                                        토트백
-                                    </div>
-                                    <div class="size">
-                                        원 사이즈
-                                    </div>
-                                </div>
-                                <div>
-                                   <div class="price">
-                                        <sapn>10,000</sapn>
-                                        원
-                                    </div>
-                                    <div class="quantity">
-                                        1
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="imageWrapper">
+                            </td>
+                            <td class="contents">
+                                <div class="itemBrand">GUCCI</div>
+                                <div class="itemName">마티백 18 크링클드 </div> 
+                                <div class="itemOption">버터컬러</div> 
+                            </td>
+                            <td class="itemQt">1</td>
+                            <td><span class="price">10,000</span>원</td>
+                          </tr>
+                          <tr>
+                            <td class="addImg">
                                 <img src="/images/fashion.jpg" alt="">
-                            </div>
-                            <div class="itemInfoWrapper">
-                                <div>
-                                    <div class="brand">
-                                        GUCCI
-                                    </div>
-                                    <div class="itemName">
-                                        토트백
-                                    </div>
-                                    <div class="size">
-                                        원 사이즈
-                                    </div>
-                                </div>
-                                <div>
-                                   <div class="price">
-                                        <sapn>10,000</sapn>
-                                        원
-                                    </div>
-                                    <div class="quantity">
-                                        1
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="totalAmount">
-                            총 합계
-                            <span>10,000,000</span>원
-                        </div>
-                    </div>
-                    <div class="btnWrapper">
-                        <button>주문하기</button>
-                    </div>
-                </div>
+                            </td>
+                            <td class="contents">
+                                <div class="itemBrand">GUCCI</div>
+                                <div class="itemName">마티백 18 크링클드 </div> 
+                                <div class="itemOption">버터컬러</div> 
+                            </td>
+                            <td class="itemQt">1</td>
+                            <td><span class="price">10,000</span>원</td>
+                          </tr>
+                          <tr>
+                            <td class="addImg">
+                                <img src="/images/fashion.jpg" alt="">
+                            </td>
+                            <td class="contents">
+                                <div class="itemBrand">GUCCI</div>
+                                <div class="itemName">마티백 18 크링클드 </div> 
+                                <div class="itemOption">버터컬러</div> 
+                            </td>
+                            <td class="itemQt">1</td>
+                            <td><span class="price">10,000</span>원</td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                      <div class="totalNBtn">
+                        <div class="totalAmount">총 금액 <span>30,000</span>원</div>
+                        <button class="proceed">바로 구매</button>
+                      </div>
+                   
             </div>
         </div>    
     </main>
@@ -195,7 +177,7 @@
 
     </footer>
     <script src="/common.js"></script>
-    <script src="/myinfoAll/add/add.js"></script>
+    <!-- <script src="/myinfoAll/add/add.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

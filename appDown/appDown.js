@@ -1,8 +1,4 @@
 
-// $(document).ready(function(){
-//     $('.carousel').carousel();
-//   });
-
 //스크롤 이동
   const circles = document.querySelectorAll(".circle")
   const contents = document.querySelectorAll(".appinfo")
