@@ -3,7 +3,6 @@
 
 // 가격 슬라이드바 실행
 $(document).ready(function(){
-	// 슬라이드 이벤트 적용
 	$("#min_price,#max_price").on('change', function () {
 
 	  var min_price_range = parseInt($("#min_price").val());//최소값
@@ -63,17 +62,20 @@ $(document).ready(function(){
 
 /* ----------------제품 상세/itemdetail.html---------------- */
 //구매 박스 특정 위치까지 fixed
-$(window).scroll(function () {
-    var height = $(document).scrollTop(); //현재 스크롤 위치
-    var sectionBottom=$('.buy').height(); //섹션의 총 높이
-    if(height>sectionBottom-500){
-        $('.itemBuyContents').css({
-            position:"absolute",
-        })
-    }else if(height<sectionBottom-500){
-        $('.itemBuyContents').css({
-            position:"fixed",
-        })
-    }
-});
+$(document).ready(function() {
+	$(window).scroll(function () {
+		var height = $(document).scrollTop(); //현재 스크롤 위치
+		var sectionBottom=$('.buy').height(); //섹션의 총 높이
+		if(height>sectionBottom-500){
+			$('.itemBuyContents').css({
+				position:"absolute",
+			})
+		}else if(height<sectionBottom-500){
+			$('.itemBuyContents').css({
+				position:"fixed",
+			})
+		}
+	});
 
+	
+  });

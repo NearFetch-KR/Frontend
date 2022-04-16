@@ -1,39 +1,103 @@
-'use strict';
-
-// 정렬필터(우)
-var sortDetail=document.querySelector('.sortDetail');//가려진 부분
-var sortWrapper=document.querySelector('.sortWrapper'); //sortingBox
-var updownBtn=document.querySelector('.updownBtn'); //정렬 화살표(상하)
-
-sortWrapper.addEventListener('click',()=>{
-    sortDetail.classList.toggle('active');
-    sortWrapper.classList.toggle('active');
-    updownBtn.classList.toggle('active');
-})
-
 // ----------------공용----------------
 //최상단 Swiper 끄기
-const swiper=document.querySelector('.Swiper');
-const offBtn=document.querySelector('.swiperOff');
+window.onload=function(){
+  const swiper=document.querySelector('.Swiper');
+  const offBtn=document.querySelector('.swiperOff');
+  
+  offBtn.addEventListener('click',function(){
+    swiper.style.display="none";
+  }
+  )
 
-offBtn.addEventListener('click',function(){
-  swiper.style.display="none";
+
+const modal = document.getElementById("modal")
+
+function modalOn() {
+    modal.style.display = "block"
 }
-)
+
+function modalOff() {
+    modal.style.display = "none"
+}
+
+function isModalOn() {
+    return modal.style.display === "flex"
+}
+
+const btnModal = document.getElementById("btn-modal")
+btnModal.addEventListener("click", e => {
+    modalOn()
+})
+
+const closeBtn = modal.querySelector(".close-area")
+closeBtn.addEventListener("click", e => {
+    modalOff()
+})
+
+modal.addEventListener("click", e => {
+    const evTarget = e.target
+    if(evTarget.classList.contains("modal-overlay")) {
+        modalOff()
+    }
+})
+
+window.addEventListener("keyup", e => {
+    if(isModalOn() && e.key === "Escape") {
+        modalOff()
+    }
+})
+}
+ 
 
 // navbar 숨기기
-window.onscroll = function() {myFunction()};
-
-function myFunction() {
+window.onscroll = function() {
   if (document.documentElement.scrollTop > 50) {
     document.querySelector(".itemCategory").style.display = "none";
   } else {
     document.querySelector(".itemCategory").style.display  = "";
   }
-}
-
+};
 
 /* ----------------메인/main.html---------------- */
+//회원 가입 모달창
+
+// const modal = document.getElementById("modal")
+
+// function modalOn() {
+//     modal.style.display = "flex"
+// }
+
+// function modalOff() {
+//     modal.style.display = "none"
+// }
+
+// function isModalOn() {
+//     return modal.style.display === "flex"
+// }
+
+// const btnModal = document.getElementById("btn-modal")
+// btnModal.addEventListener("click", e => {
+//     modalOn()
+// })
+
+// const closeBtn = modal.querySelector(".close-area")
+// closeBtn.addEventListener("click", e => {
+//     modalOff()
+// })
+
+// modal.addEventListener("click", e => {
+//     const evTarget = e.target
+//     if(evTarget.classList.contains("modal-overlay")) {
+//         modalOff()
+//     }
+// })
+
+// window.addEventListener("keyup", e => {
+//     if(isModalOn() && e.key === "Escape") {
+//         modalOff()
+//     }
+// })
+
 // 섹션1_캐러셀 이미지
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -114,13 +178,15 @@ var leftrightBtn=document.querySelector('.leftrightBtn');//필터 화살표(좌�
 var itemListWrapper=document.querySelector('.itemListWrapper');//상품리스트
 var filter=document.querySelector('.filter');//'핕터'글자
 
-
-filter.addEventListener('click',()=>{
+window.onload=function(){
+  filter.addEventListener('click',()=>{
     filterDetail.classList.toggle('active');
     filterWrapper.classList.toggle('active');
     leftrightBtn.classList.toggle('active');
     itemListWrapper.classList.toggle('active');
 })
+}
+
 
 
 //카테고리 대 필터(좌)>대>중
@@ -136,7 +202,8 @@ var updownBtnBags=document.querySelectorAll('.updownBtn')[2];//필터 화살표
 var updownBtnAcc=document.querySelectorAll('.updownBtn')[3];//필터 화살표
 var updownBtnJewerly=document.querySelectorAll('.updownBtn')[4];//필터 화살표
 
-updownBtnClothing.addEventListener('click',()=>{
+window.onload=function(){
+  updownBtnClothing.addEventListener('click',()=>{
     clothing.classList.toggle('active');
     updownBtnClothing.toggle('active');
 })
@@ -156,16 +223,31 @@ updownBtnAcc.addEventListener('click',()=>{
 updownBtnJewerly.addEventListener('click',()=>{
     jewerly.classList.toggle('active');
 })
+}
 
+
+// 정렬필터(우)
+var sortDetail=document.querySelector('.sortDetail');//가려진 부분
+var sortWrapper=document.querySelector('.sortWrapper'); //sortingBox
+var updownBtn=document.querySelector('.updownBtn'); //정렬 화살표(상하)
+
+window.onload=function(){
+  sortWrapper.addEventListener('click',()=>{
+    sortDetail.classList.toggle('active');
+    sortWrapper.classList.toggle('active');
+    updownBtn.classList.toggle('active');
+})
+
+}
 
 
 
 /* ----------------제품 상세/itemdetail.html---------------- */
-const sale_priceRow=document.querySelectorAll('.itemDes>li')[4];
-const sale_price=document.querySelector('.sale_price');
-if(sale_price.innerText=''){
-  sale_priceRow.style.display="none";
-}
+// const sale_priceRow=document.querySelectorAll('.itemDes>li')[4];
+// const sale_price=document.querySelector('.sale_price');
+// if(sale_price.innerText=''){
+//   sale_priceRow.style.display="none";
+// }
 
 /* ----------------내 정보(통합)/myinfoAll.html---------------- */
 //X누르면 지워버리기!
@@ -185,12 +267,7 @@ for(var i=0;i<button.length;i++){
 function findAddr(){
 	new daum.Postcode({
         oncomplete: function(data) {
-        	
         	console.log(data);
-        	
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
             var roadAddr = data.roadAddress; // 도로명 주소 변수
             var jibunAddr = data.jibunAddress; // 지번 주소 변수
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -254,9 +331,7 @@ function findAddr(){
         	
         	console.log(data);
         	
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+
             var roadAddr = data.roadAddress; // 도로명 주소 변수
             var jibunAddr = data.jibunAddress; // 지번 주소 변수
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
@@ -276,8 +351,8 @@ function findAddr(){
 const creditCard=document.querySelector('#creditCard')
 const transfer=document.querySelector('#transfer')
 
-
-creditCard.addEventListener('click',()=>{
+window.onload=function(){
+  creditCard.addEventListener('click',()=>{
     creditCard.style.backgroundColor="black";
     creditCard.style.color="white";
     transfer.style.backgroundColor="transparent";
@@ -291,6 +366,9 @@ transfer.addEventListener('click',()=>{
     creditCard.style.backgroundColor="transparent";
     creditCard.style.color="black";
 })
+}
+
+
 
 //전체 동의
 function selectAll(selectAll)  {
@@ -356,3 +434,4 @@ circles[3].onclick = function(){
 
 
 /* ----------------QnA/qna.html---------------- */
+
