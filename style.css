@@ -12,7 +12,6 @@ body {
     text-align: center;
 }
 
-
 :root{
     /* 컬러 */
     --color-white:white;
@@ -28,11 +27,9 @@ body {
     --font-30px:30px;
     --font-40px:40px;
 
-
-    
     /* 한글 폰트체 */
     --font-main:font-family: 'Gowun Dodum', sans-serif;
-    --font-en: 'BhuTuka Expanded One', cursive;
+    /* --font-en: 'BhuTuka Expanded One', cursive; */
 
 }
 
@@ -42,22 +39,8 @@ body {
 /* 스몰 */
 @media(max-width:576px){
   
-    
     /* 유연하게 해야할 것 */
-    /* addDown.html  */
-    .appBtns>button:first-child{
-        display: none;
-    }
-
-    .FooterInfo>div{
-        display:block;
-        align-items: left;
-        padding: 3vh;
-    }
-    .AppDownload>img{
-        padding-left: 6vw;
-    }
-    
+   
     /* 사이즈 조절할 것 */
 
     /* 감출 것 */
@@ -72,11 +55,8 @@ body {
     nav[class="InfoLogo"]{
         display:block;
         text-align: center;
-  
     }
 }
-
-
 
 @media (max-width:480px){
 	
@@ -120,7 +100,7 @@ li{
 }
 
 h2{
-    padding: 5vh;
+    padding: 3vh;
     font-size: var(--font-20px);
     font-weight: 500;
 }
@@ -128,7 +108,25 @@ h2{
 h3{
     font-size: var(--font-16px);
     font-weight: 400;
+}
 
+button{
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 0.5vh;
+    border:none;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+button:active{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
 }
 
 
@@ -155,67 +153,38 @@ h3{
     border: 1px solid var(--color-black);
 }
 
-
-
 /* 헤더 */
-header{
-    display: flex;
-    width: 100%;
-    text-align: center;
-}
-
 .headerwrapper{
-    position: fixed;
-    z-index: 1000;
     width: 100%;
-}
-
-/* 최상단 신상품 입고 알림바 */
-.Swiper{
-    position: sticky;
-    justify-content: right;
-    height: 40px;
-    background-color: var(--color-grey);
-}
-
-.NewArrivals{
-    align-items: center;
-    padding:10px;
-}
-
-
-
-
-.Andbar:before{
-    content: '  |  ';
-    padding:0px 15px;
 }
 
 /* NearFetch메인 로고 */
 .InfoLogo>.MainLogoWrapper{
     font-size: var(--font-40px);
+    text-align: center;
+    font-weight: 300;
+    padding:0;
 }
 
 .InfoLogo{
-    /* width: 100%; */
-    display: flex;
-    justify-content: space-between;
-    padding: 1vw 6vw;
     align-items: flex-end;
-    background-color: #ffffffad;
-    font-family: var(--font-en);
-    
 }
 
 .InfoLogos{
     display: flex;
-    flex-direction: row;
+    justify-content: right;
     align-items: center;
+    padding: 1vh 3vh 0 1vh;
 }
 
-.icon>img{
-    width: 25px;
-    margin: 10px;
+.InfoLogos>a{
+    margin-left:5px ;  
+}
+
+.InfoLogos>a:nth-child(1):after,
+.InfoLogos>a:nth-child(2):after,
+.InfoLogos>a:nth-child(3):after{
+    content: '   |';
 }
 
 .closeBtn{
@@ -225,35 +194,102 @@ header{
 
 .itemCategory{
     display: flex;
-    justify-content:space-between;
-    align-items: center;
-    border-top: 1px solid var(--color-black);
+    justify-content:space-around;
     padding: 5px;
+    border-bottom: 0.5px solid var(--color-grey);
 }
 
-
-.Item >a {
-    margin:10px;
-    box-sizing: border-box;
-}
-
-.Item >a:hover{
-    border-bottom: 2px solid var(--color-grey);
-}
-
-.itemCategory form{
+.topnav{
+    overflow: hidden;
+    position: absolute;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 350px;
 }
 
+  .topnav>.icon {
+    display: none;
+  }
 
-form input[name="search"]{
-    height: 30px;
-    width: 250px;
-    border: 0;
+  /* 카테고리 버튼 */
+  .dropdown .dropbtn,
+  .dropdown>button {
+    border: none;
     outline: none;
-    border-bottom:1px solid var(--color-black);
-    text-indent: 20px
+    padding: 10px 25px;
+
+  }
+
+  /* 숨길 내용 */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    /* background-color: greenyellow; */
+    font-size:var(--font-16px);
+    min-width: 660px;
+    padding:20px ;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  }
+  
+
+  .dropdown-content>.categoryMedium{
+    min-width: 150px;
+    text-align: left;
+    display: inline-block;
+  }
+
+  .dropdown-content>.categoryMedium>a{
+      font-weight: 600;
+  }
+
+  .dropdown-content ul{
+      padding-left: 0;
+  }
+
+.categoryMedium>ul>li>a {
+    float: none;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: var(--font-14px);
+  } 
+
+  .topnav a:hover, 
+  .dropdown:hover .dropbtn,
+  .dropdown button:hover {
+    background-color: var(--color-darkgrey);
+    color: var(--color-white);
+  }
+  
+  .dropdown-content a:hover {
+    background-color: var(--color-lightgrey);
+  } 
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+
+
+.itemCategory>form{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+}
+
+input[name="search"]{
+    height: 40px;
+    width: 250px;
+    border:0.5px solid var(--color-grey);
+    text-indent: 20px;
 }
 
 .itemCategory button{
@@ -261,58 +297,45 @@ form input[name="search"]{
     color:var(--color-black);
 }
 
-button{
-    background-color: var(--color-black);
-    color: var(--color-white);
-    padding: 0.5vh;
-    border:none;
-}
-
-button:hover{
-    cursor: pointer;
-}
-
-button:active{
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-}
-
-/* 첫 섹션 nav에서 띄우기 */
-main>div:first-child{
-    margin:15% 0 0 0;
-}
 
 
 
 /* 아이템 리스트*/
 .itemListWrapper{
+    width: 90%;
     display: flex;
-    flex-wrap: wrap;
-    width: 95%;
     margin: auto;
-  }
-
-  .itemListWrapper .box_wrap{
-    display: flex;
-    flex-direction: column;
-    padding: 1.2vw;
-    border: 1px solid rgb(238, 238, 238);
-    letter-spacing: 2px;
+    flex-wrap: wrap;
+    /* background-color: indianred; */
 }
 
-
-  .img_box img{
+.itemListWrapper li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 300px;
-  }
-  
-  .box_wrap>.cart{
-    width: 2vw;
-    margin: -1vh;
-    margin-bottom: -5vh;
-  }
+    padding: 1.5vw;
+    letter-spacing: 2px;
+    margin:5px;
+}
+
+/* 노출 상품 갯수 */
+.hotBrandItem>.itemListWrapper li:nth-of-type(n+21),
+.Recommend>.itemListWrapper li:nth-of-type(n+21) { 
+    display: none; 
+}
+
+.itemListWrapper>li>.itemImg{
+    height: 300px;
+    margin: 5px;
+}
+
+.itemListWrapper .cart{
+    width: 25px;
+    position: relative;
+    left: 50%;
+}
+
 
 /* 로그인&회원가입 */
 form[class="login"]>.ui-slider-horizontal{
@@ -401,6 +424,7 @@ form[class="login"]>.ui-slider-horizontal{
 
 .FooterInfo div{
     padding: var(--font-30px);
+    text-align: left;
 }
 
 .FooterInfo>div>ul>li{
@@ -413,12 +437,6 @@ form[class="login"]>.ui-slider-horizontal{
     flex-direction: column;
 }
 
-.AppDownload img{
-  width: 7vw;
-  padding-left:2vw;
-}
-
-
 .carouselWrapper img{
     background: url(/images/3D.gif);
     background-position-x: center;
@@ -427,30 +445,30 @@ form[class="login"]>.ui-slider-horizontal{
 
 
 /* ----------------메인/main.html---------------- */
-/* 가입 모달창 */
-#btn-modal{
-    position: absolute;
-    margin: 50% auto;
+/* 로그인/가입 모달창 */
+#signInModal.modal-overlay{
+    display: none;
 }
-#modal.modal-overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top:20%;
-    display: flex;
+/* #signInModal.modal-overlay, */
+#loginModal.modal-overlay{
+    /* width: 100%; */
+    /* height: 100%; */
+    /* position: absolute; */
+    display: block;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(1.5px);
-    -webkit-backdrop-filter: blur(1.5px);
+    background-color: pink;
+    /* background: rgba(255, 255, 255, 0.25); */
+    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+    /* backdrop-filter: blur(1.5px); */
+    /* -webkit-backdrop-filter: blur(1.5px); */
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-  
+    z-index: 1000;
 }
-#modal .modal-window {
+#loginModal .modal-window,
+#signInModal .modal-window  {
     background: rgba(255, 255, 255, 0.7);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
@@ -458,17 +476,24 @@ form[class="login"]>.ui-slider-horizontal{
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 450px;
-    position: relative;
-    top: 0;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
     padding: 20px;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
 }
 
-#modal .close-area {
+#loginModal .close-area,
+#signInModal .close-area  {
     display: inline;
     float: right;
     cursor: pointer;
     text-shadow: 1px 1px 2px gray;
-}
+} 
 
 
 /* 섹션1_메인케러셀 */
@@ -679,13 +704,13 @@ form[class="login"]>.ui-slider-horizontal{
 }
   
   /* 섹션6_추천리스트 */
-  .Recommend>.itemListWrapper{
+  /* .Recommend>.itemListWrapper{
     width: 73%;
-  }
+  } */
 
-  .Recommend>.itemListWrapper>.box_wrap{
+  /* .Recommend>.itemListWrapper>.box_wrap{
     border:none;
-}
+} */
 
 .box_wrap:hover {
     opacity: 1;
@@ -902,9 +927,6 @@ main{
     text-align: center;
 }
 
-.searchItemWrapper>.itemListWrapper{
-    width:94%;
-}
 /* ----------------제품 상세/itemdetail.html---------------- */
 
 /* 상품 상세 사진(좌) */
@@ -916,7 +938,7 @@ main{
 }
 
 .itemDetail img{
-    width: 90%;
+    width: 500px;
     margin: 2vw;
 }
   
@@ -954,9 +976,7 @@ main{
     font-size: 1.3vw;
   }
   
-  .itemDes li:nth-child(2),
-  .itemDes li:nth-child(6),
-  .itemDes li:nth-child(5){
+  .itemDes li:nth-child(2){
     color:var(--color-grey);
   }
   
@@ -1546,7 +1566,11 @@ padding: 3vh;
 #infoWrapper{
     margin-top: 0;
 }
-
+nav[class="InfoLogo"]{
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+}
 
 .logo{
     font-size: 4vh;
@@ -1960,30 +1984,7 @@ padding: 3vh;
     text-transform: uppercase;
     font-size: 1em;
 }
-.keyBox>.key:nth-child(1){
-    animation: keyEnter 0.5s ease-in 0.5s;
-    -webkit-animation: keyEnter 0.5s ease-in 0.5s;
-}
-.keyBox>.key:nth-child(2){
-    animation: keyEnter 0.5s ease-in 1s;
-    -webkit-animation: keyEnter 0.5s ease-in 1s;
-}
-.keyBox>.key:nth-child(3){
-    animation: keyEnter 0.5s ease-in 1.5s;
-    -webkit-animation: keyEnter 0.5s ease-in 1.5s;
-}
-.keyBox>.key:nth-child(4){
-    animation: keyEnter 0.5s ease-in 2s;
-    -webkit-animation: keyEnter 0.5s ease-in 2s;
-}
-.keyBox>.key:nth-child(5){
-    animation: keyEnter 0.5s ease-in 2.5s;
-    -webkit-animation: keyEnter 0.5s ease-in 2.5s;
-}
-.keyBox>.key:nth-child(8){
-    animation: keyEnter 0.5s ease-in 4s;
-    -webkit-animation: keyEnter 0.5s ease-in 4s;
-}
+
 
 .key:last-child{
     width: 70%;

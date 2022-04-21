@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- meta정보 -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <!-- <link rel="stylesheet" href="/item detail/itemdetail.css"> -->
+   
+    <!-- 구글 폰트 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script defer src="/common.js"></script>
+    
+    <!-- 연결 css/js/jquery 파일 -->
+    <link rel="stylesheet" href="/style.css">
+    <script defer src="/common.js" type="module"></script>
     <script defer src="/commonJquery.js"></script>
     <script src="/includeHTML.js"></script>
     <script src="/includeRouter.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  
     <title>간지나는 당신 곁엔,NearFetch</title>
 </head>
 <body>
@@ -30,16 +39,16 @@
             <div class="itemDetail">
                 <ul>
                     <li>
-                        <img src="/images/fashion.jpg" alt="">
+                        <img src="" alt="">
                     </li>
                     <li>
-                        <img src="/images/fashion.jpg" alt="">
+                        <img src="" alt="">
                     </li>
                     <li>
-                        <img src="/images/fashion.jpg" alt="">
+                        <img src="" alt="">
                     </li>
                     <li>
-                        <img src="/images/fashion.jpg" alt="">
+                        <img src="" alt="">
                     </li>
                 </ul>
             </div>
@@ -48,34 +57,22 @@
             <div class="itemBuy">
                 <div class="itemBuyContents">
                     <ul class="itemDes">
-                        <li class="itemBrand">louis vuitton</li>
-                        <li class="itemName">체인 스팬 모자</li>
-                        <li><span class="price">1,100,000</span>원</li>
-                        <li><span class="sale_price"></span>원</li>
-                        <li>Product no.:<span class="skuNum"></span></li>
-                        <li>Materials:<span class="materials"></span></li>
+                        <li class="itemBrand"></li>
+                        <li class="itemName"></li>
+                        <li><span class="price"></span>원</li>
+                        <!-- <li><span class="sale_price"></span>원</li> -->
                     </ul> 
                     <div class="itemBuyBtn">
                         <button class="option">옵션 선택</button>
                         <button class="proceed">바로 구매</button>
                     </div>
                     <div class="likeNadd">
-                        <div class="like">
-                          <a href=""> 
-                            좋아요
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20"  fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                            </svg>
-                          </a>
-                        </div>
-                        <div class="add">
                           <a href="">
                             장바구니
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                             </svg>
                           </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -86,7 +83,8 @@
           <!-- <div class="informInner"> -->
             <div class="inform informDes">
               <div>상품 설명</div>
-              <p>이 상품은 ...</p>
+              <li>Product no.:<span class="skuNum"></span></li>
+            <li>Materials:<span class="materials"></span></li>
             </div>
             <div class="inform sizeNfit">
               <div>사이즈&핏</div>
@@ -161,15 +159,41 @@
     </main>
 
     <!-- 푸터 -->
- <footer>
-        <footer include-html="/component/footer.html"></footer>
-</footer>
-</body>
-<script>
-    includeHTML( function () {
-      includeRouter( function () {
+    <footer include-html="/component/footer.html"></footer>
+<!-- 
+  
+  
 
-    });
-    });
-</script>
+    // const btn=document.querySelector('.like>a')
+    // btn.addEventListener('click',e => {
+    //     // let mail = document.querySelector('.inputWrapper #mail').value;
+    //     // let pw = document.querySelector('.inputWrapper #password').value;
+    //     e.preventDefault();
+    //     let param = {
+    //         'message' : 'ok',
+    //     }  
+
+    //     const token='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MjV9.YIea4B5WBbk9TjJa-LuJ4Evi_7DgnOrFYd40k-Eq7kI';
+          
+    //     $.ajax({
+    //         url : 'http://192.168.0.171:8000/products/like/2',
+    //         type : 'POST',
+
+    //         beforeSend: function (xhr) {
+    //         xhr.setRequestHeader("Content-type","application/json");
+    //         xhr.setRequestHeader("Authorization", token);
+    //         },
+
+    //         data : JSON.stringify(param),
+    //         success:function(response){
+    //             console.log(response);
+    //         },
+            
+    //         error: function(){
+    //           console.log('error');
+    //         }
+    //     });
+    // });  
+
+</body>
 </html>

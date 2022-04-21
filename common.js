@@ -1,70 +1,244 @@
+// html include
+includeHTML( function () {
+  includeRouter( function () {
+});
+});
+
+
+
 // ----------------공용----------------
-//최상단 Swiper 끄기
-window.onload=function(){
-  const swiper=document.querySelector('.Swiper');
-  const offBtn=document.querySelector('.swiperOff');
-  
-  offBtn.addEventListener('click',function(){
-    swiper.style.display="none";
-  }
-  )
 
-
-const modal = document.getElementById("modal")
-
-function modalOn() {
-    modal.style.display = "block"
-}
-
-function modalOff() {
-    modal.style.display = "none"
-}
-
-function isModalOn() {
-    return modal.style.display === "flex"
-}
-
-const btnModal = document.getElementById("btn-modal")
-btnModal.addEventListener("click", e => {
-    modalOn()
-})
-
-const closeBtn = modal.querySelector(".close-area")
-closeBtn.addEventListener("click", e => {
-    modalOff()
-})
-
-modal.addEventListener("click", e => {
-    const evTarget = e.target
-    if(evTarget.classList.contains("modal-overlay")) {
-        modalOff()
-    }
-})
-
-window.addEventListener("keyup", e => {
-    if(isModalOn() && e.key === "Escape") {
-        modalOff()
-    }
-})
-}
- 
-
-// navbar 숨기기
-window.onscroll = function() {
-  if (document.documentElement.scrollTop > 50) {
-    document.querySelector(".itemCategory").style.display = "none";
+//상단 Navbar 펼치기
+function spreadNavbar() {
+  var navBar = document.getElementById("myTopnav");
+  if (navBar.className === "topnav") {
+      navBar.className += " responsive";
   } else {
-    document.querySelector(".itemCategory").style.display  = "";
+      navBar.className = "topnav";
   }
-};
+  }
 
-/* ----------------메인/main.html---------------- */
-//회원 가입 모달창
 
-// const modal = document.getElementById("modal")
+// 섹션1_캐러셀 이미지
+var slideIndex = 1;
+showSlides(slideIndex);
 
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var slides = document.querySelectorAll(".mySlides");
+
+  if (n > slides.length) {
+    slideIndex = 1
+  }
+
+  if (n < 1) {
+    slideIndex = slides.length
+  }
+
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1
+  }
+  
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2000); 
+
+  slides[slideIndex-1].style.display = "block";
+}
+
+// 로그인 모달창
+// const modal = document.getElequementById("loginModal") //모달창
 // function modalOn() {
 //     modal.style.display = "flex"
+// }
+
+// function modalOff() {
+//     modal.style.display = "none"
+// }
+
+// function isModalOn() {
+//     return modal.style.display === "flex"
+// }
+
+// const btnModal = document.getElementById("goLogin") //로그인 버튼
+// btnModal.addEventListener("click", e => {
+//     modalOn()
+// })
+
+// const closeBtn = modal.querySelector(".close-area")
+// closeBtn.addEventListener("click", e => {
+//     modalOff()
+// })
+
+// modal.addEventListener("click", e => {
+//     const evTarget = e.target
+//     if(evTarget.classList.contains("modal-overlay")) {
+//         modalOff()
+//     }
+// })
+
+// window.addEventListener("keyup", e => {
+//     if(isModalOn() && e.key === "Escape") {
+//         modalOff()
+//     }
+// })
+
+// // 회원가입 모달창
+// const modal = document.getElequementById("loginModal") //모달창
+// function modalOn() {
+//     modal.style.display = "flex"
+// }
+
+// function modalOff() {
+//     modal.style.display = "none"
+// }
+
+// function isModalOn() {
+//     return modal.style.display === "flex"
+// }
+
+// const btnModal = document.getElementById("goLogin") //로그인 버튼
+// btnModal.addEventListener("click", e => {
+//     modalOn()
+// })
+
+// const closeBtn = modal.querySelector(".close-area")
+// closeBtn.addEventListener("click", e => {
+//     modalOff()
+// })
+
+// modal.addEventListener("click", e => {
+//     const evTarget = e.target
+//     if(evTarget.classList.contains("modal-overlay")) {
+//         modalOff()
+//     }
+// })
+
+// window.addEventListener("keyup", e => {
+//     if(isModalOn() && e.key === "Escape") {
+//         modalOff()
+//     }
+// })
+
+// 섹션2_타이머
+function getTime() {
+  const target = new Date("Fri Apr 29 2022 00:00:00 GMT+0900");
+  const today = new Date();
+  const gap = target - today;
+  const d = String(Math.floor(gap / (1000 * 60 * 60 * 24))).padStart(2,"0"); // 일
+  const h = String(Math.floor((gap / (1000 * 60 * 60)) % 24)).padStart(2,"0"); // 시
+  const m = String(Math.floor(((gap / 1000) * 60) % 60)).padStart(2,"0"); // 분
+  const s = String(Math.floor((gap / 1000) % 60)).padStart(2,"0"); // 초
+
+  if (gap > 0) {
+    document.querySelector(".NumberDays").innerText=d;
+    document.querySelector(".NumberHours").innerText=h;
+    document.querySelector(".NumberMinutes").innerText=m;
+    document.querySelector(".NumberSeconds").innerText=s;
+  } 
+}
+
+function init() {
+    getTime();
+    setInterval(getTime, 1000);
+  }
+
+init();
+
+  
+// 로그인(이메일)
+// window.onload=function(){
+//     const signInBtn = document.querySelector('.mailLogin');
+//     signInBtn.addEventListener('click', e => {
+//         let mail = document.querySelector('.inputWrapper #mail').value;
+//         let pw = document.querySelector('.inputWrapper #password').value;
+//         e.preventDefault();
+//         let param = {
+//             'email' : mail,
+//             'password' : pw
+//         }  
+          
+//         $.ajax({
+//             url : 'http://192.168.0.171:8000/users/signin',
+//             type : 'POST',
+//             data : JSON.stringify(param),
+//             success:function(response){
+//                 console.log(response);
+//             },
+//             error: function(){
+//               console.log('로그인 불가');
+//             }
+//         });
+//     });  
+//   }
+
+
+// 로그인(카카오)
+// window.onload=function(){
+//   const signInBtn = document.querySelector('.kakaoLogin');
+//   signInBtn.addEventListener('click', e => {
+//       e.preventDefault();
+      
+        
+//       $.ajax({
+//           url : 'http://192.168.0.171:8000/users/signin/kakao',
+//           type : 'GET',
+          
+//           success:function(response){
+//               console.log(response);
+//           },
+//           error: function(){
+//             console.log('로그인 불가');
+//           }
+//       });
+//   });  
+// }
+
+// 회원가입
+// window.onload=function(){
+//   const signInBtn = document.querySelector('.goSignIn');
+//   signInBtn.addEventListener('click', e => {
+//       let name = document.querySelector('.inputWrapper #name').value;
+//       let mail = document.querySelector('.inputWrapper #mail').value;
+//       let pw = document.querySelector('.inputWrapper #password').value;
+//       e.preventDefault();
+//       let param = {
+//           'name': name,
+//           'email' : mail,
+//           'password' : pw
+//       }  
+        
+//       $.ajax({
+//           url : 'http://192.168.0.171:8000/users/signup',
+//           type : 'POST',
+//           data : JSON.stringify(param),
+//           success:function(date){
+//               console.log('회원가입 축하');
+//           },
+//           error: function(){
+//             console.log('가입 불가');
+//           }
+//       });
+//   });  
+// }
+     
+// 회원 가입/로그인
+// window.onload=function(){
+//   const modal = document.getElementById("modal")
+
+// function modalOn() {
+//     modal.style.display = "block"
 // }
 
 // function modalOff() {
@@ -97,73 +271,26 @@ window.onscroll = function() {
 //         modalOff()
 //     }
 // })
-
-// 섹션1_캐러셀 이미지
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.querySelectorAll(".mySlides");
-  console.log(slides);
-
-  if (n > slides.length) {
-    slideIndex = 1
-  }
-
-  if (n < 1) {
-    slideIndex = slides.length
-  }
-
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-
-  slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1
-  }
-  
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 2000); 
+// }
 
 
-  slides[slideIndex-1].style.display = "block";
-}
+ 
+
+// navbar 숨기기
+// window.onscroll = function() {
+//   if (document.documentElement.scrollTop > 50) {
+//     document.querySelector(".itemCategory").style.display = "none";
+//   } else {
+//     document.querySelector(".itemCategory").style.display  = "";
+//   }
+// };
+
+/* ----------------메인/main.html---------------- */
 
 
-// 섹션2_타이머
-function getTime() {
-  const target = new Date("Fri Apr 29 2022 00:00:00 GMT+0900");
-  const today = new Date();
-  const gap = target - today;
-  const d = String(Math.floor(gap / (1000 * 60 * 60 * 24))).padStart(2,"0"); // 일
-  const h = String(Math.floor((gap / (1000 * 60 * 60)) % 24)).padStart(2,"0"); // 시
-  const m = String(Math.floor(((gap / 1000) * 60) % 60)).padStart(2,"0"); // 분
-  const s = String(Math.floor((gap / 1000) % 60)).padStart(2,"0"); // 초
 
-  if (gap > 0) {
-    document.querySelector(".NumberDays").innerText=d;
-    document.querySelector(".NumberHours").innerText=h;
-    document.querySelector(".NumberMinutes").innerText=m;
-    document.querySelector(".NumberSeconds").innerText=s;
-  } 
-}
 
-function init() {
-    getTime();
-    setInterval(getTime, 1000);
-  }
 
-init();
 
 
 
@@ -172,73 +299,73 @@ init();
 
 //* ----------------상품 리스트(검색)/search.html---------------- *//
 // 카테고리 대 필터(좌)>대
-var filterDetail=document.querySelector('.filterDetail');//가려진 부분
-var filterWrapper=document.querySelector('.filterWrapper'); //filterBox
-var leftrightBtn=document.querySelector('.leftrightBtn');//필터 화살표(좌우)
-var itemListWrapper=document.querySelector('.itemListWrapper');//상품리스트
-var filter=document.querySelector('.filter');//'핕터'글자
+// var filterDetail=document.querySelector('.filterDetail');//가려진 부분
+// var filterWrapper=document.querySelector('.filterWrapper'); //filterBox
+// var leftrightBtn=document.querySelector('.leftrightBtn');//필터 화살표(좌우)
+// var itemListWrapper=document.querySelector('.itemListWrapper');//상품리스트
+// var filter=document.querySelector('.filter');//'핕터'글자
 
-window.onload=function(){
-  filter.addEventListener('click',()=>{
-    filterDetail.classList.toggle('active');
-    filterWrapper.classList.toggle('active');
-    leftrightBtn.classList.toggle('active');
-    itemListWrapper.classList.toggle('active');
-})
-}
+// window.onload=function(){
+//   filter.addEventListener('click',()=>{
+//     filterDetail.classList.toggle('active');
+//     filterWrapper.classList.toggle('active');
+//     leftrightBtn.classList.toggle('active');
+//     itemListWrapper.classList.toggle('active');
+// })
+// }
 
 
 
 //카테고리 대 필터(좌)>대>중
-var clothing=document.getElementById('clothing');//가려진 부분(의류)
-var shoes=document.getElementById('shoes');//가려진 부분(신발)
-var bags=document.getElementById('bags');//가려진 부분(가방)
-var acc=document.getElementById('acc');//가려진 부분(악세사리)
-var jewerly=document.getElementById('jewerly');//가려진 부분(주얼리)
+// var clothing=document.getElementById('clothing');//가려진 부분(의류)
+// var shoes=document.getElementById('shoes');//가려진 부분(신발)
+// var bags=document.getElementById('bags');//가려진 부분(가방)
+// var acc=document.getElementById('acc');//가려진 부분(악세사리)
+// var jewerly=document.getElementById('jewerly');//가려진 부분(주얼리)
 
-var updownBtnClothing=document.querySelectorAll('.updownBtn')[0];//필터 화살표
-var updownBtnShoes=document.querySelectorAll('.updownBtn')[1];//필터 화살표
-var updownBtnBags=document.querySelectorAll('.updownBtn')[2];//필터 화살표
-var updownBtnAcc=document.querySelectorAll('.updownBtn')[3];//필터 화살표
-var updownBtnJewerly=document.querySelectorAll('.updownBtn')[4];//필터 화살표
+// var updownBtnClothing=document.querySelectorAll('.updownBtn')[0];//필터 화살표
+// var updownBtnShoes=document.querySelectorAll('.updownBtn')[1];//필터 화살표
+// var updownBtnBags=document.querySelectorAll('.updownBtn')[2];//필터 화살표
+// var updownBtnAcc=document.querySelectorAll('.updownBtn')[3];//필터 화살표
+// var updownBtnJewerly=document.querySelectorAll('.updownBtn')[4];//필터 화살표
 
-window.onload=function(){
-  updownBtnClothing.addEventListener('click',()=>{
-    clothing.classList.toggle('active');
-    updownBtnClothing.toggle('active');
-})
+// window.onload=function(){
+//   updownBtnClothing.addEventListener('click',()=>{
+//     clothing.classList.toggle('active');
+//     updownBtnClothing.toggle('active');
+// })
 
-updownBtnShoes.addEventListener('click',()=>{
-    shoes.classList.toggle('active');
-})
+// updownBtnShoes.addEventListener('click',()=>{
+//     shoes.classList.toggle('active');
+// })
 
-updownBtnBags.addEventListener('click',()=>{
-    bags.classList.toggle('active');
-})
+// updownBtnBags.addEventListener('click',()=>{
+//     bags.classList.toggle('active');
+// })
 
-updownBtnAcc.addEventListener('click',()=>{
-    acc.classList.toggle('active');
-})
+// updownBtnAcc.addEventListener('click',()=>{
+//     acc.classList.toggle('active');
+// })
 
-updownBtnJewerly.addEventListener('click',()=>{
-    jewerly.classList.toggle('active');
-})
-}
+// updownBtnJewerly.addEventListener('click',()=>{
+//     jewerly.classList.toggle('active');
+// })
+// }
 
 
 // 정렬필터(우)
-var sortDetail=document.querySelector('.sortDetail');//가려진 부분
-var sortWrapper=document.querySelector('.sortWrapper'); //sortingBox
-var updownBtn=document.querySelector('.updownBtn'); //정렬 화살표(상하)
+// var sortDetail=document.querySelector('.sortDetail');//가려진 부분
+// var sortWrapper=document.querySelector('.sortWrapper'); //sortingBox
+// var updownBtn=document.querySelector('.updownBtn'); //정렬 화살표(상하)
 
-window.onload=function(){
-  sortWrapper.addEventListener('click',()=>{
-    sortDetail.classList.toggle('active');
-    sortWrapper.classList.toggle('active');
-    updownBtn.classList.toggle('active');
-})
+// window.onload=function(){
+//   sortWrapper.addEventListener('click',()=>{
+//     sortDetail.classList.toggle('active');
+//     sortWrapper.classList.toggle('active');
+//     updownBtn.classList.toggle('active');
+// })
 
-}
+// }
 
 
 
@@ -325,48 +452,48 @@ window.open('about:blank').location.href='https://service.epost.go.kr/trace.Retr
 /* ----------------결제/pay.html---------------- */
 
 // 주소 검색(by kakao)
-function findAddr(){
-	new daum.Postcode({
-        oncomplete: function(data) {
+// function findAddr(){
+// 	new daum.Postcode({
+//         oncomplete: function(data) {
         	
-        	console.log(data);
+//         	console.log(data);
         	
 
-            var roadAddr = data.roadAddress; // 도로명 주소 변수
-            var jibunAddr = data.jibunAddress; // 지번 주소 변수
-            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('member_post').value = data.zonecode;
-            if(roadAddr !== ''){
-                document.getElementById("member_addr").value = roadAddr;
-            } 
-            else if(jibunAddr !== ''){
-                document.getElementById("member_addr").value = jibunAddr;
-            }
-        }
-    }).open();
-}
+//             var roadAddr = data.roadAddress; // 도로명 주소 변수
+//             var jibunAddr = data.jibunAddress; // 지번 주소 변수
+//             // 우편번호와 주소 정보를 해당 필드에 넣는다.
+//             document.getElementById('member_post').value = data.zonecode;
+//             if(roadAddr !== ''){
+//                 document.getElementById("member_addr").value = roadAddr;
+//             } 
+//             else if(jibunAddr !== ''){
+//                 document.getElementById("member_addr").value = jibunAddr;
+//             }
+//         }
+//     }).open();
+// }
 
 
 //결제 수단 선택
 const creditCard=document.querySelector('#creditCard')
 const transfer=document.querySelector('#transfer')
 
-window.onload=function(){
-  creditCard.addEventListener('click',()=>{
-    creditCard.style.backgroundColor="black";
-    creditCard.style.color="white";
-    transfer.style.backgroundColor="transparent";
-    transfer.style.color="black";
+// window.onload=function(){
+//   creditCard.addEventListener('click',()=>{
+//     creditCard.style.backgroundColor="black";
+//     creditCard.style.color="white";
+//     transfer.style.backgroundColor="transparent";
+//     transfer.style.color="black";
 
-})
+// })
 
-transfer.addEventListener('click',()=>{
-    transfer.style.backgroundColor="black";
-    transfer.style.color="white";
-    creditCard.style.backgroundColor="transparent";
-    creditCard.style.color="black";
-})
-}
+// transfer.addEventListener('click',()=>{
+//     transfer.style.backgroundColor="black";
+//     transfer.style.color="white";
+//     creditCard.style.backgroundColor="transparent";
+//     creditCard.style.color="black";
+// })
+// }
 
 
 
@@ -384,45 +511,45 @@ function selectAll(selectAll)  {
 
 /* ----------------앱 소개/appDown.html---------------- */
 
-//스크롤 이동
-const circles = document.querySelectorAll(".circle")
-const contents = document.querySelectorAll(".appinfo")
-const firstTop = contents[0].offsetTop
-const secondTop = contents[1].offsetTop
-const thirdTop = contents[2].offsetTop
-const fourTop = contents[3].offsetTop
+// //스크롤 이동
+// const circles = document.querySelectorAll(".circle")
+// const contents = document.querySelectorAll(".appinfo")
+// const firstTop = contents[0].offsetTop
+// const secondTop = contents[1].offsetTop
+// const thirdTop = contents[2].offsetTop
+// const fourTop = contents[3].offsetTop
 
  
-circles[0].onclick = function(e){
-  window.scroll({top:firstTop, behavior: 'smooth'})
-  circles[0].style.backgroundColor="black";
-  circles[1].style.backgroundColor="transparent";
-  circles[2].style.backgroundColor="transparent";
-  circles[3].style.backgroundColor="transparent";
+// circles[0].onclick = function(e){
+//   window.scroll({top:firstTop, behavior: 'smooth'})
+//   circles[0].style.backgroundColor="black";
+//   circles[1].style.backgroundColor="transparent";
+//   circles[2].style.backgroundColor="transparent";
+//   circles[3].style.backgroundColor="transparent";
 
-}
-circles[1].onclick = function(){
-  window.scroll({top:secondTop, behavior: 'smooth'})
-  circles[0].style.backgroundColor="transparent";
-  circles[1].style.backgroundColor="black";
-  circles[2].style.backgroundColor="transparent";
-  circles[3].style.backgroundColor="transparent";
-}
-circles[2].onclick = function(){
-  window.scroll({top:thirdTop, behavior: 'smooth'})
-  circles[0].style.backgroundColor="transparent";
-  circles[1].style.backgroundColor="transparent";
-  circles[2].style.backgroundColor="black";
-  circles[3].style.backgroundColor="transparent";
-}
+// }
+// circles[1].onclick = function(){
+//   window.scroll({top:secondTop, behavior: 'smooth'})
+//   circles[0].style.backgroundColor="transparent";
+//   circles[1].style.backgroundColor="black";
+//   circles[2].style.backgroundColor="transparent";
+//   circles[3].style.backgroundColor="transparent";
+// }
+// circles[2].onclick = function(){
+//   window.scroll({top:thirdTop, behavior: 'smooth'})
+//   circles[0].style.backgroundColor="transparent";
+//   circles[1].style.backgroundColor="transparent";
+//   circles[2].style.backgroundColor="black";
+//   circles[3].style.backgroundColor="transparent";
+// }
 
-circles[3].onclick = function(){
-  window.scroll({top:fourTop, behavior: 'smooth'})
-  circles[0].style.backgroundColor="transparent";
-  circles[1].style.backgroundColor="transparent";
-  circles[2].style.backgroundColor="transparent";
-  circles[3].style.backgroundColor="black";
-}
+// circles[3].onclick = function(){
+//   window.scroll({top:fourTop, behavior: 'smooth'})
+//   circles[0].style.backgroundColor="transparent";
+//   circles[1].style.backgroundColor="transparent";
+//   circles[2].style.backgroundColor="transparent";
+//   circles[3].style.backgroundColor="black";
+// }
 
 
 
