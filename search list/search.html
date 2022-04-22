@@ -15,16 +15,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
-    <!-- 연결 css/js/jquery 파일 -->
-    <link rel="stylesheet" href="/style.css">
-    <script defer src="/common.js"></script>
-    <script defer src="/commonJquery.js"></script>
-    <script src="/includeHTML.js"></script>
-    <script src="/includeRouter.js"></script>
-
+   
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 
     <title>간지나는 당신 곁엔,NearFetch</title>
 </head>
@@ -34,7 +27,7 @@
 
 
     <!-- 메인 -->
-    <main>
+    <main> 
         <div class="section searchItemWrapper">
             <div class="currentCategoryWrapper">
                 <ul class="currentCategory">
@@ -58,28 +51,86 @@
            </div>
 
            <!-- 아이템자리 -->
-           <div include-html="/component/itemList.html"></div>
+           <div class="itemListWrapper" id="test-list" include-html="/component/itemList.html"></div>
         </div>
     </main>
 
     <!-- 푸터 -->
     <footer include-html="/component/footer.html"></footer>
+     <!-- 연결 css/js/jquery 파일 -->
+     <link rel="stylesheet" href="/style.css">
+     <!-- <script defer src="/common.js"></script> -->
+     <script defer src="/commonJquery.js"></script>
+     <script src="/includeHTML.js"></script>
+     <script src="/includeRouter.js"></script>
+   <script src="/women_products.json"></script>
     <script>
-        $(document).ready(function(){
-            $.getJSON("/women_products.json", function(result){
-            $.each(result, function(index, item){
-            $(".searchItemWrapper>.itemListWrapper").append(`<li class="box_wrap">
-                <img src="/images/shopping-cart.png" alt="" class="cart">                                     
-                <img src="${item.itemImg[0]}" class="itemImg" alt="">
-                <div class="itemBrand">${item.itemBrand}</div>
-                <div class="itemName">${item.itemName}</div>
-                <div class="price">${item.price}</div>
-                <div class="price">${item.sale_price}</div>
-                </li>`);
-            });
-        }); 
-        })
+
+       let itemList = JSON.parse(JSON.stringify(data));
+       const itemListWrapper = document.querySelector('.searchItemWrapper>.itemListWrapper')
+       const ul = document.createElement('ul');
+       itemListWrapper.appendChild(ul);
+    //    ul.setAttribute("class","list");
+
+       function isGUCCI(itemList)  {
+            if(itemList.itemBrand === 'TORY BURCH')  {
+                return true;
+            }
+            }
+
+            const gucciItem = itemList.filter(isGUCCI);
+            // console.log(...gucciItem)
+       for (let i = 0; i < gucciItem.length; i += 1) {
+           const cart = document.createElement('img')
+           cart.setAttribute("class","cart")
+           cart.src="/images/shopping-cart.png";
+
+           const img = document.createElement('img')
+           img.setAttribute("class","itemImg")
+           img.src=gucciItem[i].itemImg[0];
+
+           const li = document.createElement('li');
     
-    </script>
+           const div = document.createElement('div');
+           div.setAttribute("class","itemBrand");
+
+           const div1 = document.createElement('div');
+           div1.setAttribute("class","itemName");
+
+           const div2 = document.createElement('div');
+           div2.setAttribute("class","price");
+
+           const div3 = document.createElement('div');
+           div3.setAttribute("class","skuNum");
+
+            ul.appendChild(li); //itemwrapper>li 추가
+            li.appendChild(cart);//itemwrapper>li>img 추가
+            li.appendChild(img);//itemwrapper>li>img 추가
+            li.appendChild(div);//itemwrapper>li>div 추가
+            li.appendChild(div1);//itemwrapper>li>div 추가
+            li.appendChild(div2);//itemwrapper>li>div 추가
+            li.appendChild(div3);//itemwrapper>li>div 추가
+
+
+            div.textContent=gucciItem[i].itemBrand; 
+            div1.textContent=gucciItem[i].itemName; 
+            div2.textContent=gucciItem[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,","); 
+            div3.textContent=gucciItem[i].skuNum; 
+            const price=document.querySelectorAll(".price");
+            price.toLocaleString()
+            }
+
+            const boxs = document.querySelectorAll('.searchItemWrapper>.itemListWrapper .itemImg');
+            boxs.forEach((el, index, ) => {
+            el.onclick = (e) => {
+                const parentTag=e.target.parentElement; //클릭한 요소의 부모 태그 전체
+                const siblings=boxs.childNodes;
+                console.log(index,parentTag)
+            }
+            });
+
+
+   </script>
+
 </body>
 </html>

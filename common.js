@@ -1,9 +1,50 @@
+
 // html include
 includeHTML( function () {
   includeRouter( function () {
 });
 });
 
+
+  // 로그인
+  var loginModal = document.querySelector("#loginModal");
+  var loginBtn = document.querySelector("#loginBtn");
+  var loginClose = document.querySelectorAll(".closeBtn")[0];
+
+  loginBtn.onclick = function() {
+    loginModal.style.display = "block";
+  }
+
+  loginClose.onclick = function() {
+    loginModal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == loginModal) {
+      loginModal.style.display = "none";
+    }
+  }
+
+   // 회원가입
+   var signInModal = document.querySelector("#signInModal");
+   var signInBtn = document.querySelector("#signInBtn");
+   var signInClose = document.querySelectorAll(".closeBtn")[1];
+
+   signInBtn.onclick = function() {
+    signInModal.style.display = "block";
+   }
+
+   signInClose.onclick = function() {
+    signInModal.style.display = "none";
+   }
+
+   window.onclick = function(event) {
+     if (event.target == signInModal) {
+      signInModal.style.display = "none";
+     }
+   }
+
+// ----------------가입----------------
 
 
 // ----------------공용----------------
@@ -18,6 +59,7 @@ function spreadNavbar() {
   }
   }
 
+ 
 
 // 섹션1_캐러셀 이미지
 var slideIndex = 1;
@@ -57,79 +99,6 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
 }
 
-// 로그인 모달창
-// const modal = document.getElequementById("loginModal") //모달창
-// function modalOn() {
-//     modal.style.display = "flex"
-// }
-
-// function modalOff() {
-//     modal.style.display = "none"
-// }
-
-// function isModalOn() {
-//     return modal.style.display === "flex"
-// }
-
-// const btnModal = document.getElementById("goLogin") //로그인 버튼
-// btnModal.addEventListener("click", e => {
-//     modalOn()
-// })
-
-// const closeBtn = modal.querySelector(".close-area")
-// closeBtn.addEventListener("click", e => {
-//     modalOff()
-// })
-
-// modal.addEventListener("click", e => {
-//     const evTarget = e.target
-//     if(evTarget.classList.contains("modal-overlay")) {
-//         modalOff()
-//     }
-// })
-
-// window.addEventListener("keyup", e => {
-//     if(isModalOn() && e.key === "Escape") {
-//         modalOff()
-//     }
-// })
-
-// // 회원가입 모달창
-// const modal = document.getElequementById("loginModal") //모달창
-// function modalOn() {
-//     modal.style.display = "flex"
-// }
-
-// function modalOff() {
-//     modal.style.display = "none"
-// }
-
-// function isModalOn() {
-//     return modal.style.display === "flex"
-// }
-
-// const btnModal = document.getElementById("goLogin") //로그인 버튼
-// btnModal.addEventListener("click", e => {
-//     modalOn()
-// })
-
-// const closeBtn = modal.querySelector(".close-area")
-// closeBtn.addEventListener("click", e => {
-//     modalOff()
-// })
-
-// modal.addEventListener("click", e => {
-//     const evTarget = e.target
-//     if(evTarget.classList.contains("modal-overlay")) {
-//         modalOff()
-//     }
-// })
-
-// window.addEventListener("keyup", e => {
-//     if(isModalOn() && e.key === "Escape") {
-//         modalOff()
-//     }
-// })
 
 // 섹션2_타이머
 function getTime() {
@@ -232,48 +201,7 @@ init();
 //       });
 //   });  
 // }
-     
-// 회원 가입/로그인
-// window.onload=function(){
-//   const modal = document.getElementById("modal")
-
-// function modalOn() {
-//     modal.style.display = "block"
-// }
-
-// function modalOff() {
-//     modal.style.display = "none"
-// }
-
-// function isModalOn() {
-//     return modal.style.display === "flex"
-// }
-
-// const btnModal = document.getElementById("btn-modal")
-// btnModal.addEventListener("click", e => {
-//     modalOn()
-// })
-
-// const closeBtn = modal.querySelector(".close-area")
-// closeBtn.addEventListener("click", e => {
-//     modalOff()
-// })
-
-// modal.addEventListener("click", e => {
-//     const evTarget = e.target
-//     if(evTarget.classList.contains("modal-overlay")) {
-//         modalOff()
-//     }
-// })
-
-// window.addEventListener("keyup", e => {
-//     if(isModalOn() && e.key === "Escape") {
-//         modalOff()
-//     }
-// })
-// }
-
-
+  
  
 
 // navbar 숨기기
@@ -561,4 +489,4 @@ function selectAll(selectAll)  {
 
 
 /* ----------------QnA/qna.html---------------- */
-
+  

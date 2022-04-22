@@ -3,13 +3,27 @@
     <!-- 상단메뉴버튼 -->
     <div class="InfoLogo">
         <div class="InfoLogos">
-            <a href="" id='goLogin'>로그인</a>
-            <!-- <div id="loginModal" class="modal-overlay" include-html="/component/login.html"></div> -->
-            <a href="" id='goSignin'>회원가입</a>
-            <!-- <div id="signinModal" class="modal-overlay" include-html="/component/login.html"></div> -->
-            <a href="" >내정보</a>
-            <a href="">장바구니</a>
+            <!-- 로그인 버튼 -->
+            <button id="loginBtn">로그인</button>
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <div id="" class="modal-overlay" include-html="/component/login.html"></div>
+                </div>
+            </div>
+            
+            <!-- 회원가입 버튼 -->
+            <button id="signInBtn">회원가입</button>
+            <div id="signInModal" class="modal">
+                <div class="modal-content">
+                    <div id="" class="modal-overlay" include-html="/component/signIn.html"></div>
+                </div>
+            </div>
+
+            <button>내정보</button>
+            <button>장바구니</button>
         </div>
+
+        <!-- 메인로고 -->
         <div class="MainLogoWrapper">
             <a href="">NEARFETCH</a>
         </div>

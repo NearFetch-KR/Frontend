@@ -177,14 +177,19 @@ button:active{
     padding: 1vh 3vh 0 1vh;
 }
 
-.InfoLogos>a{
-    margin-left:5px ;  
+.InfoLogos>button{
+    /* margin-left:5px ;   */
 }
 
-.InfoLogos>a:nth-child(1):after,
-.InfoLogos>a:nth-child(2):after,
-.InfoLogos>a:nth-child(3):after{
+.InfoLogos>button:nth-child(1):after,
+.InfoLogos>button:nth-child(2):after,
+.InfoLogos>button:nth-child(3):after{
     content: '   |';
+}
+
+.InfoLogos>button{
+    background-color: transparent;
+    color:var(--color-black);
 }
 
 .closeBtn{
@@ -301,13 +306,13 @@ input[name="search"]{
 
 
 /* 아이템 리스트*/
-.itemListWrapper{
+.itemListWrapper ul{
     width: 90%;
     display: flex;
     margin: auto;
     flex-wrap: wrap;
-    /* background-color: indianred; */
 }
+
 
 .itemListWrapper li{
     display: flex;
@@ -319,15 +324,31 @@ input[name="search"]{
     margin:5px;
 }
 
-/* 노출 상품 갯수 */
-.hotBrandItem>.itemListWrapper li:nth-of-type(n+21),
-.Recommend>.itemListWrapper li:nth-of-type(n+21) { 
-    display: none; 
-}
 
-.itemListWrapper>li>.itemImg{
+.itemListWrapper li>.itemImg{
     height: 300px;
     margin: 5px;
+}
+
+.itemListWrapper li>.skuNum{
+    display: none;
+}
+
+.itemListWrapper li>.itemBrand{
+    font-weight: 700;
+}
+
+.itemListWrapper li>.itemName{
+    color: var(--color-grey);
+    font-weight: 200;
+}
+
+.itemListWrapper li>.price{
+    font-size: var(--font-14px);
+}
+
+.itemListWrapper .price::after{
+    content: '원';
 }
 
 .itemListWrapper .cart{
@@ -336,10 +357,26 @@ input[name="search"]{
     left: 50%;
 }
 
+.itemListWrapper .cart:active{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.itemListWrapper .cart:hover{
+    cursor: pointer;
+}
 
 /* 로그인&회원가입 */
 form[class="login"]>.ui-slider-horizontal{
     width: 100%;
+}
+
+.signiInBtnWrapper,
+.signInAgreeWrapper{
+    text-align: left;
 }
 
 .login>.loginFormTitle,
@@ -369,6 +406,7 @@ form[class="login"]>.ui-slider-horizontal{
 .signInAgreeWrapper{
     padding: 5px 10px;
     font-size: var(--font-14px);
+    
 }
 
 .btnWrapper{
@@ -445,55 +483,43 @@ form[class="login"]>.ui-slider-horizontal{
 
 
 /* ----------------메인/main.html---------------- */
-/* 로그인/가입 모달창 */
-#signInModal.modal-overlay{
-    display: none;
-}
-/* #signInModal.modal-overlay, */
-#loginModal.modal-overlay{
-    /* width: 100%; */
-    /* height: 100%; */
-    /* position: absolute; */
-    display: block;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: pink;
-    /* background: rgba(255, 255, 255, 0.25); */
-    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
-    /* backdrop-filter: blur(1.5px); */
-    /* -webkit-backdrop-filter: blur(1.5px); */
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    z-index: 1000;
-}
-#loginModal .modal-window,
-#signInModal .modal-window  {
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 13.5px );
-    -webkit-backdrop-filter: blur( 13.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    width: 450px;
-    position: absolute;
+
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(240, 240, 240, 0.651); /* Black w/ opacity */
+  }
+/* 로그인 모달창 */
+.modal-content{
+    background-color: #fefefe;
+    position:absolute;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    margin: auto;
     padding: 20px;
+    border: 1px solid #888;
+    width: 500px;
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     -o-transform: translate(-50%,-50%);
+    z-index: 1000;
 }
 
-#loginModal .close-area,
-#signInModal .close-area  {
-    display: inline;
-    float: right;
+  .closeBtn:hover,
+  .closeBtn:focus {
+    color: #000;
+    text-decoration: none;
     cursor: pointer;
-    text-shadow: 1px 1px 2px gray;
-} 
+  }
 
 
 /* 섹션1_메인케러셀 */
@@ -1183,7 +1209,6 @@ main{
 .myInfoWrapper{
     padding: 5vh;
     padding-top: 2vh;
-    border-top: 1px solid #cccccc;
     min-height: 500px;
 }
 
@@ -2084,4 +2109,3 @@ width: 45%;
 .accordion{
     margin: 2vw;
 }
-

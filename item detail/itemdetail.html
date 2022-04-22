@@ -17,7 +17,7 @@
     
     <!-- 연결 css/js/jquery 파일 -->
     <link rel="stylesheet" href="/style.css">
-    <script defer src="/common.js" type="module"></script>
+    <!-- <script defer src="/common.js" type="module"></script> -->
     <script defer src="/commonJquery.js"></script>
     <script src="/includeHTML.js"></script>
     <script src="/includeRouter.js"></script>
@@ -36,22 +36,7 @@
     <main>
         <div class="section buy">
             <!-- 상품 상세 사진(좌) -->
-            <div class="itemDetail">
-                <ul>
-                    <li>
-                        <img src="" alt="">
-                    </li>
-                    <li>
-                        <img src="" alt="">
-                    </li>
-                    <li>
-                        <img src="" alt="">
-                    </li>
-                    <li>
-                        <img src="" alt="">
-                    </li>
-                </ul>
-            </div>
+            <div class="itemDetail"></div>
 
             <!-- 상품 구매 버튼(우) -->
             <div class="itemBuy">
@@ -160,11 +145,61 @@
 
     <!-- 푸터 -->
     <footer include-html="/component/footer.html"></footer>
-<!-- 
-  
+
+    <script src="/women_products.json"></script>
+    <script>
+        let itemList = JSON.parse(JSON.stringify(data));
+        const itemListWrapper = document.querySelector('.buy>.itemDetail')
+        const ul = document.createElement('ul');
+        itemListWrapper.appendChild(ul);
+        ul.setAttribute("class","list");
+        for (let i = 0; i < itemList[1].itemImg.length; i += 1) {
+            const li = document.createElement('li');
+            itemListWrapper.appendChild(li); //itemwrapper>li 추가
+          
+            for(let j=0;j<itemList[1].itemImg.length;j++){
+                const img = document.createElement('img');
+                img.src=itemList[1].itemImg[j];
+                li.appendChild(img)
+
+
+                // const img2 = document.createElement('img');
+                // img2.src=itemList[1].itemImg[1];
+
+                // const img3 = document.createElement('img');
+                // img3.src=itemList[1].itemImg[2];
+
+                // const img4 = document.createElement('img');
+                // img4.src=itemList[1].itemImg[3];
+
+                // li.appendChild(img1)
+                // li.appendChild(img2)
+                // li.appendChild(img3)
+                // li.appendChild(img4)
+
+            
+            }
+    
+          
+            // const div1 = document.createElement('div');
+            // div1.setAttribute("class","itemName");
+    
+        }
+
+     
+         
+        // div.textContent=itemList[i].itemBrand; 
+        // div1.textContent=itemList[i].itemName; 
+        // div2.textContent=itemList[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,","); 
+    
+        // const price=document.querySelectorAll(".price");
+        // price.toLocaleString()
+    
+    
+    </script>
   
 
-    // const btn=document.querySelector('.like>a')
+    <!-- // const btn=document.querySelector('.like>a')
     // btn.addEventListener('click',e => {
     //     // let mail = document.querySelector('.inputWrapper #mail').value;
     //     // let pw = document.querySelector('.inputWrapper #password').value;
@@ -193,7 +228,7 @@
     //           console.log('error');
     //         }
     //     });
-    // });  
+    // });   -->
 
 </body>
 </html>
