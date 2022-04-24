@@ -127,8 +127,7 @@
                             <span>/</span>
                             <span class="itemName">귀염토트백</span>
                             <br>
-                            <span class="price">10,000</span>
-                            <span>원</span>
+                            <span><span class="price">10,000</span>원</span>
                         </div>
                     </div>
                     <div class="mustBuyItem">
@@ -185,125 +184,89 @@
         <!-- 추천리스트 -->
         <div class="section Recommend">
             <h2>세상 소중한 당신에게,<br>감히 추천하는 아이템.</h2>
-            <div class="itemListWrapper" include-html="/component/itemList.html"></div>
+            <div class="itemListWrapper">
+                <!-- 추천 아이템 리스트 -->
+            </div>
         </div>
     </main>
 
     <!-- 푸터 -->
     <footer include-html="/component/footer.html"></footer>
+    <!-- 연결 css/js/jquery 파일 -->
+    <link rel="stylesheet" href="/style.css">
+    <script src="/common.js" defer></script>
+    <script src="/commonJquery.js"></script>
     
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="/women_products.json"></script>
+    
     <script>
+     
+        // const mailLogin=document.querySelector(".mailLogin");
+        // // console.log(mailLogin)
+        // mailLogin.addEventListener('click', e => {
+        // let mail = document.querySelector('.inputWrapper #mail').value;
+        // let pw = document.querySelector('.inputWrapper #password').value;
+        // e.preventDefault();
+        // let param = {
+        //     // 'name': name,
+        //     'email' : mail,
+        //     'password' : pw
+        // }           
+        // fetch("http://172.20.10.6:8000/users/signin", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(param),
+        // })
+        // .then((response) => response.json())
+        // .then((data) => console.log(data))
+        // .catch((error) => console.log("error:", error));
+        //     });  
+     
         // 카카오 로그인
-        Kakao.init('c06d45d83cfbe0482ac643895bc7aea1'); //발급받은 키 중 javascript키를 사용해준다.
-        // console.log(Kakao.isInitialized()); // sdk초기화여부판단
-        //카카오로그인
-        function kakaoLogin() {
-            Kakao.Auth.login({
-            success: function (response) {
-                Kakao.API.request({
-                url: '/v2/user/me',
-                success: function (response) {
-                    console.log(response)
-                },
-                fail: function (error) {
-                    console.log(error)
-                },
-                })
-            },
-            fail: function (error) {
-                console.log(error)
-            },
-            })
-        }
-        //카카오로그아웃  
-        function kakaoLogout() {
-            if (Kakao.Auth.getAccessToken()) {
-            Kakao.API.request({
-                url: '/v1/user/unlink',
-                success: function (response) {
-                    console.log(response)
-                },
-                fail: function (error) {
-                console.log(error)
-                },
-            })
-            Kakao.Auth.setAccessToken(undefined)
-            }
-        }  
+        // Kakao.init('c06d45d83cfbe0482ac643895bc7aea1'); //발급받은 키 중 javascript키를 사용해준다.
+        // // console.log(Kakao.isInitialized()); // sdk초기화여부판단
+        // function kakaoLogin() {
+        //     Kakao.Auth.login({
+        //     success: function (response) {
+        //         Kakao.API.request({
+        //         url: '/v2/user/me',
+        //         success: function (response) {
+        //             console.log(response)
+        //         },
+        //         fail: function (error) {
+        //             console.log(error)
+        //         },
+        //         })
+        //     },
+        //     fail: function (error) {
+        //         console.log(error)
+        //     },
+        //     })
+        // }
+        // //카카오로그아웃  
+        // function kakaoLogout() {
+        //     if (Kakao.Auth.getAccessToken()) {
+        //     Kakao.API.request({
+        //         url: '/v1/user/unlink',
+        //         success: function (response) {
+        //             console.log(response)
+        //         },
+        //         fail: function (error) {
+        //         console.log(error)
+        //         },
+        //     })
+        //     Kakao.Auth.setAccessToken(undefined)
+        //     }
+        // }  
    
 
+        
 
-    </script>
-
-    <script src="/women_products.json" defer></script>
-    <script>
-        // json파일 불러오기
-       let itemList = JSON.parse(JSON.stringify(data));
-
-        // main>최하단에 추천 상품 리스트 넣기
-       const itemListWrapper = document.querySelector('.Recommend>.itemListWrapper')
-       const ul = document.createElement('ul');
-       itemListWrapper.appendChild(ul);
-       ul.setAttribute("class","list");
-
-
-       for (let i = 0; i < 20; i += 1) {
-           const cart = document.createElement('img')
-           cart.setAttribute("class","cart")
-           cart.src="/images/shopping-cart.png";
-
-           const img = document.createElement('img')
-           img.setAttribute("class","itemImg")
-           img.src=itemList[i].itemImg[0];
-
-           const li = document.createElement('li');
-
-           const div = document.createElement('div');
-           div.setAttribute("class","itemBrand");
-
-           const div1 = document.createElement('div');
-           div1.setAttribute("class","itemName");
-
-           const div2 = document.createElement('div');
-           div2.setAttribute("class","price");
-
-           const div3 = document.createElement('div');
-           div3.setAttribute("class","skuNum");
-
-
-            ul.appendChild(li); //itemwrapper>li 추가
-            li.appendChild(cart);//itemwrapper>li>img 추가
-            li.appendChild(img);//itemwrapper>li>img 추가
-            li.appendChild(div);//itemwrapper>li>div 추가
-            li.appendChild(div1);//itemwrapper>li>div 추가
-            li.appendChild(div2);//itemwrapper>li>div 추가
-            li.appendChild(div3);//itemwrapper>li>div 추가
-
-
-            div.textContent=itemList[i].itemBrand; 
-            div1.textContent=itemList[i].itemName; 
-            div2.textContent=itemList[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,","); 
-            div3.textContent=itemList[i].skuNum; 
-            const price=document.querySelectorAll(".price");
-            price.toLocaleString()
-            }
-
-            const boxs = document.querySelectorAll('.Recommend>.itemListWrapper .itemImg');
-            boxs.forEach((el, index, ) => {
-            el.onclick = (e) => {
-                const parentTag=e.target.parentElement; //클릭한 요소의 부모 태그 전체
-                const siblings=boxs.childNodes;
-                console.log(index,parentTag)
-            }
-            });
    </script>
-     <!-- 연결 css/js/jquery 파일 -->
-     <link rel="stylesheet" href="/style.css">
-     <script src="/common.js"></script>
-     <script src="/commonJquery.js"></script>
-     <script src="/includeHTML.js"></script>
-     <script src="/includeRouter.js"></script>
+   
      
 </body>
 </html>

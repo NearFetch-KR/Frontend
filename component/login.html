@@ -1,7 +1,7 @@
 <!-- <div id="loginModal" class="modal-overlay"> -->
     <div class="modal-window">
         <div class="close-area">
-            <img src="/images/cancel.png" alt="" class="closeBtn">
+            <img src="/images/cancel.png" alt="" class="closeBtn2">
         </div>
         <form action="" class="login">
             <div class="loginFormTitle">즐거운 니어페치 쇼핑 시작</div>
@@ -17,15 +17,23 @@
                 </ul>
             </div>
             <div class="ui-slider-horizontal"></div>
+            <div class="loginInfoWrapper">
+                <div class="inputWrapper">
+                    <label for="mail">이메일 주소</label><br>
+                    <input type="text" id="mail">
+                </div>
+                <div class="inputWrapper">
+                    <label for="password">비밀번호</label><br>
+                    <input type="text" id="password">
+                </div>
+            </div>
             <div class="btnWrapper">
+                <button class="mailLogin">이메일로 로그인</button>
+
                 <button class="kakaoLogin" onclick="kakaoLogin();">카카오톡으로 로그인</button>
                 <!-- <button class="kakaoLogout" onclick="kakaoLogout();">카카오톡 로그아웃</button> -->
 
-                <button class="mailLogin">이메일로 로그인</button>
-                <label for="id">아이디</label>
-                <input type="text" id="id">
-                <label for="pw">비밀번호</label>
-                <input type="text" id="pw">
+                
             </div>
             <div class="loginActions">
                 <ul>

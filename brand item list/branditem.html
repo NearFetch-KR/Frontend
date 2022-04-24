@@ -73,22 +73,22 @@
                 <div include-html="/component/sorter.html"></div>
             </div>
             
-                
             <!-- 아이템자리 -->
-            <div class="itemListWrapper" include-html="/component/itemList.html"></div>
-    </div>
+            <div class="itemListWrapper">
+                <!-- 상품 정보 -->
+            </div>
+        </div>
     </main>
     <!-- 푸터 -->
     <footer include-html="/component/footer.html"></footer>
     
     <!-- 연결 css/js/jquery 파일 -->
     <link rel="stylesheet" href="/style.css">
-    <!-- <script src="/common.js"></script> -->
-    <script defer src="/commonJquery.js"></script>
-    <script src="/includeHTML.js"></script>
-    <script src="/includeRouter.js"></script>
+    <script src="/common.js" defer ></script>
+    <script src="/commonJquery.js"></script>
     <script src="/women_products.json"></script>
     <script>
+        // 상품 리스트에 상품 추가
         let itemList = JSON.parse(JSON.stringify(data));
         const itemListWrapper = document.querySelector('.hotBrandItem>.itemListWrapper')
         const ul = document.createElement('ul');
@@ -134,16 +134,17 @@
             const price=document.querySelectorAll(".price");
             price.toLocaleString()
         }
-
-        const boxs = document.querySelectorAll('.hotBrandItem>.itemListWrapper .itemImg');
-        boxs.forEach((el, index, ) => {
-        el.onclick = (e) => {
-            const parentTag=e.target.parentElement; //클릭한 요소의 부모 태그 전체
-            const siblings=boxs.childNodes;
-            console.log(index,parentTag)
-        }
-        });
-
+ 
+            // 클릭한 요소 정보
+            const clickedImgInfo = document.querySelectorAll('img');
+                clickedImgInfo.forEach((el, index, ) => {
+                el.onclick = (e) => {
+                const parentTag=e.target.parentElement; //클릭한 요소의 부모 태그 전체
+                const child=parentTag.childNodes; //클릭한 요소들의 형제 태그 전체
+                const sku=child[5].innerText;//클릭한 요소의 sku넘버(=전달할 요소)
+                console.log(sku)
+                }});
+                        
 
     </script>
 </body>
