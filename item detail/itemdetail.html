@@ -45,7 +45,11 @@
                     </select>
                     <button class="proceed">바로 구매</button>
                     <button class="goCart">장바구니 담기</button>
-                    <div class="arrivalDate">*오늘 주문 시 <span class="arrivalMonth"></span> <span class="arrivalDate"></span>에 수령 가능</div>
+                    <div class="expectedArrival">*오늘 주문 시 
+                        <span class="arrivalMonth"></span>월 
+                        <span class="arrivalDate"></span>일
+                    에 수령 가능
+                    </div>
                 </div>
             <!-- 정책 -->
             <div class="informWrapper">
@@ -74,6 +78,12 @@
                 <h2>추천 상품</h2>
                 <div class="row__inner">
                    <!-- 추천상품 정보 -->
+                   <!-- <div class="RecomItem">
+                            <div class="RecomItem__content">
+                                <img class="RecomItem__img" src="https://d15jp4iwerkqw1.cloudfront.net/images/products/74805925/thumbs/f53458216064400db56bef471bc423b9.jpg" alt=""  />
+                            </div>
+                            <div class="RecomItem__details"></div>
+                        </div> -->
                 </div>
             </div>
         </div>
@@ -84,42 +94,9 @@
 
      <!-- 연결 css/js/jquery 파일 -->
      <link rel="stylesheet" href="/style.css">
-     <script src="/common.js" defer></script>
+    <!-- <script src="/women_products.json" defer></script> -->
+     <script src="/common.js"></script>
      <script src="/commonJquery.js"></script>
-    
-    <script src="/women_products.json" defer></script>
-
-
-    <!-- // const btn=document.querySelector('.like>a')
-    // btn.addEventListener('click',e => {
-    //     // let mail = document.querySelector('.inputWrapper #mail').value;
-    //     // let pw = document.querySelector('.inputWrapper #password').value;
-    //     e.preventDefault();
-    //     let param = {
-    //         'message' : 'ok',
-    //     }  
-
-    //     const token='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MjV9.YIea4B5WBbk9TjJa-LuJ4Evi_7DgnOrFYd40k-Eq7kI';
-          
-    //     $.ajax({
-    //         url : 'http://192.168.0.171:8000/products/like/2',
-    //         type : 'POST',
-
-    //         beforeSend: function (xhr) {
-    //         xhr.setRequestHeader("Content-type","application/json");
-    //         xhr.setRequestHeader("Authorization", token);
-    //         },
-
-    //         data : JSON.stringify(param),
-    //         success:function(response){
-    //             console.log(response);
-    //         },
-            
-    //         error: function(){
-    //           console.log('error');
-    //         }
-    //     });
-    // });   -->
-
+  
 </body>
 </html>

@@ -28,7 +28,7 @@
     <!-- 메인 -->
     <main>
         <div class="section myInfoList">
-            <div include-html="/component/myInfoNav.html"></div>
+            <div class="infoBar"  include-html="/component/myInfoNav.html"></div>
 
             <div class="myInfo">
                 <h3>장바구니</h3> 
@@ -45,30 +45,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="addImg">
-                                    <img src="/images/fashion.jpg" alt="">
-                                </td>
-                                <td class="contents">
-                                    <div class="itemBrand"></div>
-                                    <div class="itemName">마티백 18 크링클드 </div> 
-                                </td>
-                                <td class="itemOption">ONE SIZE</td>
-                                <td class="itemQt">1</td>
-                                <td class="price">10000</td>
-                            </tr>
-                            <tr>
-                                <td class="addImg">
-                                    <img src="/images/fashion.jpg" alt="">
-                                </td>
-                                <td class="contents">
-                                    <div class="itemBrand"></div>
-                                    <div class="itemName">마티백 18 크링클드 </div> 
-                                </td>
-                                <td class="itemOption">ONE SIZE</td>
-                                <td class="itemQt">1</td>
-                                <td class="price">20000</td>
-                            </tr>
+                          <!-- 장바구니 상품 리스트 -->
                         </tbody>
                     </table>
 
@@ -86,30 +63,121 @@
     
      <!-- 연결 css/js/jquery 파일 -->
     <link rel="stylesheet" href="/style.css">
-    <script src="/common.js"></script>
+    <script src="/common.js" defer></script>
     <script src="/commonJquery.js"></script>
     <script src="/women_products.json"></script>
 
     <script>
-    // json파일 불러오기
-    // let itemList = JSON.parse(JSON.stringify(data));
+
+
+    
+    // 상품 정보 불러오기
     function init(){
         fetch("http://172.20.10.6:8000/users/cart", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: localStorage.getItem('login-token')
+                // Authorization: localStorage.getItem('login-token')
             },
         })
         .then((response) => response.json())
         .then((response) => {
-            const brand=document.querySelector(".itemBrand")
-            brand.textContent=response.result[0].brand;
-        })
+            const addItemListWrapper=document.querySelector('.addListTable tbody');
+            
+            for(let k=0;k<response.result.length;k++){
+                 const tr = document.createElement('tr');
+                addItemListWrapper.appendChild(tr);
+                const td = document.createElement('td');
+
+                const tdClassList=['addImg','contents','itemOption','itemQt','price'];
+                for(let i=0;i<tdClassList.length;i++){
+                    const td = document.createElement('td');
+                    tr.appendChild(td);
+                    td.setAttribute("class",[tdClassList[i]]);
+                }
+                const imgWrapperDiv=document.querySelector("tbody tr .addImg");
+                const imgTag=document.createElement("img");
+                imgWrapperDiv.appendChild(imgTag);
+                // const imgInner=document.querySelector(".addImg img")
+                imgTag.src=response.result[k]["image"];
+            // itemBrand.textContent=response.result[k].brand;
+            // itemName.textContent=response.result[k].name;
+            // itemQt.textContent=response.result[k].quantity;
+            // itemOption.textContent=response.result[k].option;
+            // price.textContent=response.result[k].price;
+                
+            }
+           
+            
+
+            // const imgInner=document.querySelector(".addImg img")
+            const contents=document.querySelector("tbody .contents");
+            const itemOption=document.querySelector("tbody .itemOption");
+            const price=document.querySelector("tbody .price");
+            const itemQt=document.querySelector(".itemQt");
+           
+            for(let j=0;j<2;j++){
+                const contentsClassList=['itemBrand','itemName']
+                const contentsDiv=document.createElement('div');
+                contents.appendChild(contentsDiv);
+                contentsDiv.setAttribute("class",[contentsClassList[j]]);
+            }
+
+            const itemBrand=document.querySelector(".itemBrand");
+            const itemName=document.querySelector(".itemName");
+
+       
 
 
-    }
+
+
+            // 장바구니에 있는 상품 노출(태그 완성)
+            // const addItemListWrapper=document.querySelector('.addListTable tbody');
+            // const tr = document.createElement('tr');
+            // addItemListWrapper.appendChild(tr);
+
+            // for(let i=0;i<5;i++){
+            //     const tdClassList=['addImg','contents','itemOption','itemQt','price'];
+            //     const td = document.createElement('td');
+            //     tr.appendChild(td);
+            //     td.setAttribute("class",[tdClassList[i]]);
+            //     }
+            
+            // const imgWrapper=document.createElement("img")
+            // const image=document.querySelector("tbody tr .addImg");
+            // image.appendChild(imgWrapper);
+
+            // const imgInner=document.querySelector(".addImg img")
+            // const contents=document.querySelector("tbody .contents");
+            // const itemOption=document.querySelector("tbody .itemOption");
+            // const price=document.querySelector("tbody .price");
+            // const itemQt=document.querySelector(".itemQt");
+           
+            // for(let j=0;j<2;j++){
+            //     const contentsClassList=['itemBrand','itemName']
+            //     const contentsDiv=document.createElement('div');
+            //     contents.appendChild(contentsDiv);
+            //     contentsDiv.setAttribute("class",[contentsClassList[j]]);
+            // }
+
+            // const itemBrand=document.querySelector(".itemBrand");
+            // const itemName=document.querySelector(".itemName");
+
+
+            // imgInner.src=response.result[0].image;
+            // itemBrand.textContent=response.result[0].brand;
+            // itemName.textContent=response.result[0].name;
+
+
+            // itemQt.textContent=response.result[0].quantity;
+            // itemOption.textContent=response.result[0].option;
+            // price.textContent=response.result[0].price;
+        }
+        )}
+    
+ 
     init()
+
 
   
     </script>

@@ -31,7 +31,7 @@
     <!-- 메인 -->
     <main>
         <div class="section myInfoList">
-            <div include-html="/component/myInfoNav.html"></div>
+            <div class="infoBar" include-html="/component/myInfoNav.html"></div>
             <div class="myInfo">
                 <h3>주문 내역</h3> 
                 <div class="myInfoWrapper">
@@ -77,19 +77,19 @@
 
     <!-- 연결 css/js/jquery 파일 -->
     <link rel="stylesheet" href="/style.css">
-    <script src="/common.js" defer></script>
+    <script src="/common.js"></script>
     <script src="/commonJquery.js"></script>
     <script src="/women_products.json"></script>
-    <script>
-        let itemList = JSON.parse(JSON.stringify(data));
-        // const orderNumber=document.querySelector(".orderListTable tbody .orderNumber")
-        // const itemImg=document.querySelector(".orderListTable tbody .itemImg")
-        // const itemName=document.querySelector(".orderListTable tbody .itemName")
-        // const price=document.querySelector(".orderListTable tbody .price")
-        // const orderDate=document.querySelector(".orderListTable tbody .orderDate")
-        // const trkStatus=document.querySelector(".orderListTable tbody .trkStatus")
-        // const trkCompany=document.querySelector(".orderListTable tbody .trkCompany")
-        // const trkNum=document.querySelector(".orderListTable tbody .trkNum")
-     </script>
+    <!-- <script>
+        let itemList = JSON.parse(JSON.stringify(data)); 
+        const orderNumber=document.querySelector(".orderListTable tbody .orderNumber")
+        const itemImg=document.querySelector(".orderListTable tbody .itemImg")
+        const itemName=document.querySelector(".orderListTable tbody .itemName")
+        const price=document.querySelector(".orderListTable tbody .price")
+        const orderDate=document.querySelector(".orderListTable tbody .orderDate")
+        const trkStatus=document.querySelector(".orderListTable tbody .trkStatus")
+        const trkCompany=document.querySelector(".orderListTable tbody .trkCompany")
+        const trkNum=document.querySelector(".orderListTable tbody .trkNum")
+     </script> -->
 </body>
 </html>

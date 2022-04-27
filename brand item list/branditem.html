@@ -86,65 +86,55 @@
     <link rel="stylesheet" href="/style.css">
     <script src="/common.js" defer ></script>
     <script src="/commonJquery.js"></script>
-    <script src="/women_products.json"></script>
+    <!-- <script src="/women_products.json"></script> -->
     <script>
-        // 상품 리스트에 상품 추가
-        let itemList = JSON.parse(JSON.stringify(data));
-        const itemListWrapper = document.querySelector('.hotBrandItem>.itemListWrapper')
-        const ul = document.createElement('ul');
-        itemListWrapper.appendChild(ul);
-        ul.setAttribute("class","list");
+        // // 상품 리스트에 상품 추가
+        // let brandItemList = JSON.parse(JSON.stringify(data));
+        // const itemListWrapper = document.querySelector('.hotBrandItem>.itemListWrapper')
+        // const ul = document.createElement('ul');
+        // itemListWrapper.appendChild(ul);
+        // ul.setAttribute("class","list");
 
-        for (let i = 0; i < 20; i += 1) {
-            const cart = document.createElement('img')
-            cart.setAttribute("class","cart")
-            cart.src="/images/shopping-cart.png";
+        // for (let i = 0; i < 20; i += 1) {
+        //     const cart = document.createElement('img')
+        //     cart.setAttribute("class","cart")
+        //     cart.src="/images/shopping-cart.png";
 
-            const img = document.createElement('img')
-            img.setAttribute("class","itemImg")
-            img.src=itemList[i].itemImg[0];
+        //     const img = document.createElement('img')
+        //     img.setAttribute("class","itemImg")
+        //     img.src=brandItemList[i].itemImg[0];
 
-            const li = document.createElement('li');
+        //     const li = document.createElement('li');
 
-            const div = document.createElement('div');
-            div.setAttribute("class","itemBrand");
+        //     const div = document.createElement('div');
+        //     div.setAttribute("class","itemBrand");
 
-            const div1 = document.createElement('div');
-            div1.setAttribute("class","itemName");
+        //     const div1 = document.createElement('div');
+        //     div1.setAttribute("class","itemName");
 
-            const div2 = document.createElement('div');
-            div2.setAttribute("class","price");
+        //     const div2 = document.createElement('div');
+        //     div2.setAttribute("class","price");
 
-            const div3 = document.createElement('div');
-            div3.setAttribute("class","skuNum");
+        //     const div3 = document.createElement('div');
+        //     div3.setAttribute("class","skuNum");
 
-            ul.appendChild(li); //itemwrapper>li 추가
-            li.appendChild(cart);//itemwrapper>li>img 추가
-            li.appendChild(img);//itemwrapper>li>img 추가
-            li.appendChild(div);//itemwrapper>li>div 추가
-            li.appendChild(div1);//itemwrapper>li>div 추가
-            li.appendChild(div2);//itemwrapper>li>div 추가
-            li.appendChild(div3);//itemwrapper>li>div 추가
+        //     ul.appendChild(li); //itemwrapper>li 추가
+        //     li.appendChild(cart);//itemwrapper>li>img 추가
+        //     li.appendChild(img);//itemwrapper>li>img 추가
+        //     li.appendChild(div);//itemwrapper>li>div 추가
+        //     li.appendChild(div1);//itemwrapper>li>div 추가
+        //     li.appendChild(div2);//itemwrapper>li>div 추가
+        //     li.appendChild(div3);//itemwrapper>li>div 추가
 
 
-            div.textContent=itemList[i].itemBrand; 
-            div1.textContent=itemList[i].itemName; 
-            div2.textContent=itemList[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,","); 
-            div3.textContent=itemList[i].skuNum; 
-            const price=document.querySelectorAll(".price");
-            price.toLocaleString()
-        }
- 
-            // 클릭한 요소 정보
-            const clickedImgInfo = document.querySelectorAll('img');
-                clickedImgInfo.forEach((el, index, ) => {
-                el.onclick = (e) => {
-                const parentTag=e.target.parentElement; //클릭한 요소의 부모 태그 전체
-                const child=parentTag.childNodes; //클릭한 요소들의 형제 태그 전체
-                const sku=child[5].innerText;//클릭한 요소의 sku넘버(=전달할 요소)
-                console.log(sku)
-                }});
-                        
+        //     div.textContent=brandItemList[i].itemBrand; 
+        //     div1.textContent=brandItemList[i].itemName; 
+        //     div2.textContent=brandItemList[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g,","); 
+        //     div3.textContent=brandItemList[i].skuNum; 
+        //     const price=document.querySelectorAll(".price");
+        //     price.toLocaleString()
+        // }
+  
 
     </script>
 </body>

@@ -19,7 +19,7 @@
      <!-- jQuery -->
      <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
      <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-   
+
     <title>간지나는 당신 곁엔,NearFetch</title>
 </head>
 <body>
@@ -28,56 +28,63 @@
 
     <!-- 메인 -->
     <main>
-        <!-- 메인케러셀컨텐츠 -->
         <div class="section newsList">
-            <div class="SlideShowContainer">
-                <div class="mySlides fade">
-                    <img src="https://www.chanel.com/apac/img/t_one/q_auto:good,fl_lossy,dpr_1.2,f_auto/w_3000/prd-emea/sys-master/content/P1/h2b/h02/9610586882078-Homepage_Fashion_ONE_Desktop_22S.jpg">
-                    <div class="SlideText">기획전 1</div>
-                </div>
-            
-                <div class="mySlides fade">
-                    <img src="https://www.chanel.com/apac/img/t_one/q_auto:good,fl_lossy,dpr_1.2,f_auto/w_3000/prd-emea/sys-master/content/P1/h56/ha6/9555152437278-Homepage_Fashion_ONE_Desktop(3).jpg">
-                    <div class="SlideText">기획전 2</div>
-                </div>
-            
-                <div class="mySlides fade">
-                    <img src="https://www.chanel.com/apac/img/t_one/q_auto:good,fl_lossy,dpr_1.2,f_auto/w_1920/prd-emea/sys-master/content/hfc/h66/9477763399710-HpModeONEDesktop(5).jpg" >
-                    <div class="SlideText">기획전 3</div>
-                </div>
-            
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <h2>니어패치 매거진,<br>그 브랜드를 알고싶다.</h2>
+            <div class="carousel" aria-label="Gallery">
+              <ol class="carousel__viewport">
+                <li id="carousel__slide1"
+                    tabindex="0"
+                    class="carousel__slide">
+                  <div class="carousel__snapper"></div>
+                </li>
+                <li id="carousel__slide2"
+                    tabindex="0"
+                    class="carousel__slide">
+                  <div class="carousel__snapper"></div>
+                </li>
+                <li id="carousel__slide3"
+                    tabindex="0"
+                    class="carousel__slide">
+                  <div class="carousel__snapper"></div>
+                </li>
+                <li id="carousel__slide4"
+                    tabindex="0"
+                    class="carousel__slide">
+                  <div class="carousel__snapper"></div>
+                </li>
+              </ol>
             </div>
         </div>
+
+
 
         <div class="section HotDeal">
             <h2>오늘만 이 가격, 실화🤫</h2>
             <div class="Timer">
                 <ul>
                     <li>
-                        <div class="NumberDays">0</div>
+                        <div class="NumberDays"></div>
                         <div class="timeText">days</div>
                     </li>
                     <li>
                         <div class="number-semi">:</div>
                     </li>
                     <li>
-                        <div class="NumberHours">0</div>
+                        <div class="NumberHours"></div>
                         <div class="timeText">hours</div>
                     </li>
                     <li>
                         <div class="number-semi">:</div>
                     </li>
                     <li>
-                        <div class="NumberMinutes">0</div>
+                        <div class="NumberMinutes"></div>
                         <div class="timeText">minutes</div>
                     </li>
                     <li>
                         <div class="number-semi">:</div>
                     </li>
                     <li>
-                        <div class="NumberSeconds">0</div>
+                        <div class="NumberSeconds"></div>
                         <div class="timeText">seconds</div>
                     </li>
                 </ul>
@@ -196,12 +203,14 @@
     <link rel="stylesheet" href="/style.css">
     <script src="/common.js" defer></script>
     <script src="/commonJquery.js"></script>
-    
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script src="/women_products.json"></script>
+    <!-- <script src="/women_products.json"></script> -->
     
     <script>
-     
+
+
+
+    //상단 Navbar 펼치기(Designers,여성,남성,Sale)        
         // const mailLogin=document.querySelector(".mailLogin");
         // // console.log(mailLogin)
         // mailLogin.addEventListener('click', e => {
@@ -261,12 +270,7 @@
         //     Kakao.Auth.setAccessToken(undefined)
         //     }
         // }  
-   
 
-        
-
-   </script>
-   
-     
+   </script>  
 </body>
 </html>

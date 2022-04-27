@@ -5,18 +5,61 @@
         <div class="InfoMenu">
             <!-- 로그인 버튼 -->
             <button id="loginBtn">로그인</button>
-            <div id="loginModal" class="modal">
+            <div id="loginModal" >
+                <!-- <div class="modal-content" include-html="/component/login.html"></div> -->
                 <div class="modal-content">
-                    <div id="" class="modal-overlay" include-html="/component/login.html"></div>
+                                    
+                <div class="close-area">
+                    <img src="/images/cancel.png" alt="" class="loginClose">
+                </div>
+                <form action="" class="login">
+                    <div class="loginFormTitle">즐거운 니어페치 쇼핑 시작</div>
+                    <div class="loginNsignin">
+                        <ul>
+                            <li>
+                                <a href="#">로그인</a>
+                                
+                            </li>
+                            <li>
+                                <a href="">회원 가입</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ui-slider-horizontal"></div>
+                    <div class="loginInfoWrapper">
+                        <div class="inputWrapper">
+                            <label for="mail">이메일 주소</label><br>
+                            <input type="text" id="mail">
+                        </div>
+                        <div class="inputWrapper">
+                            <label for="password">비밀번호</label><br>
+                            <input type="text" id="password">
+                        </div>
+                    </div>
+                    <div class="btnWrapper">
+                        <button class="mailLogin">이메일로 로그인</button>
+
+                        <button class="kakaoLogin" onclick="kakaoLogin();">카카오톡으로 로그인</button>
+                        <!-- <button class="kakaoLogout" onclick="kakaoLogout();">카카오톡 로그아웃</button> -->
+
+                        
+                    </div>
+                    <div class="loginActions">
+                        <ul>
+                            <li><a href="">회원가입하기</a></li>
+                            <li><a href="">아이디를 잊으셨나요?</a></li>
+                            <li><a href="">비밀번호를 잊으셨나요?</a></li>
+                        </ul>
+                    </div>
+                </form>
+
                 </div>
             </div>
             
             <!-- 회원가입 버튼 -->
-            <button id="signInBtn">회원가입</button>
-            <div id="signInModal" class="modal">
-                <div class="modal-content">
-                    <div id="" class="modal-overlay" include-html="/component/signIn.html"></div>
-                </div>
+            <button id="registerBtn">회원가입</button>
+            <div id="registerModal">
+                <div class="modal-content" include-html="/component/register.html"></div>
             </div>
 
             <button id="myInfo">내정보</button>
@@ -39,22 +82,25 @@
             </div> 
             <!-- 여성 -->
             <div class="dropdown">
-                <button class="dropbtn">여성</button>
+                <button class="dropbtn">WOMEN</button>
                 <div class="dropdown-content">
                     <div class="categoryMedium">
-                        <a href="#">CLOTHING</a>
-                        <ul>
-                            <li><a href="">Coats</a></li>
-                            <li><a href="">Dresses</a></li>
-                            <li><a href="">Jackets</a></li>
-                            <li><a href="">Jeans</a></li>
-                            <li><a href="">Knitwear</a></li>
-                            <li><a href="">Lingerie & Swimwear</a></li>
-                            <li><a href="">Shirts</a></li>
-                            <li><a href="">Skirts</a></li>
-                            <li><a href="">T-shirts</a></li>
-                            <li><a href="">Pants</a></li>
-                        </ul>
+                        <a href="#">CLOTHING
+                            <ul>
+                                <li>
+                                    <a href="">Coats</a>
+                                </li>
+                                <li><a href="">Dresses</a></li>
+                                <li><a href="">Jackets</a></li>
+                                <li><a href="">Jeans</a></li>
+                                <li><a href="">Knitwear</a></li>
+                                <li><a href="">Lingerie & Swimwear</a></li>
+                                <li><a href="">Shirts</a></li>
+                                <li><a href="">Skirts</a></li>
+                                <li><a href="">T-shirts</a></li>
+                                <li><a href="">Pants</a></li>
+                            </ul>
+                        </a>
                     </div>
 
                     <div class="categoryMedium">
@@ -100,7 +146,7 @@
 
             <!-- 남성 -->
             <div class="dropdown">
-                <button class="dropbtn">남성</button>
+                <button class="dropbtn">MEN</button>
                 <div class="dropdown-content">
 
                     <div class="categoryMedium">
