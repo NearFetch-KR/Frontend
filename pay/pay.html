@@ -39,16 +39,17 @@
                <!-- 이름/연락처 -->
                 <div class="ordererInfo">
                     <h3>주문자 정보</h3>
-                    <div include-html="/component/contactInfo.html"></div>
+                    <div class="contactInfo" include-html="/component/contactInfo.html"></div>
                 </div>
 
                 <!-- 배송지 -->
                 <div class="shippingInfo">
                     <h3>배송지 정보</h3>
-                    <input type="checkbox" > 주문자와 동일
+                    <div class="checkSame">
+                        <input type="checkbox"> 주문자와 동일
+                    </div>
                     <br>
-                    <div include-html="/component/contactInfo.html"></div>
-
+                    <div class="contactInfo" include-html="/component/contactInfo.html"></div>
 
                     <div class="basicInfo">
                         <label for="member_post">주소</label>

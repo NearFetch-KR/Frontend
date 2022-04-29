@@ -122,21 +122,18 @@ button:hover{
 }
 
 button:active{
-    transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
 }
 thead>tr{
-    /* background-color: red; */
     padding:10px;
-    /* border-top: 1px solid var(--color-darkgrey); */
     border-bottom: 1px solid var(--color-darkgrey);
     background-color: var(--color-black);
     color:var(--color-white);
 }
-
 
 
 tbody>tr>td{
@@ -396,22 +393,22 @@ form[class="login"]>.loginInfoWrapper{
     padding:5px;
 }
 
-.signiInBtnWrapper,
+.registerBtnWrapper,
 .signInAgreeWrapper{
     text-align: left;
 }
 
 .login>.loginFormTitle,
-.sign>.signInFormTitle{
+.sign>.registerFormTitle{
     font-size: var(--font-30px);
     padding: 10px;
 }
 
-.loginNsignin>ul>li{
+.loginNregister>ul>li{
     margin: 5px 20px 5px 0;
 }
 
-.loginNsignin>ul{
+.loginNregister>ul{
     display: flex;
     justify-content: center;
     margin-bottom: 0;
@@ -429,7 +426,6 @@ form[class="login"]>.loginInfoWrapper{
 .signInAgreeWrapper{
     padding: 5px 10px;
     font-size: var(--font-14px);
-    
 }
 
 .btnWrapper{
@@ -442,7 +438,7 @@ form[class="sign"]>.btnWrapper{
     text-align: center;
 }
 
-.loginNsignin a:hover{
+.loginNregister a:hover{
     background-color: var(--color-lightgrey);
 }
 
@@ -1450,6 +1446,8 @@ tbody .contents .itemBrand{
     padding: 1.8vw;
 }
 
+
+
 .basicInfo{
     display: flex;
     flex-direction: column;
@@ -1539,21 +1537,22 @@ tbody .contents .itemBrand{
     width: 55%;
 }
 
-.ordererInfo,
-.shippingInfo,
-.paymentInfo,
-.orderInfoDetail,
-.totalAmount,
-.orderAgree{
+.payInfo>div,
+.orderInfo>div{
 padding: 3vh;
 }
 
+
+
 .ordererInfo ul,
 .shippingInfo ul,
-.totalAmount ul{
-    padding: 0;
-    padding-top: 1vh;
+.totalAmount,
+.basicInfo,
+.shippingInfo>.checkSame,
+.orderAgree{
+    padding: 1vh;
 }
+
  
 .ordererInfo ul li,
 .shippingInfo ul li{
@@ -1579,28 +1578,24 @@ padding: 3vh;
     background-color: rgb(241, 241, 241);
 }
 
-.ordererInfo h3,
-.shippingInfo h3,
-.paymentInfo h3{
+.pay h3{
     border-bottom: 1px solid var(--color-black);
+    font-weight: 600;
     padding: 1vh;
 }
 
+
 .basicInfo{
-    width: 100%;
-    display: flex;
-    padding: 1.5vh;
+    padding: 2vh;
 }
+
 
 
 .basicInfo input{
-    margin-bottom: 10px;
+    margin-top: 10px;
     width: 300px;
 }
 
-.basicInfo label{
-    width: 10%;
-}
 
 .paymentInfo ul,
 .orderItem ul{
@@ -1616,6 +1611,7 @@ padding: 3vh;
     text-align: center;
     align-items: center;
     font-weight: 600;
+    
 }
 
 .paymentInfo ul li:hover{
@@ -1639,29 +1635,21 @@ padding: 3vh;
     width: 40%;
 }
 
-.totalAmount ul{
-    display: flex;
-}
-
-.agreeWrapper{
-    margin: 3px;
-}
-
-.agreeWrapper input{
-    padding: 15px;
-}
 
 .orderAgree button{
     width: 100%;
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
 
 /* ----------------결제 완료/paydone.html---------------- */
 .payDoneWrapper{
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.payDoneNotice img{
+.payDoneNotice img,
+.payDoneBtn button{
     width: 10vw;
 }
 
@@ -1669,9 +1657,7 @@ padding: 3vh;
     line-height: 1.5;
 }
 
-.payDoneBtn button{
-    width: 10vw;
-}
+
 /* ----------------앱 소개/appDown.html---------------- */
 
 #infoWrapper{
@@ -2177,6 +2163,7 @@ width: 45%;
 
 .qnaNavbar{
     padding:5vw 1vw;
+    /* text-align: left; */
 }
 
 .qnaNavbar ul li{
@@ -2192,6 +2179,11 @@ width: 45%;
     width: 80%;
 }
 
+
 .accordion{
-    margin: 2vw;
+    margin: 3vw;
+}
+.accordion-collapse{
+    text-align: left;
+    margin-left: 1vw;
 }

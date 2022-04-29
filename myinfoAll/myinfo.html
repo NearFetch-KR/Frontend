@@ -29,7 +29,15 @@
     <!-- 메인 -->
     <main>
         <div class="section myInfoList">
-            <div class="infoBar" include-html="/component/myInfoNav.html"></div>
+            <div class="infoBar">
+                <ul>
+                    <li><a href="">내 정보</a></li>
+                    <li><a href="">주소록</a></li>
+                    <li><a href="">주문 내역</a></li>
+                    <li><a href="">장바구니</a></li>
+                    <li><a href="" id="logout">로그아웃</a></li>
+                </ul>
+            </div>
 
             <div class="myInfo">
                 <h3>넘나리 소중한 나의 정보</h3> 
@@ -43,9 +51,9 @@
                         <div class="basicInfo">
                             <label for="member_post">주소</label>
                             <div class="addressBox">
-                                <input id="member_post"  type="text" placeholder="우편번호" readonly onclick="findAddr()"><br>
-                                <input id="member_addr" type="text" placeholder="주소" readonly>
-                                <input type="text" placeholder="상세주소(직접입력)">
+                                <input id="member_post"  type="text" placeholder="우편번호" readonly onclick="findAddr()" onchange="getAddressValue()"><br>
+                                <input id="member_addr" type="text" placeholder="주소" readonly onchange="getAddressValue()">
+                                <input id="addr_detail" type="text" placeholder="상세주소(직접입력)" onchange="getAddressValue()">
                             </div>
                         </div>
                         <button id="save">저장</button>
