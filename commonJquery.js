@@ -1,4 +1,21 @@
+// const categoryLists = document.querySelectorAll('.categoryMedium li>a');
+// categoryLists.onclick = (e) => { 
 
+// 	let categorySmall=e.target.innerText; //클릭한 요소(=clickedItem)
+// 	let categoryMedium=e.target.parentElement.parentElement.parentElement.childNodes[1].innerText; //중간 카테고리(=categoryMedium)
+// 	let gender=e.target.parentElement.parentElement.parentElement.childNodes[1].parentElement.parentElement.parentElement.childNodes[1].innerText;//대 카테고리(=gender)
+// 	console.log(categorySmall)
+// 	$.ajax({
+// 		url : `http://172.20.10.6:8000/products/list?large_category=${gender}&medium_category=${categoryMedium}&small_category=${categorySmall}`,
+// 		type : 'GET',
+// 		success:function(data){
+// 			console.log(data);
+// 		},
+// 		error: function(){
+// 			alert('go away');
+// 		}
+// 	});
+// };       
 
 /* ----------------상품 리스트(검색)/search.html---------------- */
 /* ----------------상품 리스트(특정 브랜드)/branditem.html---------------- */

@@ -158,7 +158,7 @@ tbody>tr{
 
 .verticalLine{
     width: 0.1px; 
-    height: 50vh;
+    /* height: 50vh; */
     border: 1px solid var(--color-grey);
 }
 
@@ -338,7 +338,7 @@ input[name="search"]{
 }
 
 
-.itemListWrapper li>.itemImg{
+.itemListWrapper li .itemImg{
     height: 300px;
     margin: 5px;
 }
@@ -492,14 +492,19 @@ form[class="sign"]>.btnWrapper{
     letter-spacing: 3px;
 }
 
-.FooterInfo div{
+.FooterInfo>div{
     padding: var(--font-30px);
     text-align: left;
+}
+.FooterInfo>div>h3{
+    margin:20px -10px;
+    font-size: 1vw;
 }
 
 .FooterInfo>div>ul>li{
     list-style-type: disc;
     font-size: var(--font-14px);
+    padding: 3px;
 }
 
 .AppDownload{
@@ -611,7 +616,7 @@ form[class="sign"]>.btnWrapper{
   }
   
   *::-webkit-scrollbar-track {
-    background: transparent;
+    /* background: transparent; */
   }
   
   *::-webkit-scrollbar-thumb {
@@ -647,15 +652,16 @@ form[class="sign"]>.btnWrapper{
     flex: 0 0 100%;
     width: 100%;
     height: 500px;
-    background-color: #f99;
     counter-increment: item;
+    background-color: rgb(235, 235, 235);
+  }
+
+  .carousel__snapper img{
+      height: 100%;
   }
   
-  .carousel__slide:nth-child(even) {
-    background-color: #99f;
-  }
-  
-  .carousel__slide:before {
+ 
+  /* .carousel__slide:before {
     content: counter(item);
     position: absolute;
     top: 50%;
@@ -663,7 +669,7 @@ form[class="sign"]>.btnWrapper{
     transform: translate3d(-50%,-40%,70px);
     color: #fff;
     font-size: 2em;
-  }
+  } */
   
   .carousel__snapper {
     position: absolute;
@@ -2104,6 +2110,13 @@ nav[class="InfoLogo"]{
     display: flex;
     flex-direction: column;
 }
+.usp img:hover{
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
 
 
 .whyNearFetch{
@@ -2122,12 +2135,18 @@ background-repeat: no-repeat;
     margin-bottom: 30%;
 }
 
+.whyNearFetchTxt div:nth-child(2){
+    font-size: 2vw;
+    font-weight: 200;
+}
+
 .whyNearFetchTxt div:nth-child(4){
     font-size: 1.5vw;
 }
 
 .whyNearFetchTxt div:nth-child(5){
     font-size: 1vw;
+    font-weight: 200;
 }
 
 .uspContents,
@@ -2144,14 +2163,38 @@ background-repeat: no-repeat;
     width: 30%;
 }
 
+.uspText h4,
+.advan h3{
+    font-weight: 200;
+}
+.advan>div{
+    color: var(--color-white);
+    position: relative;
+    top: 50%;
+    z-index: 10;
+    font-weight: 200;
+    padding: 10px;
+}
+
+.advan h3{
+    font-size: 2vw;
+    padding: 10px;
+}
+
+
 .uspImg img{
     width: 95%;
 }
 
-.advan{
-background-color: rgb(231, 231, 231);
-width: 45%;
+.advan img{
+    position: relative;
+    top: 0;
+    width:400px;
+    filter: brightness(70%);
+    -webkit-filter: brightness(70%);
 }
+
+
 
 
 
