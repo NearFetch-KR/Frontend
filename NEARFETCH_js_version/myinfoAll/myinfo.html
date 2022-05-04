@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta정보 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+    
+    <!-- 부트스트랩 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+  
+    <title>간지나는 당신 곁엔,NearFetch</title>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header include-html="/NEARFETCH_js_version/component/header.html"></header>
+
+
+    <!-- 메인 -->
+    <main>
+        <div class="section myInfoList">
+            <div class="infoBar">
+                <ul>
+                    <li><a href="">내 정보</a></li>
+                    <li><a href="">주소록</a></li>
+                    <li><a href="">주문 내역</a></li>
+                    <li><a href="">장바구니</a></li>
+                    <li><a href="" id="logout">로그아웃</a></li>
+                </ul>
+            </div>
+
+            <div class="myInfo">
+                <h3>넘나리 소중한 나의 정보</h3> 
+                <div class="myInfoWrapper" id="myInfoWrapper">
+                    <div class="imgNextoMyinfo">
+                        <!-- 사진(랜덤) -->
+                        <img src="/images/fashion.jpg" alt="" width="100%">
+                    </div>
+                    <div class="myInfoAddress">
+                        <h6>더욱 편리한 모던 럭셔리 쇼핑 경험을 위해 고객님의 개인 정보와 주문 내역이 안전하게 저장되었습니다.</h6>
+                        <div class="basicInfo">
+                            <label for="member_post">주소</label>
+                            <div class="addressBox">
+                                <input id="member_post"  type="text" placeholder="우편번호" readonly onclick="findAddr()" onchange="getAddressValue()"><br>
+                                <input id="member_addr" type="text" placeholder="주소" readonly onchange="getAddressValue()">
+                                <input id="addr_detail" type="text" placeholder="상세주소(직접입력)" onchange="getAddressValue()">
+                            </div>
+                        </div>
+                        <button id="save">저장</button>
+                    </div>
+                   
+                </div>      
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- 푸터 -->
+     <footer include-html="/NEARFETCH_js_version/component/footer.html"></footer>
+      
+     <!-- 연결 css/js/jquery 파일 -->
+    <link rel="stylesheet" href="/NEARFETCH_js_version/style.css">
+    <script src="/NEARFETCH_js_version/common.js" defer></script>
+    <script src="/NEARFETCH_js_version/commonJquery.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+</body>
+</html>

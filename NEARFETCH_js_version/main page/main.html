@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- meta정보 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 부트스트랩 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.js"
+      integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+    <title>간지나는 당신 곁엔,NearFetch</title>
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header include-html="/NEARFETCH_js_version/component/header.html"></header>
+
+    <!-- 메인 -->
+    <main>
+      <div class="section newsList">
+        <h2>니어패치 매거진,<br />그 브랜드를 알고싶다.</h2>
+        <div class="carousel" aria-label="Gallery">
+          <ol class="carousel__viewport">
+            <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+              <div class="carousel__snapper">
+                <img
+                  src="https://media.matchesfashion.com/apps/Content/Homepage/Heroes/c9d6a3ce-920c-4b3c-a43e-eb8e5812483a-0427-WW-HP-hero-1-large.jpg?width=1180&quality=95"
+                  alt=""
+                />
+              </div>
+            </li>
+            <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+              <div class="carousel__snapper">
+                <img
+                  src="https://media.matchesfashion.com/apps/Content/Homepage/Promos/36ba518b-3590-49a4-9fa0-4df4fdd0bec7-0000-ww-promo-7-large.jpg?width=1400&quality=90"
+                  alt=""
+                />
+              </div>
+            </li>
+            <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+              <div class="carousel__snapper">
+                <img
+                  src="https://media.matchesfashion.com/apps/Content/Meganav/def3beae-0fda-40d8-a161-57eaabd85628-Home.jpg10.jpg"
+                  alt=""
+                />
+              </div>
+            </li>
+            <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+              <div class="carousel__snapper">
+                <img
+                  src="https://media.matchesfashion.com/apps/Content/Homepage/Promos/36ba518b-3590-49a4-9fa0-4df4fdd0bec7-0000-ww-promo-7-large.jpg?width=1400&quality=90"
+                  alt=""
+                />
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="section HotDeal">
+        <h2>오늘만 이 가격, 실화🤫</h2>
+        <div class="Timer">
+          <ul>
+            <li>
+              <div class="NumberDays"></div>
+              <div class="timeText">days</div>
+            </li>
+            <li>
+              <div class="number-semi">:</div>
+            </li>
+            <li>
+              <div class="NumberHours"></div>
+              <div class="timeText">hours</div>
+            </li>
+            <li>
+              <div class="number-semi">:</div>
+            </li>
+            <li>
+              <div class="NumberMinutes"></div>
+              <div class="timeText">minutes</div>
+            </li>
+            <li>
+              <div class="number-semi">:</div>
+            </li>
+            <li>
+              <div class="NumberSeconds"></div>
+              <div class="timeText">seconds</div>
+            </li>
+          </ul>
+        </div>
+        <div class="HotDealContents">
+          <!-- 컨텐츠1 -->
+          <div class="HotDealWrapper">
+            <div class="HotDealContentsVideo">
+              <video
+                src="https://www.chanel.com/videos/e_volume:mute/q_90,f_mp4,c_scale,w_1852,c_limit/FSH-1617110876630-campagne04filmmobile.mp4"
+                autoplay
+                muted
+                loop
+              ></video>
+            </div>
+            <div class="HotDealContentsText">
+              <div class="itemBrand">GUCCI</div>
+              <div class="itemName">마티백 18 크링클드</div>
+              <span class="price">139,000원</span>
+            </div>
+          </div>
+          <!-- 컨텐츠2 -->
+          <div class="HotDealWrapper">
+            <div class="HotDealContentsVideo">
+              <video
+                src="https://www.chanel.com/videos/e_volume:mute/q_90,f_mp4,c_scale,w_1852,c_limit/FSH-1617110876630-campagne04filmmobile.mp4"
+                autoplay
+                muted
+                loop
+              ></video>
+            </div>
+            <div class="HotDealContentsText">
+              <div class="itemBrand">GUCCI</div>
+              <div class="itemName">마티백 18 크링클드</div>
+              <span class="price">139,000원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 이번주 베스트셀러 -->
+      <div class="section BestSeller">
+        <h2>이번 주 ✨갓✨템</h2>
+        <!-- <div include-html="/NEARFETCH_js_version/component/itemList.html"></div> -->
+      </div>
+
+      <!-- 당장 사야할 것들 -->
+      <div class="section MustBuyNow">
+        <h2>당장 사야할 것들,여기 다 있다</h2>
+        <div class="mustBuyWrapper">
+          <div class="mustBuyItem">
+            <img
+              src="https://media.matchesfashion.com/prehome/aw21/womens-category-bags.jpg?width=500&quality=65"
+              alt=""
+            />
+            <div class="spanWrapper">
+              <span class="itemBrand">GUCCI</span>
+              <span>/</span>
+              <span class="itemName">귀염토트백</span>
+              <br />
+              <span><span class="price">10,000</span>원</span>
+            </div>
+          </div>
+          <div class="mustBuyItem">
+            <img
+              src="https://media.matchesfashion.com/prehome/aw21/womens-category-bags.jpg?width=500&quality=65"
+              alt=""
+            />
+            <div class="spanWrapper">
+              <span class="itemBrand">GUCCI</span>
+              <span>/</span>
+              <span class="itemName">귀염토트백</span>
+              <br />
+              <span class="price">10,000</span>
+              <span>원</span>
+            </div>
+          </div>
+          <div class="mustBuyItem">
+            <img
+              src="https://media.matchesfashion.com/prehome/aw21/womens-category-bags.jpg?width=500&quality=65"
+              alt=""
+            />
+            <div class="spanWrapper">
+              <span class="itemBrand">GUCCI</span>
+              <span>/</span>
+              <span class="itemName">귀염토트백</span>
+              <br />
+              <span class="price">10,000</span>
+              <span>원</span>
+            </div>
+          </div>
+          <div class="mustBuyItem">
+            <img
+              src="https://media.matchesfashion.com/prehome/aw21/womens-category-bags.jpg?width=500&quality=65"
+              alt=""
+            />
+            <div class="spanWrapper">
+              <span class="itemBrand">GUCCI</span>
+              <span>/</span>
+              <span class="itemName">귀염토트백</span>
+              <br />
+              <span class="price">10,000</span>
+              <span>원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 난리난 브랜드 -->
+      <div class="section RageNow">
+        <h2>루이비통,지금 난리 났다.</h2>
+        <div class="videoWrapper">
+          <div class="videoBox">
+            <video
+              src="https://lv-vod.fl.freecaster.net/vod/louisvuitton/d8F13pGZxs_HD.mp4"
+              autoplay
+              muted
+              loop
+            ></video>
+          </div>
+          <button type="button">더 많은 상품 알아보기</button>
+        </div>
+      </div>
+
+      <!-- 추천리스트 -->
+      <div class="section Recommend">
+        <h2>세상 소중한 당신에게,<br />감히 추천하는 아이템.</h2>
+        <div class="itemListWrapper">
+          <!-- 추천 아이템 리스트 -->
+        </div>
+      </div>
+    </main>
+
+    <!-- 푸터 -->
+    <footer include-html="/NEARFETCH_js_version/component/footer.html"></footer>
+    <!-- 연결 css/js/jquery 파일 -->
+    <link rel="stylesheet" href="/NEARFETCH_js_version/style.css" />
+    <script src="/NEARFETCH_js_version/common.js" defer></script>
+    <script src="/NEARFETCH_js_version/commonJquery.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <!-- <script src="/women_products.json"></script> -->
+
+    <script>
+      // // 검색
+      // const keyword_default=document.querySelector(".keyword");
+      // console.log(keyword_default)
+      // function getKeyword(){
+      //     keyword=document.querySelector(".keyword").value;
+      //     return keyword
+      // }
+
+      // keyword_default.addEventListener("onkeyup",getKeyword)
+
+      // function goSearch(getKeyword){
+
+      //     const keyword = getKeyword()
+
+      //     fetch(`http://172.20.10.6:8000/products/search?${keyword}`, {
+      //         method: "GET",
+      //         headers: {
+      //             "Content-Type": "application/json",
+      //         },
+      //     })
+      //     .then((response) => response.json())
+      //     .then((response) => {
+      //         console.log('hi')
+      //     })
+
+      // }
+      // keyword_default.addEventListener('submit',goSearch)
+
+      // 섹션2_타이머
+      function getTime() {
+        const target = new Date("Fri May 27 2022 00:00:00 GMT+0900");
+        const today = new Date();
+        const gap = target - today;
+        const d = String(Math.floor(gap / (1000 * 60 * 60 * 24))).padStart(
+          2,
+          "0"
+        ); // 일
+        const h = String(Math.floor((gap / (1000 * 60 * 60)) % 24)).padStart(
+          2,
+          "0"
+        ); // 시
+        const m = String(Math.floor(((gap / 1000) * 60) % 60)).padStart(2, "0"); // 분
+        const s = String(Math.floor((gap / 1000) % 60)).padStart(2, "0"); // 초
+
+        if (gap > 0) {
+          document.querySelector(".NumberDays").innerText = d;
+          document.querySelector(".NumberHours").innerText = h;
+          document.querySelector(".NumberMinutes").innerText = m;
+          document.querySelector(".NumberSeconds").innerText = s;
+        }
+      }
+
+      function timerInit() {
+        getTime();
+        setInterval(getTime, 1000);
+      }
+
+      timerInit();
+
+      //상단 Navbar 펼치기(Designers,여성,남성,Sale)
+      // const mailLogin=document.querySelector(".mailLogin");
+      // // console.log(mailLogin)
+      // mailLogin.addEventListener('click', e => {
+      // let mail = document.querySelector('.inputWrapper #mail').value;
+      // let pw = document.querySelector('.inputWrapper #password').value;
+      // e.preventDefault();
+      // let param = {
+      //     // 'name': name,
+      //     'email' : mail,
+      //     'password' : pw
+      // }
+      // fetch("http://172.20.10.6:8000/users/signin", {
+      //     method: "POST",
+      //     headers: {
+      //         "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify(param),
+      // })
+      // .then((response) => response.json())
+      // .then((data) => console.log(data))
+      // .catch((error) => console.log("error:", error));
+      //     });
+
+      // 카카오 로그인
+      // Kakao.init('c06d45d83cfbe0482ac643895bc7aea1'); //발급받은 키 중 javascript키를 사용해준다.
+      // // console.log(Kakao.isInitialized()); // sdk초기화여부판단
+      // function kakaoLogin() {
+      //     Kakao.Auth.login({
+      //     success: function (response) {
+      //         Kakao.API.request({
+      //         url: '/v2/user/me',
+      //         success: function (response) {
+      //             console.log(response)
+      //         },
+      //         fail: function (error) {
+      //             console.log(error)
+      //         },
+      //         })
+      //     },
+      //     fail: function (error) {
+      //         console.log(error)
+      //     },
+      //     })
+      // }
+      // //카카오로그아웃
+      // function kakaoLogout() {
+      //     if (Kakao.Auth.getAccessToken()) {
+      //     Kakao.API.request({
+      //         url: '/v1/user/unlink',
+      //         success: function (response) {
+      //             console.log(response)
+      //         },
+      //         fail: function (error) {
+      //         console.log(error)
+      //         },
+      //     })
+      //     Kakao.Auth.setAccessToken(undefined)
+      //     }
+      // }
+    </script>
+  </body>
+</html>
