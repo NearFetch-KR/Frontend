@@ -121,12 +121,18 @@ button:hover{
     cursor: pointer;
 }
 
-button:active{
-    transform: scale(1.02);
-    -webkit-transform: scale(1.02);
-    -moz-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    -o-transform: scale(1.02);
+button:active,
+.itemImg:hover{
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -ms-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
 }
 thead>tr{
     padding:10px;
@@ -143,6 +149,7 @@ tbody>tr>td{
 tbody>tr{
     border-bottom: 1px solid var(--color-grey);
 }
+
 
 
 /* 클리어픽스 */
@@ -200,7 +207,7 @@ tbody>tr{
 
 .InfoMenu>button:nth-child(1)::after,
 .InfoMenu>button:nth-child(3)::after,
-.InfoMenu>button:nth-child(5)::after{
+.InfoMenu>button:nth-child(6)::after{
     content: '  |';
 }
 
@@ -217,7 +224,7 @@ tbody>tr{
 }
 
 .topnav{
-    overflow: hidden;
+    /* overflow: hidden; */
     position: absolute;
     display: flex;
     justify-content: center;
@@ -235,7 +242,7 @@ tbody>tr{
     border: none;
     outline: none;
     padding: 10px 25px;
-
+    background-color: transparent;
   }
 
   /* 숨길 내용 */
@@ -244,9 +251,7 @@ tbody>tr{
     position: absolute;
     transform: translateX(-50%);
     background-color: #ffffff;
-  
     font-size:var(--font-16px);
-    min-width: 660px;
     padding:20px ;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 100;
@@ -291,7 +296,8 @@ tbody>tr{
   } 
   
   .dropdown:hover .dropdown-content {
-    display: block;
+    display: flex;
+
   }
 
 
@@ -317,13 +323,13 @@ input[name="search"]{
 
 
 
-
 /* 아이템 리스트*/
 .itemListWrapper ul{
     width: 90%;
     display: flex;
     margin: auto;
     flex-wrap: wrap;
+    /* background-color: yellow; */
 }
 
 
@@ -337,7 +343,9 @@ input[name="search"]{
     margin:5px;
 }
 
-
+.itemListWrapper li .itemBrand{
+    margin-top: 10px;
+}
 .itemListWrapper li .itemImg{
     height: 300px;
     margin: 5px;
@@ -347,16 +355,14 @@ input[name="search"]{
     display: none;
 }
 
-.itemListWrapper li>.itemBrand{
-    font-weight: 700;
-}
-
 .itemListWrapper li>.itemName{
     color: var(--color-grey);
-    font-weight: 200;
+    font-weight: 400;
+    font-size: var(--font-14px);
 }
 
-.itemListWrapper li>.price{
+.itemListWrapper li>.price,
+.itemListWrapper li>.sale_price{
     font-size: var(--font-14px);
 }
 
@@ -373,11 +379,16 @@ input[name="search"]{
 }
 
 .cart:active{
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transition: transform 0.3s;
+    -webkit-transition: transform 0.3s;
+    -moz-transition: transform 0.3s;
+    -ms-transition: transform 0.3s;
+    -o-transition: transform 0.3s;
 }
 
 .itemListWrapper .cart:hover{
@@ -390,7 +401,6 @@ form[class="login"]>.ui-slider-horizontal{
 }
 
 form[class="login"]>.loginInfoWrapper{
-    /* background-color: red; */
     text-align: left;
     padding:5px;
 }
@@ -492,7 +502,6 @@ form[class="sign"]>.btnWrapper{
     color:var(--color-darkgrey);
     border-top: 1px solid var(--color-grey);
     letter-spacing: 3px;
-    /* background-color: red; */
 }
 
 .FooterInfo>div{
@@ -501,13 +510,17 @@ form[class="sign"]>.btnWrapper{
 }
 .FooterInfo>div>h3{
     margin:20px -10px;
-    font-size: 1vw;
+    font-size: 1.5vw;
 }
 
 .FooterInfo>div>ul>li{
     list-style-type: disc;
     font-size: var(--font-14px);
     padding: 3px;
+}
+
+.FooterInfo>div>ul>li:hover{
+    background-color:var(--color-lightgrey);
 }
 
 .AppDownload{
@@ -725,6 +738,11 @@ form[class="sign"]>.btnWrapper{
       -moz-transform: scale(1.1);
       -ms-transform: scale(1.1);
       -o-transform: scale(1.1);
+      transition: transform 0.3s;
+      -webkit-transition: transform 0.3s;
+      -moz-transition: transform 0.3s;
+      -ms-transition: transform 0.3s;
+      -o-transition: transform 0.3s;
 }
 
   /*섹션2_핫딜*/
@@ -928,6 +946,14 @@ width: 36%;
 .mainHot:hover{
     transform: scale(1.1);
     transition:transform 1s;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -webkit-transition:transform 1s;
+    -moz-transition:transform 1s;
+    -ms-transition:transform 1s;
+    -o-transition:transform 1s;
 }
 
 .sortingWrapper{
@@ -935,6 +961,22 @@ width: 36%;
     justify-content:space-between;
     margin-bottom: 5vh;
 }
+
+
+.leftrightBtn,
+.updownBtn{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -ms-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+}
+
 
 /* 필터(공용) */
 .leftrightBtn.active,
@@ -944,83 +986,108 @@ width: 36%;
    -moz-transform: rotate(180deg);
    -ms-transform: rotate(180deg);
    -o-transform: rotate(180deg);
+   transition: transform 0.5s;
+   -webkit-transition: transform 0.5s;
+   -moz-transition: transform 0.5s;
+   -ms-transition: transform 0.5s;
+   -o-transition: transform 0.5s;
 }
 
-.sortDetail,.filterDetail{
+.sortDetail{
     padding-left: 0;
     margin-bottom: 0;
-    /* display:none; */
+
 }
 
 .sortWrapper ul li,
 .filterWrapper ul li{
     font-size: 0.9vw;
     margin-top: 0.5vh;
-    /* background-color: yellow; */
+}
 
+.filterWrapper ul li{
+    padding: 2px;
+    border: 1px solid var(--color-darkgrey);
 }
 
 .sortWrapper ul li:hover,
 .filterWrapper ul li:hover{
-    background-color: rgb(201, 201, 201);
+    background-color: var(--color-black);
+    color: var(--color-white);
 }
 
-
-.filterDetail.active{
-    position: relative;
-}
 
 .itemListWrapper.active{
     width:75%;
     position: relative;
-    right: -12vw;
+    right: -20vw;
 }
 
-.sortWrapper.active,
-.filterWrapper.active{
+.sortWrapper.active{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .filterWrapper,
 .sortWrapper{
+    /* width: 100px; */
     padding: 1%;
 }
 
+.filter_gender,
+.filter_category_women_small,
+.filter_category_men_small,
+.filter_category_brand{
+    border-bottom: 2px solid var(--color-lightgrey);
+     margin: 10px 0px;
+     padding:5px
+}
+
+.filter_category{
+    display: none;
+}
+.filter_category.active{
+    display: block;
+}
+
+.filter_category_women_small_ul,
+.filter_category_men_small_ul,
+.filter_category_brand_ul{
+    overflow: scroll;
+    height: 400px;
+}
+
+.filter_category li.active{
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
 .sortDetail>li:hover,
-.sortWrapper:hover{
+.sortWrapper:hover,
+.filterWrapper:hover{
     cursor: pointer;
 }
 
-.sortDetail,
-.filterDetail,
-#clothing,
-#shoes,
-#bags,
-#acc,
-#jewerly{
+.sortDetail{
     padding-left: 0;
     margin-bottom: 0;
     display:none;
 }
 
-.sortDetail.active,
-.filterDetail.active,
-#clothing.active,
-#shoes.active,
-#bags.active,
-#acc.active,
-#jewerly.active{
+.sortDetail.active{
     display: block;
-    
 }
 
 /* 카테고리 필터(좌) */
 .filterWrapper{
     position: absolute;
+    /* width: 100%; */
     left: 5vw;
     text-align: left;
+    /* background-color: rgb(187, 56, 56); */
 }
-
+.filterWrapper.active{
+    width: 220px;
+}
 
 
 /* 정렬 필터 */
@@ -1221,20 +1288,18 @@ main{
   
   .RecomItem__img {
     width: 100%;
+    height: 400px;
     object-fit: cover;
   }
 
-  .RecomItem__content>.skuNum{
-      display: none;
-  }
+ 
   
   .RecomItem__details {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    top:40%;
-    font-size: 10px;
+    top:60%;
     opacity: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
     transition: opacity .5s;
@@ -1242,10 +1307,21 @@ main{
     -moz-transition: opacity .5s;
     -ms-transition: opacity .5s;
     -o-transition: opacity .5s;
+    color: white;
+    font-size: 1.1vw;
+    font-weight: 200;
 }
  
-  .RecomItem__details{
-    color: white;
+
+
+  .RecomItem__details .itemName{
+      font-size: 1.5vw;
+
+  }
+
+  .RecomItem__details .materials,
+  .RecomItem__details .skuNum{
+      display: none;
   }
 
   .RecomItem:hover .RecomItem__details {
@@ -1257,13 +1333,18 @@ main{
     opacity: 0.3;
   }
   .row__inner:hover .RecomItem:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     opacity: 1;
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
-  }
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transition: transform 0 .5s;
+    -webkit-transition: transform 0 .5s;
+    -moz-transition: transform 0 .5s;
+    -ms-transition: transform 0 .5s;
+    -o-transition: transform 0 .5s;
+}
   .RecomItem:hover ~ .RecomItem {
     transform: translate3d(20%, 0, 0);
     -webkit-transform: translate3d(20%, 0, 0);
@@ -1337,18 +1418,20 @@ main{
 
 
 tbody .contents .itemBrand{
-    font-weight: 600;
-    font-size: 1vw;
-    padding: 1vh;
+color: var(--color-grey);
 }
 
+
+.totalNBtn{
+    padding: 5vh;
+}
 .totalNBtn>.totalAmount{
     text-align: center;
 }
 
 
 .totalNBtn .proceed{
-    margin: 0;
+    margin: 1vh;
 }
 
 
@@ -1399,7 +1482,7 @@ tbody .contents .itemBrand{
 .likeItem button{
     width: 100%;
 }
-/* 2.장바구니(add.html) */
+/* 2.장바구니(cart.html) */
 .rowOne div{
     margin: 1vw 5vw;
     font-weight: 700;
@@ -1454,7 +1537,7 @@ tbody .contents .itemBrand{
 
 
 .addImg img{
-    width: 200px;
+    width: 150px;
 }
 
 /* 3.내 정보 */
@@ -1532,6 +1615,10 @@ tbody .contents .itemBrand{
 
 .orderListTable tbody tr td img:nth-child(1){
     max-width: 150px;
+}
+.itemOption select{
+    width: 80px;
+    text-align: center;
 }
     
 /* 상세 배송정보 */
@@ -2125,13 +2212,6 @@ nav[class="InfoLogo"]{
 .usp{
     display: flex;
     flex-direction: column;
-}
-.usp img:hover{
-    transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
 }
 
 

@@ -133,7 +133,7 @@
             <div class="HotDealContentsText">
               <div class="itemBrand">GUCCI</div>
               <div class="itemName">마티백 18 크링클드</div>
-              <span class="price">139,000원</span>
+              <span class="price">139,000</span>
             </div>
           </div>
           <!-- 컨텐츠2 -->
@@ -149,7 +149,7 @@
             <div class="HotDealContentsText">
               <div class="itemBrand">GUCCI</div>
               <div class="itemName">마티백 18 크링클드</div>
-              <span class="price">139,000원</span>
+              <span class="price">139,000</span>
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@
               <span>/</span>
               <span class="itemName">귀염토트백</span>
               <br />
-              <span><span class="price">10,000</span>원</span>
+              <span class="price">10,000</span>
             </div>
           </div>
           <div class="mustBuyItem">
@@ -189,7 +189,6 @@
               <span class="itemName">귀염토트백</span>
               <br />
               <span class="price">10,000</span>
-              <span>원</span>
             </div>
           </div>
           <div class="mustBuyItem">
@@ -203,7 +202,6 @@
               <span class="itemName">귀염토트백</span>
               <br />
               <span class="price">10,000</span>
-              <span>원</span>
             </div>
           </div>
           <div class="mustBuyItem">
@@ -217,7 +215,6 @@
               <span class="itemName">귀염토트백</span>
               <br />
               <span class="price">10,000</span>
-              <span>원</span>
             </div>
           </div>
         </div>
@@ -258,34 +255,6 @@
     <!-- <script src="/women_products.json"></script> -->
 
     <script>
-      // // 검색
-      // const keyword_default=document.querySelector(".keyword");
-      // console.log(keyword_default)
-      // function getKeyword(){
-      //     keyword=document.querySelector(".keyword").value;
-      //     return keyword
-      // }
-
-      // keyword_default.addEventListener("onkeyup",getKeyword)
-
-      // function goSearch(getKeyword){
-
-      //     const keyword = getKeyword()
-
-      //     fetch(`http://172.20.10.6:8000/products/search?${keyword}`, {
-      //         method: "GET",
-      //         headers: {
-      //             "Content-Type": "application/json",
-      //         },
-      //     })
-      //     .then((response) => response.json())
-      //     .then((response) => {
-      //         console.log('hi')
-      //     })
-
-      // }
-      // keyword_default.addEventListener('submit',goSearch)
-
       // 섹션2_타이머
       function getTime() {
         const target = new Date("Fri May 27 2022 00:00:00 GMT+0900");
@@ -316,30 +285,6 @@
       }
 
       timerInit();
-
-      //상단 Navbar 펼치기(Designers,여성,남성,Sale)
-      // const mailLogin=document.querySelector(".mailLogin");
-      // // console.log(mailLogin)
-      // mailLogin.addEventListener('click', e => {
-      // let mail = document.querySelector('.inputWrapper #mail').value;
-      // let pw = document.querySelector('.inputWrapper #password').value;
-      // e.preventDefault();
-      // let param = {
-      //     // 'name': name,
-      //     'email' : mail,
-      //     'password' : pw
-      // }
-      // fetch("http://172.20.10.6:8000/users/signin", {
-      //     method: "POST",
-      //     headers: {
-      //         "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(param),
-      // })
-      // .then((response) => response.json())
-      // .then((data) => console.log(data))
-      // .catch((error) => console.log("error:", error));
-      //     });
 
       // 카카오 로그인
       // Kakao.init('c06d45d83cfbe0482ac643895bc7aea1'); //발급받은 키 중 javascript키를 사용해준다.
