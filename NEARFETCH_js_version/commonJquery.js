@@ -6,7 +6,7 @@
 // 	let gender=e.target.parentElement.parentElement.parentElement.childNodes[1].parentElement.parentElement.parentElement.childNodes[1].innerText;//대 카테고리(=gender)
 // 	console.log(categorySmall)
 // 	$.ajax({
-// 		url : `http://172.30.1.19:8000/products/list?large_category=${gender}&medium_category=${categoryMedium}&small_category=${categorySmall}`,
+// 		url : `http://3.36.132.113:8000/products/list?large_category=${gender}&medium_category=${categoryMedium}&small_category=${categorySmall}`,
 // 		type : 'GET',
 // 		success:function(data){
 // 			console.log(data);

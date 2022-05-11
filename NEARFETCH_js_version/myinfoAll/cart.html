@@ -52,9 +52,15 @@
         <div class="infoBar">
           <ul>
             <li><a href="">내 정보</a></li>
-            <li><a href="">주소록</a></li>
-            <li><a href="">주문 내역</a></li>
-            <li><a href="">장바구니</a></li>
+            <li>
+              <a href="/NEARFETCH_js_version/myinfoAll/myinfo.html">주소록</a>
+            </li>
+            <li>
+              <a href="/NEARFETCH_js_version/myinfoAll/order.html">주문 내역</a>
+            </li>
+            <li>
+              <a href="/NEARFETCH_js_version/myinfoAll/cart.html">장바구니</a>
+            </li>
             <li><a href="" id="logout">로그아웃</a></li>
           </ul>
         </div>
@@ -96,182 +102,8 @@
     <link rel="stylesheet" href="/NEARFETCH_js_version/style.css" />
     <script src="/NEARFETCH_js_version/common.js" defer></script>
     <script src="/NEARFETCH_js_version/commonJquery.js"></script>
+    <script src="/NEARFETCH_js_version/myinfoAll/myinfoAll.js"></script>
     <!-- <script src="/women_products.json"></script> -->
-    <script>
-      // ----------------장바구니 상품 리스트 노출----------------
-      function makeCartList() {
-        fetch("http://172.30.1.19:8000/users/cart", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((response) => {
-            for (let k = 0; k < response.result.length; k++) {
-              const addItemListWrapper = document.querySelector(
-                ".addListTable tbody"
-              );
-              const tr = document.createElement("tr");
-              addItemListWrapper.appendChild(tr);
-
-              for (let i = 0; i < 5; i++) {
-                const tdClassList = [
-                  "addImg",
-                  "contents",
-                  "itemOption",
-                  "itemQt",
-                  "priceWrapper",
-                ];
-                const td = document.createElement("td");
-                tr.appendChild(td);
-                td.setAttribute("class", tdClassList[i]);
-              }
-
-              const addImg = document.querySelectorAll("tbody .addImg");
-              const img = document.createElement("img");
-              addImg[k].appendChild(img);
-              const imgInner = document.querySelectorAll(".addImg img");
-              imgInner[k].src = response.result[k].image;
-
-              const contents = document.querySelectorAll("tbody .contents");
-              const contentsClassList = ["itemBrand", "itemName"];
-              for (let j = 0; j < contentsClassList.length; j++) {
-                const div = document.createElement("div");
-                contents[k].appendChild(div);
-                div.setAttribute("class", contentsClassList[j]);
-              }
-
-              const priceWrapper = document.querySelectorAll(
-                "tbody .priceWrapper"
-              );
-              const priceClassList = ["price", "sale_price"];
-              for (let j = 0; j < priceClassList.length; j++) {
-                const div = document.createElement("div");
-                priceWrapper[k].appendChild(div);
-                div.setAttribute("class", priceClassList[j]);
-              }
-
-              const itemOption = document.querySelectorAll(".itemOption");
-              const select = document.createElement("select");
-              itemOption[k].appendChild(select);
-              // console.log(response.result[k].option);
-
-              for (i = 0; i < response.result[k].option.length; i++) {
-                const option = document.createElement("option");
-                select.appendChild(option);
-                option.textContent = response.result[k]["option"][i];
-              }
-
-              const price = document.querySelectorAll(".priceWrapper>.price");
-              const sale_price = document.querySelectorAll(
-                ".priceWrapper>.sale_price"
-              );
-
-              const itemQt = document.querySelectorAll(".itemQt");
-              const itemBrand = document.querySelectorAll(".itemBrand");
-              const itemName = document.querySelectorAll(".itemName");
-
-              itemBrand[k].textContent = response.result[k].brand;
-              itemName[k].textContent = response.result[k].name;
-
-              itemQt[k].textContent = response.result[k].quantity;
-              //   itemOption[k].textContent = response.result[k].option;
-              price[k].textContent = response.result[k].price;
-              sale_price[k].textContent = response.result[k].sale_price;
-
-              for (let i = 0; i < sale_price.length; i++) {
-                if (sale_price.innerText == null) {
-                  price[i].style.display = "block";
-                  sale_price[i].style.display = "none";
-                  price[i].textContent = price[i].textContent
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                } else {
-                  sale_price[i].style.display = "block";
-                  price[i].style.display = "none";
-                  sale_price[i].textContent = sale_price[i].textContent
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                }
-              }
-            }
-
-            //  장바구니, 주문창 총 금액 계산
-            const totalAmount = document.querySelector(".totalAmount>span");
-            const prices = document.querySelectorAll("tr .price");
-            const priceArry = [];
-            for (i = 0; i < prices.length; i++) {
-              priceArry.push(Number(prices[i].innerText));
-            }
-            const sum = priceArry.reduce((a, b) => a + b);
-            totalAmount.textContent = sum
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-            // for (let k = 0; k < response.result.length; k++) {
-            //   const addItemListWrapper = document.querySelector(
-            //     ".addListTable tbody"
-            //   );
-            //   const tr = document.createElement("tr");
-            //   addItemListWrapper.appendChild(tr);
-
-            //   for (let i = 0; i < 5; i++) {
-            //     const tdClassList = [
-            //       "addImg",
-            //       "contents",
-            //       "itemOption",
-            //       "itemQt",
-            //       "price",
-            //     ];
-            //     const td = document.createElement("td");
-            //     tr.appendChild(td);
-            //     td.setAttribute("class", tdClassList[i]);
-            //   }
-
-            //   const addImg = document.querySelectorAll("tbody .addImg");
-            //   const img = document.createElement("img");
-            //   addImg[k].appendChild(img);
-            //   const imgInner = document.querySelectorAll(".addImg img");
-            //   imgInner[k].src = response.result[k].image;
-
-            //   const contents = document.querySelectorAll("tbody .contents");
-            //   const contentsClassList = ["itemBrand", "itemName"];
-            //   for (let j = 0; j < contentsClassList.length; j++) {
-            //     const div = document.createElement("div");
-            //     contents[k].appendChild(div);
-            //     div.setAttribute("class", contentsClassList[j]);
-            //   }
-
-            //   const itemOption = document.querySelectorAll("tbody .itemOption");
-            //   const price = document.querySelectorAll("tbody .price");
-            //   const itemQt = document.querySelectorAll(".itemQt");
-            //   const itemBrand = document.querySelectorAll(".itemBrand");
-            //   const itemName = document.querySelectorAll(".itemName");
-
-            //   itemBrand[k].textContent = response.result[k].brand;
-            //   itemName[k].textContent = response.result[k].name;
-
-            //   itemQt[k].textContent = response.result[k].quantity;
-            //   itemOption[k].textContent = response.result[k].option;
-            //   price[k].textContent = response.result[k].price;
-            // }
-
-            // //  장바구니, 주문창 총 금액 계산
-            // const totalAmount = document.querySelector(".totalAmount>span");
-            // const prices = document.querySelectorAll("tr .price");
-            // const priceArry = [];
-            // for (i = 0; i < prices.length; i++) {
-            //   priceArry.push(Number(prices[i].innerText));
-            // }
-            // const sum = priceArry.reduce((a, b) => a + b);
-            // totalAmount.textContent = sum
-            //   .toString()
-            //   .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-          });
-      }
-
-      makeCartList();
-    </script>
+    <script></script>
   </body>
 </html>

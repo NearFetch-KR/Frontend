@@ -52,9 +52,15 @@
         <div class="infoBar">
           <ul>
             <li><a href="">내 정보</a></li>
-            <li><a href="">주소록</a></li>
-            <li><a href="">주문 내역</a></li>
-            <li><a href="">장바구니</a></li>
+            <li>
+              <a href="/NEARFETCH_js_version/myinfoAll/myinfo.html">주소록</a>
+            </li>
+            <li>
+              <a href="/NEARFETCH_js_version/myinfoAll/order.html">주문 내역</a>
+            </li>
+            <li>
+              <a href="/NEARFETCH_js_version/myinfoAll/cart.html">장바구니</a>
+            </li>
             <li><a href="" id="logout">로그아웃</a></li>
           </ul>
         </div>
@@ -112,145 +118,6 @@
     <script src="/NEARFETCH_js_version/common.js" defer></script>
     <script src="/NEARFETCH_js_version/commonJquery.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script>
-      /* ----------------내 정보(통합)/myinfoAll.html---------------- */
-
-      // 주소 검색(by kakao)
-      function findAddr() {
-        new daum.Postcode({
-          oncomplete: function (data) {
-            // console.log(data);
-            var roadAddr = data.roadAddress; // 도로명 주소 변수
-            var jibunAddr = data.jibunAddress; // 지번 주소 변수
-            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById("member_post").value = data.zonecode;
-            if (roadAddr !== "") {
-              document.getElementById("member_addr").value = roadAddr;
-            } else if (jibunAddr !== "") {
-              document.getElementById("member_addr").value = jibunAddr;
-            }
-          },
-        }).open();
-      }
-
-      // 주소 저장(성공)
-      const saveAddressBtn = document.querySelector(".myInfoAddress #save");
-      const member_post_Default = document.querySelector(
-        ".myInfoAddress #member_post"
-      );
-      const member_addr_Default = document.querySelector(
-        ".myInfoAddress #member_addr"
-      );
-      const addr_detail_Default = document.querySelector(
-        ".myInfoAddress #addr_detail"
-      );
-
-      function getAddressValue() {
-        member_post = document.querySelector(
-          ".myInfoAddress #member_post"
-        ).value;
-        member_addr = document.querySelector(
-          ".myInfoAddress #member_addr"
-        ).value;
-        addr_detail = document.querySelector(
-          ".myInfoAddress #addr_detail"
-        ).value;
-      }
-
-      member_post_Default.addEventListener("onkeyup", getAddressValue);
-      member_addr_Default.addEventListener("onkeyup", getAddressValue);
-      addr_detail_Default.addEventListener("onkeyup", getAddressValue);
-
-      saveAddressBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        let param = {
-          post_number: member_post,
-          address1: member_addr,
-          address2: addr_detail,
-        };
-        let token = localStorage.getItem("login-token");
-        fetch("http://172.30.1.19:8000/users/register/location", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-          body: JSON.stringify(param),
-        })
-          .then((response) => response.json())
-          .then((response) => {
-            alert("주소 저장이 완료되었습니다.");
-          })
-          .catch((error) => console.log("error:", error));
-      });
-
-      const member_post_saved = document.querySelector(
-        ".myInfoAddress #member_post"
-      ).value;
-      const member_addr_saved = document.querySelector(
-        ".myInfoAddress #member_addr"
-      ).value;
-      const addr_detail_saved = document.querySelector(
-        ".myInfoAddress #addr_detail"
-      ).value;
-
-      //저장해둔 주소 노출
-      fetch("http://172.30.1.19:8000/users/register/location", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: localStorage.getItem("login-token"),
-        },
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          const member_post_saved = response.result.post_number;
-          const member_addr_saved = response.result.address1;
-          const addr_detail_saved = response.result.address2;
-
-          if (member_post_saved && member_addr_saved && addr_detail_saved) {
-            member_post_Default.value = member_post_saved;
-            member_addr_Default.value = member_addr_saved;
-            addr_detail_Default.value = addr_detail_saved;
-          }
-        })
-        .catch((error) => console.log("error:", error));
-
-      // //배송중인것만 배송정보 보여주기!
-      // const trkStatus = document.querySelectorAll(".trkStatus"); //배송상태값
-      // const trkInfo = document.querySelectorAll(".trkInfo"); //배송정보
-
-      // for (i = 0; i < trkStatus.length; i++) {
-      //   if (trkStatus[i].innerText == "배송중") {
-      //     trkInfo[i].style.display = "block";
-      //   } else {
-      //     trkInfo[i].style.display = "none";
-      //   }
-      // }
-      // //n번째 돋보기를 누르면 n번째 송장번호가 들어간 택배 조회창으로 이동
-      // // const n=document.querySelectorAll('.n'); //n번째 순서값
-      // const trkBtn = document.querySelectorAll(".trkInfo>img"); // 운송장 조회 버튼
-      // const trkCompany = document.querySelectorAll(".trkCompany"); //택배사
-      // const trkNum = document.querySelectorAll(".trkNum"); //송장번호
-
-      // //택배 조회
-      // trkBtn.forEach(function (trkBtn) {
-      //   trkBtn.addEventListener("click", logEvent);
-      // });
-
-      // function logEvent(event) {
-      //   var number = event.target.closest(".trkInfo").children[1].innerText;
-      //   if (event.target.closest(".trkInfo").children[0].innerText == "우체국") {
-      //     window.open("about:blank").location.href =
-      //       "https://service.epost.go.kr/trace.RetrieveDomRigiTraceList.comm?sid1=" +
-      //       number +
-      //       "&displayHeader=N";
-      //   } else {
-      //     window.open("about:blank").location.href =
-      //       "http://www.doortodoor.co.kr/servlets/cmnChnnel?tc=dtd.cmn.command.c03condiCrg01Cmd&invc_no=" +
-      //       number;
-      //   }
-      // }
-    </script>
+    <script src="/NEARFETCH_js_version/myinfoAll/myinfoAll.js"></script>
   </body>
 </html>

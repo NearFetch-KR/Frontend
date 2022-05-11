@@ -48,7 +48,9 @@
 
     <!-- 메인 -->
     <main>
-      <div class="section brandList"></div>
+      <div class="section allBrands">
+        <div class="brandList"></div>
+      </div>
     </main>
 
     <!-- 푸터 -->
@@ -59,5 +61,44 @@
     <script src="/NEARFETCH_js_version/common.js" defer></script>
     <script src="/NEARFETCH_js_version/commonJquery.js"></script>
     <!-- <script src="/women_products.json"></script> -->
+    <script>
+      urlParams = new URLSearchParams(location.search);
+      brand = urlParams.get("brand");
+
+      fetch(`http://172.30.1.52:8000/products/make/brand/list`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          const brandList = document.querySelector(".brandList");
+
+          for (let i = 0; i < Object.keys(response.result).length; i++) {
+            const spanTag = document.createElement("span");
+            brandList.appendChild(spanTag);
+            spanTag.innerText = Object.keys(response.result)[i];
+            const ulTag = document.createElement("ul");
+            brandList.appendChild(ulTag);
+            const ul = document.querySelectorAll(".brandList ul");
+
+            //<li><a>태그 만들기
+            for (let j = 0; j < Object.values(response.result)[i].length; j++) {
+              const liTag = document.createElement("li");
+              const aTag = document.createElement("a");
+
+              aTag.innerText = Object.values(response.result)[i][j];
+              aTag.href = `http://127.0.0.1:5500/NEARFETCH_js_version/search%20list/searchCategory.html?brand=${
+                Object.values(response.result)[i][j]
+              }`;
+              liTag.appendChild(aTag);
+              ul[i].appendChild(liTag);
+            }
+          }
+
+          searchCategoryList();
+        });
+    </script>
   </body>
 </html>

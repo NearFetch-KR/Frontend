@@ -131,9 +131,9 @@
               ></video>
             </div>
             <div class="HotDealContentsText">
-              <div class="itemBrand">GUCCI</div>
-              <div class="itemName">마티백 18 크링클드</div>
-              <span class="price">139,000</span>
+              <div class="itemBrand">CHANEL</div>
+              <div class="itemName">스몰 플랩 백</div>
+              <span class="price">6,570,000</span>
             </div>
           </div>
           <!-- 컨텐츠2 -->
@@ -147,9 +147,9 @@
               ></video>
             </div>
             <div class="HotDealContentsText">
-              <div class="itemBrand">GUCCI</div>
-              <div class="itemName">마티백 18 크링클드</div>
-              <span class="price">139,000</span>
+              <div class="itemBrand">CHANEL</div>
+              <div class="itemName">스몰 플랩 백</div>
+              <span class="price">6,570,000</span>
             </div>
           </div>
         </div>
@@ -163,76 +163,25 @@
 
       <!-- 당장 사야할 것들 -->
       <div class="section MustBuyNow">
-        <h2>당장 사야할 것들,여기 다 있다</h2>
-        <div class="mustBuyWrapper">
-          <div class="mustBuyItem">
-            <img
-              src="https://media.matchesfashion.com/prehome/aw21/womens-category-bags.jpg?width=500&quality=65"
-              alt=""
-            />
-            <div class="spanWrapper">
-              <span class="itemBrand">GUCCI</span>
-              <span>/</span>
-              <span class="itemName">귀염토트백</span>
-              <br />
-              <span class="price">10,000</span>
-            </div>
-          </div>
-          <div class="mustBuyItem">
-            <img
-              src="https://media.matchesfashion.com/prehome/aw21/womens-category-bags.jpg?width=500&quality=65"
-              alt=""
-            />
-            <div class="spanWrapper">
-              <span class="itemBrand">GUCCI</span>
-              <span>/</span>
-              <span class="itemName">귀염토트백</span>
-              <br />
-              <span class="price">10,000</span>
-            </div>
-          </div>
-          <div class="mustBuyItem">
-            <img
-              src="https://media.matchesfashion.com/prehome/aw21/womens-category-bags.jpg?width=500&quality=65"
-              alt=""
-            />
-            <div class="spanWrapper">
-              <span class="itemBrand">GUCCI</span>
-              <span>/</span>
-              <span class="itemName">귀염토트백</span>
-              <br />
-              <span class="price">10,000</span>
-            </div>
-          </div>
-          <div class="mustBuyItem">
-            <img
-              src="https://media.matchesfashion.com/prehome/aw21/womens-category-bags.jpg?width=500&quality=65"
-              alt=""
-            />
-            <div class="spanWrapper">
-              <span class="itemBrand">GUCCI</span>
-              <span>/</span>
-              <span class="itemName">귀염토트백</span>
-              <br />
-              <span class="price">10,000</span>
-            </div>
-          </div>
-        </div>
+        <h3>당장 사야할 것들,여기 다 있다</h3>
+        <div class="mustBuyWrapper"></div>
       </div>
 
       <!-- 난리난 브랜드 -->
       <div class="section RageNow">
-        <h2>루이비통,지금 난리 났다.</h2>
+        <h2>GUCCI는 지금, 난리 났다.</h2>
         <div class="videoWrapper">
           <div class="videoBox">
-            <video
-              src="https://lv-vod.fl.freecaster.net/vod/louisvuitton/d8F13pGZxs_HD.mp4"
-              autoplay
-              muted
-              loop
-            ></video>
+            <img
+              src="https://media.gucci.com/content/HeroRegularStandard_3200x1350/1647263723/HeroRegularStandard_Gucci-LOVE-PARADE-2022-005_001_Default.jpg"
+              alt=""
+            />
           </div>
-          <button type="button">더 많은 상품 알아보기</button>
+          <a
+            href="/NEARFETCH_js_version/brand item list/branditem.html?brand=GUCCI"
+          >
+            더 많은 상품 알아보기
+          </a>
         </div>
       </div>
 
@@ -250,78 +199,9 @@
     <!-- 연결 css/js/jquery 파일 -->
     <link rel="stylesheet" href="/NEARFETCH_js_version/style.css" />
     <script src="/NEARFETCH_js_version/common.js" defer></script>
+    <script src="/NEARFETCH_js_version/main page/main.js"></script>
     <script src="/NEARFETCH_js_version/commonJquery.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <!-- <script src="/women_products.json"></script> -->
-
-    <script>
-      // 섹션2_타이머
-      function getTime() {
-        const target = new Date("Fri May 27 2022 00:00:00 GMT+0900");
-        const today = new Date();
-        const gap = target - today;
-        const d = String(Math.floor(gap / (1000 * 60 * 60 * 24))).padStart(
-          2,
-          "0"
-        ); // 일
-        const h = String(Math.floor((gap / (1000 * 60 * 60)) % 24)).padStart(
-          2,
-          "0"
-        ); // 시
-        const m = String(Math.floor(((gap / 1000) * 60) % 60)).padStart(2, "0"); // 분
-        const s = String(Math.floor((gap / 1000) % 60)).padStart(2, "0"); // 초
-
-        if (gap > 0) {
-          document.querySelector(".NumberDays").innerText = d;
-          document.querySelector(".NumberHours").innerText = h;
-          document.querySelector(".NumberMinutes").innerText = m;
-          document.querySelector(".NumberSeconds").innerText = s;
-        }
-      }
-
-      function timerInit() {
-        getTime();
-        setInterval(getTime, 1000);
-      }
-
-      timerInit();
-
-      // 카카오 로그인
-      // Kakao.init('c06d45d83cfbe0482ac643895bc7aea1'); //발급받은 키 중 javascript키를 사용해준다.
-      // // console.log(Kakao.isInitialized()); // sdk초기화여부판단
-      // function kakaoLogin() {
-      //     Kakao.Auth.login({
-      //     success: function (response) {
-      //         Kakao.API.request({
-      //         url: '/v2/user/me',
-      //         success: function (response) {
-      //             console.log(response)
-      //         },
-      //         fail: function (error) {
-      //             console.log(error)
-      //         },
-      //         })
-      //     },
-      //     fail: function (error) {
-      //         console.log(error)
-      //     },
-      //     })
-      // }
-      // //카카오로그아웃
-      // function kakaoLogout() {
-      //     if (Kakao.Auth.getAccessToken()) {
-      //     Kakao.API.request({
-      //         url: '/v1/user/unlink',
-      //         success: function (response) {
-      //             console.log(response)
-      //         },
-      //         fail: function (error) {
-      //         console.log(error)
-      //         },
-      //     })
-      //     Kakao.Auth.setAccessToken(undefined)
-      //     }
-      // }
-    </script>
   </body>
 </html>

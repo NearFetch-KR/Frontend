@@ -92,7 +92,7 @@ i{
 
 a{
     text-decoration-line: none !important;
-    color:var(--color-darkgrey)!important;
+    color:var(--color-darkgrey);
 }
 
 li{
@@ -101,8 +101,9 @@ li{
 
 h2{
     padding: 3vh;
-    font-size: var(--font-20px);
-    font-weight: 500;
+    font-size: var(--font-30px);
+    font-weight: 300;
+    /* background-color: red; */
 }
 
 h3{
@@ -229,12 +230,13 @@ tbody>tr{
     display: flex;
     justify-content: center;
     width: 80%;
-    height: 300px;
+    /* height: 300px; */
 }
 
   .topnav>.icon {
     display: none;
   }
+
 
   /* 카테고리 버튼 */
   .dropdown .dropbtn,
@@ -517,6 +519,7 @@ form[class="sign"]>.btnWrapper{
     list-style-type: disc;
     font-size: var(--font-14px);
     padding: 3px;
+    font-weight: 200;
 }
 
 .FooterInfo>div>ul>li:hover{
@@ -572,7 +575,9 @@ form[class="sign"]>.btnWrapper{
   .loginClose:hover,
   .loginClose:focus, 
   .registerClose:hover,
-  .registerClose:focus{
+  .registerClose:focus,
+  .removeCart:hover,
+  .removeCart:focus{
     color: #000;
     text-decoration: none;
     cursor: pointer;
@@ -730,9 +735,17 @@ form[class="sign"]>.btnWrapper{
       width: 28px;
       float: right;
   }
+
+  .removeCart{
+      width: 20px;
+      position: relative;
+      top: -25px;
+      right: -100px;
+  }
   
   .loginClose:active,
-  .registerClose:active{
+  .registerClose:active
+  .removeCart:active{
       transform: scale(1.1);
       -webkit-transform: scale(1.1);
       -moz-transform: scale(1.1);
@@ -797,6 +810,7 @@ form[class="sign"]>.btnWrapper{
     z-index: 1000;
     color:var(--color-white);
     font-size: 3vw;
+    font-weight: 200;
   }
   
   
@@ -810,65 +824,56 @@ form[class="sign"]>.btnWrapper{
 }
 
 /* 섹션4_당장 사야할 것들  */
-  .MustBuyNow{
-    width: 90%;
-  }
-  
+
   .mustBuyWrapper{
     display: flex;                                
     justify-content: center;
     width: 100%;
+    margin: 50px 0px;
+    /* background-color: red; */
   }
   
-  .mustBuyItem{
+  .itemWrapper{
     width: 400px;
+    height: 400px;
     margin:10px;
+    border: 1px solid var(--color-grey);
+    box-sizing: content-box;
   }
   
-  .mustBuyItem img{
+  .itemWrapper img{
     width: 100%;
+    height: 400px;
   }
 
-  .mustBuyItem>.spanWrapper{
+  .itemWrapper>.divWrapper{
     position: relative;
-    bottom:50%;
+    bottom:60%;
     color: var(--color-white);
-    font-size: 2vw;
-    
+    font-weight: 200;
+    background-color: rgba(0, 0, 0, 0.308);
+    padding:10px;
+}
+.divWrapper>.itemName{
+    font-size: var(--font-20px);
 }
 
-  .mustBuyItem:hover{
-    transform: scale(1.1);
-    transition: transform .5s;
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -webkit-transition: transform .5s;
-    -moz-transition: transform .5s;
-    -ms-transition: transform .5s;
-    -o-transition: transform .5s;
-}
-  
+
+
   
 /* 섹션5_난리난 브랜드 */
-  .videoWrapper video{
+  .videoWrapper img{
     width: 100%;
   }
   
-  .videoWrapper button{
+  .videoWrapper a{
     position: relative;
-    bottom:20vh;
-    border: none;
-    font-size: 1.5vw;
+    bottom:30vh;
+    border-bottom: 1px solid var(--color-white);
+    font-size: 3vw;
+    font-weight: 300;
     padding: 1vh;
-    color: var(--color-black);
-    background-color: var(--color-white);
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    color: rgb(255, 255, 255)
 }
   
   /* 섹션6_추천리스트 */
@@ -896,6 +901,12 @@ form[class="sign"]>.btnWrapper{
 .hotBrandWrapper{
     text-align: center;
 }
+
+#hotBrandName{
+    padding:10px;
+    font-size: var(--font-30px);
+}
+
 
 
 /* 현재 카테고리 위치 */
@@ -926,12 +937,12 @@ form[class="sign"]>.btnWrapper{
     text-align: center;
 }
 
-.mainHot .two{
+.mainHot:nth-child(2){
 width: 36%;
 }
 
-.one,
-.three{
+.one:nth-child(1),
+.three:nth-child(3){
     margin-top: 5vh;
 }
 
@@ -939,10 +950,17 @@ width: 36%;
     width: 100%;
 }
 
-.mainHot .itemBrand{
+.mainHot>div:nth-child(2){
     padding: 1vw;
 }
 
+.mainHot>.hotBrandDes{
+    color: var(--color-white);
+    font-size: var(--font-20px);
+    font-weight: 200;
+    position: relative;
+    top:-50%;
+}
 .mainHot:hover{
     transform: scale(1.1);
     transition:transform 1s;
@@ -1010,11 +1028,11 @@ width: 36%;
     border: 1px solid var(--color-darkgrey);
 }
 
-.sortWrapper ul li:hover,
-.filterWrapper ul li:hover{
+/* .sortWrapper ul li:hover,
+.filterWrapper ul li a:hover{
     background-color: var(--color-black);
     color: var(--color-white);
-}
+} */
 
 
 .itemListWrapper.active{
@@ -1034,9 +1052,9 @@ width: 36%;
 }
 
 .filter_gender,
-.filter_category_women_small,
-.filter_category_men_small,
-.filter_category_brand{
+.filter_category_small,
+.filter_category_brand,
+.priceSlider{
     border-bottom: 2px solid var(--color-lightgrey);
      margin: 10px 0px;
      padding:5px
@@ -1049,17 +1067,19 @@ width: 36%;
     display: block;
 }
 
-.filter_category_women_small_ul,
-.filter_category_men_small_ul,
+.filter_category_small_ul,
 .filter_category_brand_ul{
     overflow: scroll;
     height: 400px;
 }
 
-.filter_category li.active{
+.filter_category li.active,
+.filter_category li:hover{
     background-color: var(--color-black);
     color: var(--color-white);
 }
+
+
 
 .sortDetail>li:hover,
 .sortWrapper:hover,
@@ -1100,48 +1120,93 @@ width: 36%;
 }
 
 /* 가격 슬라이더 */
-.price-range-block .inputWrapper{
-    width: 100%;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
 
-#slider-range{
-    width: 100%;
-}
 
-.price-range-block input{
-width: 5vw;
-margin: 3px;
+.priceSlider
+{
+width: 200px;
+background-color: #fff;
+/* border-radius: 5px; */
+padding: 10px 20px;
+box-shadow: 0px 0px 3px 1px #888;    
 }
 
 
-.ui-slider-horizontal {
-    height: 0.1px;
-    background-color: black;
-    margin: 0;
+.min-max label
+{
+font-size: 14px;
+float: left;
+margin-right: 5px;
+line-height: 1.6;  
+background-color: green;
+ 
 }
-
-
-.price-range-field{
-    width:20%; 
-    height:26px; 
-    min-width: 16%;
-    padding:5px;
-    background-color:#f9f9f9; 
-    border: 1px solid #6e6666; 
-    color: black; 
-    font-family: myFont; 
-    font: normal 14px Arial, Helvetica, sans-serif; 
-    border-radius: 5px; 
+.min
+{
+float: left;  
+  background-color:yellow;
 }
-.search-results-block{
-    position: relative;
-    display: block;
-    clear: both;
+.max
+{
+float: right;   
+  background-color:yellow;
+  
 }
-
+.min-max
+{
+  background-color:blue;
+ 
+/* width: 90%; */
+max-width: 200px;
+margin: 0 auto;
+padding: 25px 0px 15px 0px;    
+}
+.min-max span
+{
+font-size: 10px;
+text-align: center;
+display: inline-block;
+width: 30px;
+border: 1px solid #dedede;    
+}
+.min-max-range
+{
+padding: 30px 0px 20px 0px;    
+  background-color:red;
+}
+.range
+{
+-webkit-appearance:none;
+appearance:none;
+width: 50%;
+height: 10px;
+max-width: 400px;
+background-color: #dedede;
+margin: 0;
+padding: 0;
+outline: none;
+float: left;    
+}
+.range::-webkit-slider-thumb
+{
+-webkit-appearance:none;
+appearance:none;
+background-color: #0070BF;
+height: 10px;
+width: 10px;
+border-radius: 50%;
+cursor: pointer;
+}
+.range::moz-range-thumb
+{
+-webkit-appearance:none;
+appearance:none;
+background-color: #0070BF;
+height: 10px;
+width: 10px;
+border-radius: 50%;
+cursor: pointer;
+}
 
 main{
     text-align: center;
@@ -1729,10 +1794,16 @@ padding: 3vh;
 
 .orderItem table{
     text-align: center;
+    font-size: var(--font-14px);
+
 }
 .orderItem thead > tr {
     background-color: var(--color-white);
     color: var(--color-black);
+}
+
+.orderItem tbody{
+    font-weight: 300;
 }
 
 .totalAmount::after{
@@ -1741,7 +1812,7 @@ padding: 3vh;
 
 /* <!-- 우측: 주문상품 및 금액 --> */
 .orderInfo{
-    width: 40%;
+    width: 45%;
 }
 
 
@@ -2207,7 +2278,20 @@ nav[class="InfoLogo"]{
 }
 
 
-/* ----------------회사 소개/usp.html---------------- */
+/* ----------------디자이너/designers.html---------------- */
+.allBrands{
+display: flex;
+justify-content: center;
+}
+.brandList{
+    width: 50%;
+    text-align: left;
+}
+
+.brandList>span{
+    font-size: var(--font-30px);
+    padding-top: 30px;
+}
 /* -----------------usp 페이지----------------- */
 .usp{
     display: flex;
