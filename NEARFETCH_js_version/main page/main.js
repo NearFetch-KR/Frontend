@@ -25,7 +25,7 @@ timerInit();
 
 // 메인 중간 인기 상품
 function mainHitItem() {
-  fetch("http://172.30.1.52:8000/products/main/hotitem", {
+  fetch("http://172.30.1.57:8000/products/main/hotitem", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -101,7 +101,7 @@ mainHitItem();
 
 // 메인_최하단 추천 상품
 function mainRecomInit() {
-  fetch("http://172.30.1.52:8000/products/main/recommend", {
+  fetch("http://172.30.1.57:8000/products/main/recommend", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -197,7 +197,7 @@ function mainRecomInit() {
             sku_number: sku,
           };
 
-          fetch("http://172.30.1.52:8000/users/cart", {
+          fetch("http://172.30.1.57:8000/users/cart", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

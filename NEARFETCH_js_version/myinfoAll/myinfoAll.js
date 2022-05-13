@@ -2,7 +2,7 @@
 const selectedValueList = [];
 
 function makeCartList() {
-  fetch("http://172.30.1.52:8000/users/cart", {
+  fetch("http://172.30.1.57:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -122,7 +122,7 @@ function makeCartList() {
 
         removeCartImg[k].addEventListener("click", () => {
           fetch(
-            `http://172.30.1.52:8000/users/cart?cartId=${response.result[k].cart_id}`,
+            `http://172.30.1.57:8000/users/cart?cartId=${response.result[k].cart_id}`,
             {
               method: "DELETE",
               headers: {
@@ -176,7 +176,7 @@ function makeCartList() {
         let param = {
           itemOption: selectedValueList,
         };
-        fetch("http://172.30.1.52:8000/users/cart", {
+        fetch("http://172.30.1.57:8000/users/cart", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -232,7 +232,7 @@ if (
       address2: addr_detail,
     };
     let token = localStorage.getItem("login-token");
-    fetch("http://172.30.1.52:8000/users/register/location", {
+    fetch("http://172.30.1.57:8000/users/register/location", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -258,7 +258,7 @@ if (
   ).value;
 
   //저장해둔 주소 노출
-  fetch("http://172.30.1.52:8000/users/register/location", {
+  fetch("http://172.30.1.57:8000/users/register/location", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

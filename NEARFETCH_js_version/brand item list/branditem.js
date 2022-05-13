@@ -1,5 +1,5 @@
 //GUCCI 제품 기획전
-fetch("http://172.30.1.52:8000/products/list?brand=GUCCI", {
+fetch("http://172.30.1.57:8000/products/list?brand=GUCCI", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -89,5 +89,8 @@ fetch("http://172.30.1.52:8000/products/list?brand=GUCCI", {
     filterNsorter(); //필터&정렬 함수
   });
 
-const hotBrandName = document.querySelector("#hotBrandName");
-hotBrandName.innerText = "GUCCI";
+//   현재 카테고리 위치
+const hotBrandNam = document.querySelectorAll(".hotBrandName");
+for (let i = 0; i < hotBrandNam.length; i++) {
+  hotBrandNam[i].innerText = "GUCCI";
+}

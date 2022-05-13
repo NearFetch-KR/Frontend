@@ -6,7 +6,7 @@ if (
   ) > -1
 ) {
   fetch(
-    `http://172.30.1.52:8000/products/detail/${new URLSearchParams(
+    `http://172.30.1.57:8000/products/detail/${new URLSearchParams(
       location.search
     ).get("sku")}`,
     {
@@ -191,7 +191,7 @@ if (
           itemOption: changeValue(),
         };
 
-        fetch("http://172.30.1.52:8000/users/cart", {
+        fetch("http://172.30.1.57:8000/users/cart", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

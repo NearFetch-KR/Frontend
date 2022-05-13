@@ -902,7 +902,7 @@ form[class="sign"]>.btnWrapper{
     text-align: center;
 }
 
-#hotBrandName{
+.hotBrandName:nth-child(1){
     padding:10px;
     font-size: var(--font-30px);
 }
@@ -917,62 +917,29 @@ form[class="sign"]>.btnWrapper{
 .currentCategoryWrapper{
     display: flex;
     justify-content: center;
+    font-size: var(--font-30px);
+    font-weight: 200;
 }
 .currentCategoryWrapper img{
     width: 15px;
 }
 
 
-.mainHotBrand{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 5vw;
-}
-
-.mainHot{
-    display: flex;
-    flex-direction: column;
-    width: 30%;
-    text-align: center;
-}
-
-.mainHot:nth-child(2){
-width: 36%;
-}
-
-.one:nth-child(1),
-.three:nth-child(3){
-    margin-top: 5vh;
-}
-
 .mainHot img{
     width: 100%;
+    filter: brightness(70%);
 }
 
-.mainHot>div:nth-child(2){
-    padding: 1vw;
-}
 
 .mainHot>.hotBrandDes{
     color: var(--color-white);
-    font-size: var(--font-20px);
     font-weight: 200;
     position: relative;
-    top:-50%;
+    top:-300px;
+    font-size: 50px
+ 
 }
-.mainHot:hover{
-    transform: scale(1.1);
-    transition:transform 1s;
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    -webkit-transition:transform 1s;
-    -moz-transition:transform 1s;
-    -ms-transition:transform 1s;
-    -o-transition:transform 1s;
-}
+
 
 .sortingWrapper{
     display: flex;
