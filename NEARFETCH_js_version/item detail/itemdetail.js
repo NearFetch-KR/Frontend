@@ -6,7 +6,7 @@ if (
   ) > -1
 ) {
   fetch(
-    `http://172.30.1.57:8000/products/detail/${new URLSearchParams(
+    `http://52.79.242.14:8000/products/detail/${new URLSearchParams(
       location.search
     ).get("sku")}`,
     {
@@ -164,11 +164,13 @@ if (
         materials[i].textContent = response.recommend[i]["materials"];
       }
 
-      // 가격
+      // 할인 가격 노출
       const price = document.querySelectorAll(".price");
       const sale_price = document.querySelectorAll(".sale_price");
-      for (let i = 0; i < sale_price.length; i++) {
-        if (sale_price.innerText == null) {
+
+      for (let i = 0; i < price.length; i++) {
+        if (sale_price[i].innerText == "") {
+          //세일 안 할 때
           price[i].style.display = "block";
           sale_price[i].style.display = "none";
           price[i].textContent = price[i].textContent
@@ -176,7 +178,10 @@ if (
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         } else {
           sale_price[i].style.display = "block";
-          price[i].style.display = "none";
+          // price[i].style.color = "red";
+
+          price[i].style.textDecoration = "line-through";
+
           sale_price[i].textContent = sale_price[i].textContent
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -191,11 +196,11 @@ if (
           itemOption: changeValue(),
         };
 
-        fetch("http://172.30.1.57:8000/users/cart", {
+        fetch("http://52.79.242.14:8000/users/cart", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            // Authorization: localStorage.getItem('login-token')
+            Authorization: localStorage.getItem("login-token"),
           },
           body: JSON.stringify(param),
         })
@@ -212,4 +217,19 @@ if (
       });
     });
   // });
+}
+
+//링크 공유하기
+function clip() {
+  var url = ""; // <a>태그에서 호출한 함수인 clip 생성
+  var textarea = document.createElement("textarea");
+  //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+
+  document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+  url = window.document.location.href; //url에는 현재 주소값을 넣어줌
+  textarea.value = url; // textarea 값에 url를 넣어줌
+  textarea.select(); //textarea를 설정
+  document.execCommand("copy"); // 복사
+  document.body.removeChild(textarea); //extarea 요소를 없애줌
+  alert("URL이 복사되었습니다."); // 알림창
 }

@@ -4,9 +4,14 @@ function getTime() {
   const today = new Date();
   const gap = target - today;
   const d = String(Math.floor(gap / (1000 * 60 * 60 * 24))).padStart(2, "0"); // 일
-  const h = String(Math.floor((gap / (1000 * 60 * 60)) % 24)).padStart(2, "0"); // 시
-  const m = String(Math.floor(((gap / 1000) * 60) % 60)).padStart(2, "0"); // 분
-  const s = String(Math.floor((gap / 1000) % 60)).padStart(2, "0"); // 초
+  const h = String(
+    Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  ).padStart(2, "0"); // 시
+  const m = String(Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60))).padStart(
+    2,
+    "0"
+  ); // 분
+  const s = String(Math.floor((gap % (1000 * 60)) / 1000)).padStart(2, "0"); // 초
 
   if (gap > 0) {
     document.querySelector(".NumberDays").innerText = d;
@@ -23,9 +28,9 @@ function timerInit() {
 
 timerInit();
 
-// 메인 중간 인기 상품
-function mainHitItem() {
-  fetch("http://172.30.1.57:8000/products/main/hotitem", {
+//특가 상품
+function mainHotdeal() {
+  fetch("http://52.79.242.14:8000/products/main/hotdeal", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -33,7 +38,62 @@ function mainHitItem() {
   })
     .then((response) => response.json())
     .then((response) => {
-      console.log(response.result);
+      const HotDealContents = document.querySelector(".HotDealContents");
+
+      //   상품리스트 UI에 뿌려주기
+      for (let i = 0; i < response.result.length; i += 1) {
+        const divTag = document.createElement("div");
+        HotDealContents.appendChild(divTag);
+        divTag.setAttribute("class", "itemWrapper");
+
+        const aTag = document.createElement("a");
+        divTag.appendChild(aTag);
+        aTag.setAttribute("class", "imgWrapAtag");
+        aTag.href = `/NEARFETCH_js_version/item%20detail/itemdetail.html?sku=${response.result[i]["skuNum"]}`;
+
+        const img = document.createElement("img");
+        aTag.appendChild(img);
+
+        img.setAttribute("class", "itemImg");
+
+        const divWrapper = document.createElement("div");
+        divTag.appendChild(divWrapper);
+        divWrapper.setAttribute("class", "divWrapper");
+
+        divWrapper.innerText =
+          Math.ceil(response.result[i].discount_rate * 100) + "% discount";
+      }
+
+      const itemImg = document.querySelectorAll(".HotDealContents .itemImg");
+      function showImage() {
+        //1 번 사진
+        var imgNum1 = Math.floor(
+          Math.random() * response.result[0].itemImg.length
+        );
+        itemImg[0].src = response.result[0].itemImg[imgNum1];
+
+        //2번 사진
+        var imgNum2 = Math.floor(
+          Math.random() * response.result[1].itemImg.length
+        );
+        itemImg[1].src = response.result[1].itemImg[imgNum2];
+      }
+
+      setInterval(showImage, 1000);
+    });
+}
+mainHotdeal();
+
+// 메인 중간 인기 상품
+function mainHitItem() {
+  fetch("http://52.79.242.14:8000/products/main/hotitem", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((response) => {
       const mustBuyWrapper = document.querySelector(
         ".MustBuyNow .mustBuyWrapper"
       );
@@ -78,10 +138,14 @@ function mainHitItem() {
       }
 
       // 가격
-      const price = document.querySelectorAll(".itemWrapper .price");
-      const sale_price = document.querySelectorAll(".itemWrapper .sale_price");
-      for (let i = 0; i < sale_price.length; i++) {
-        if (sale_price.innerText == null) {
+      const price = document.querySelectorAll(".mustBuyWrapper .price");
+      const sale_price = document.querySelectorAll(
+        ".mustBuyWrapper .sale_price"
+      );
+
+      for (let i = 0; i < price.length; i++) {
+        if (sale_price[i].innerText == "") {
+          //세일 안 할 때
           price[i].style.display = "block";
           sale_price[i].style.display = "none";
           price[i].textContent = price[i].textContent
@@ -89,7 +153,10 @@ function mainHitItem() {
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         } else {
           sale_price[i].style.display = "block";
-          price[i].style.display = "none";
+          // price[i].style.color = "red";
+
+          price[i].style.textDecoration = "line-through";
+
           sale_price[i].textContent = sale_price[i].textContent
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -101,7 +168,7 @@ mainHitItem();
 
 // 메인_최하단 추천 상품
 function mainRecomInit() {
-  fetch("http://172.30.1.57:8000/products/main/recommend", {
+  fetch("http://52.79.242.14:8000/products/main/recommend", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -164,26 +231,7 @@ function mainRecomInit() {
       }
 
       // 가격
-      const price = document.querySelectorAll(".itemListWrapper .price");
-      //   console.log(price);
-      const sale_price = document.querySelectorAll(
-        ".itemListWrapper .sale_price"
-      );
-      for (let i = 0; i < sale_price.length; i++) {
-        if (sale_price.innerText == null) {
-          price[i].style.display = "block";
-          sale_price[i].style.display = "none";
-          price[i].textContent = price[i].textContent
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        } else {
-          sale_price[i].style.display = "block";
-          price[i].style.display = "none";
-          sale_price[i].textContent = sale_price[i].textContent
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-      }
+      priceShow();
 
       //   장바구니 로고 클릭 시 장바구니로 추가
       const cartBtn = document.querySelectorAll(".cart");
@@ -197,7 +245,7 @@ function mainRecomInit() {
             sku_number: sku,
           };
 
-          fetch("http://172.30.1.57:8000/users/cart", {
+          fetch("http://52.79.242.14:8000/users/cart", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

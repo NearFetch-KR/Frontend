@@ -13,25 +13,14 @@
           </div>
           <form action="" class="login">
             <div class="loginFormTitle">즐거운 니어페치 쇼핑 시작</div>
-            <div class="loginNregister">
-              <ul>
-                <li>
-                  <a href="#">로그인</a>
-                </li>
-                <li>
-                  <a href="">회원 가입</a>
-                </li>
-              </ul>
-            </div>
-            <div class="ui-slider-horizontal"></div>
             <div class="loginInfoWrapper">
               <div class="inputWrapper">
-                <label for="mail">이메일 주소</label><br />
-                <input type="text" id="mail" />
+                <label for="loginMail">이메일 주소</label><br />
+                <input type="text" id="loginMail" />
               </div>
               <div class="inputWrapper">
-                <label for="password">비밀번호</label><br />
-                <input type="text" id="password" />
+                <label for="loginPW">비밀번호</label><br />
+                <input type="password" id="loginPW" />
               </div>
             </div>
             <div class="btnWrapper">
@@ -56,12 +45,59 @@
       <!-- 회원가입 버튼 -->
       <button id="registerBtn">회원가입</button>
       <div id="registerModal">
-        <div
-          class="modal-content"
-          include-html="/NEARFETCH_js_version/component/register.html"
-        ></div>
+        <div class="modal-content">
+          <div class="close-area">
+            <img src="/images/cancel.png" alt="" class="registerClose" />
+          </div>
+          <form action="" class="sign">
+            <div class="registerFormTitle">즐거운 니어페치 쇼핑 시작</div>
+
+            <!-- 가입 정보 -->
+            <div class="registerBtnWrapper">
+              <div class="inputWrapper">
+                <label for="name">이름</label><br />
+                <input type="text" id="name" />
+              </div>
+              <div class="inputWrapper">
+                <label for="registerMail">이메일 주소</label><br />
+                <input type="text" id="registerMail" />
+              </div>
+              <div class="inputWrapper">
+                <label for="registerPW">비밀번호</label><br />
+                <input type="password" id="registerPW" />
+              </div>
+            </div>
+
+            <!-- 이용약관 동의  -->
+            <div class="signInAgreeWrapper">
+              <div>
+                개인 정보 등록 시 니어패치의 이용약관에 동의하시게 됩니다.
+              </div>
+              <input type="checkbox" id="policyCheckbox1" /> 니어페치의 '개인
+              정보 처리 방침'에 동의합니다.<br />
+              <input type="checkbox" id="policyCheckbox2" /> 니어페치의 ‘개인
+              정보 처리 위탁'에 동의합니다.<br />
+            </div>
+
+            <!-- 버튼 -->
+            <div class="btnWrapper">
+              <button href="#" class="goRegister">회원 가입하기</button>
+              <div>또는</div>
+              <button class="kakaoLogin">카카오톡으로 로그인</button>
+              <button class="mailLogin">이메일로 로그인</button>
+            </div>
+
+            <!-- 회원가입하기 -->
+            <div class="loginActions">
+              <ul>
+                <li><a href="">회원가입하기</a></li>
+                <li><a href="">아이디를 잊으셨나요?</a></li>
+                <li><a href="">비밀번호를 잊으셨나요?</a></li>
+              </ul>
+            </div>
+          </form>
+        </div>
       </div>
-      <img src="" alt="" />
       <button
         id="myInfo"
         onclick="location.href='/NEARFETCH_js_version/myinfoAll/myinfo.html'"
@@ -167,7 +203,7 @@
 
     <!-- 검색창 -->
     <form name="myForm" method="GET" class="form">
-      <input name="search" class="keyword" type="text" placeholder="검색:" />
+      <input name="word" class="keyword" type="text" placeholder="검색:" />
     </form>
   </div>
 </div>

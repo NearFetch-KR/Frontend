@@ -2,15 +2,16 @@
 const selectedValueList = [];
 
 function makeCartList() {
-  fetch("http://172.30.1.57:8000/users/cart", {
+  fetch("http://52.79.242.14:8000/users/cart", {
     method: "GET",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/son",
+      Authorization: localStorage.getItem("login-token"),
     },
   })
     .then((response) => response.json())
     .then((response) => {
-      //   console.log(response.result);
+      // console.log(response.result);
       for (let k = 0; k < response.result.length; k++) {
         const addItemListWrapper = document.querySelector(
           ".addListTable tbody"
@@ -97,8 +98,10 @@ function makeCartList() {
         price[k].textContent = response.result[k].price;
         sale_price[k].textContent = response.result[k].sale_price;
 
-        for (let i = 0; i < sale_price.length; i++) {
-          if (sale_price.innerText == null) {
+        // 할인 가격 보여주기
+        for (let i = 0; i < price.length; i++) {
+          if (sale_price[i].innerText == "") {
+            //세일 안 할 때
             price[i].style.display = "block";
             sale_price[i].style.display = "none";
             price[i].textContent = price[i].textContent
@@ -106,13 +109,15 @@ function makeCartList() {
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           } else {
             sale_price[i].style.display = "block";
-            price[i].style.display = "none";
+            // price[i].style.color = "red";
+
+            price[i].style.textDecoration = "line-through";
+
             sale_price[i].textContent = sale_price[i].textContent
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           }
         }
-
         const removeCart = document.querySelectorAll(".priceWrapper");
         const removeImgTag = document.createElement("img");
         removeCart[k].appendChild(removeImgTag);
@@ -122,7 +127,7 @@ function makeCartList() {
 
         removeCartImg[k].addEventListener("click", () => {
           fetch(
-            `http://172.30.1.57:8000/users/cart?cartId=${response.result[k].cart_id}`,
+            `http://52.79.242.14:8000/users/cart?cartId=${response.result[k].cart_id}`,
             {
               method: "DELETE",
               headers: {
@@ -136,19 +141,27 @@ function makeCartList() {
               location.reload();
             });
         });
-
-        //  장바구니, 주문창 총 금액 계산
-        const totalAmount = document.querySelector(".totalAmount>span");
-        const prices = document.querySelectorAll("tr .price");
-        const priceArry = [];
-        for (i = 0; i < prices.length; i++) {
-          priceArry.push(Number(prices[i].innerText));
-        }
-        const sum = priceArry.reduce((a, b) => a + b);
-        totalAmount.textContent = sum
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       }
+
+      //  장바구니, 주문창 총 금액 계산
+      const totalAmount = document.querySelector(".totalAmount>span");
+      const prices = document.querySelectorAll("tr .price");
+      const sale_prices = document.querySelectorAll("tr .sale_price");
+
+      const priceArry = [];
+      for (i = 0; i < response.result.length; i++) {
+        if (response.result[i].sale_price !== null) {
+          priceArry.push(Number(sale_prices[i].innerText.split(",").join("")));
+        } else {
+          priceArry.push(Number(prices[i].innerText.split(",").join("")));
+        }
+      }
+
+      const sum = priceArry.reduce((a, b) => a + b);
+      totalAmount.textContent = sum
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
       //   클릭한 옵션값 선택
       const selectInCart = document.querySelectorAll(
         ".addListTable tr .itemOption select"
@@ -167,7 +180,6 @@ function makeCartList() {
       for (let i = 0; i < selectInCart.length; i++) {
         selectInCart[i].addEventListener("change", changeOption);
       }
-      console.log(selectedValueList);
 
       // 구매하기
       const proceedBtn = document.querySelector(".proceed");
@@ -176,7 +188,7 @@ function makeCartList() {
         let param = {
           itemOption: selectedValueList,
         };
-        fetch("http://172.30.1.57:8000/users/cart", {
+        fetch("http://52.79.242.14:8000/users/cart", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -193,7 +205,13 @@ function makeCartList() {
     });
 }
 
-makeCartList();
+if (
+  location.href.indexOf(
+    "http://127.0.0.1:5500/NEARFETCH_js_version/myinfoAll/cart.html"
+  ) > -1
+) {
+  makeCartList();
+}
 
 /* ----------------내 정보(통합)/myinfoAll.html---------------- */
 
@@ -232,7 +250,7 @@ if (
       address2: addr_detail,
     };
     let token = localStorage.getItem("login-token");
-    fetch("http://172.30.1.57:8000/users/register/location", {
+    fetch("http://52.79.242.14:8000/users/register/location", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -258,7 +276,7 @@ if (
   ).value;
 
   //저장해둔 주소 노출
-  fetch("http://172.30.1.57:8000/users/register/location", {
+  fetch("http://52.79.242.14:8000/users/register/location", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -297,6 +315,41 @@ function findAddr() {
     },
   }).open();
 }
+
+console.log("로그인상태 테스트2");
+if (localStorage.getItem("login-token")) {
+  document.querySelector(".infoBar #logout").innerText = "로그아웃";
+} else {
+  document.querySelector(".infoBar #logout").innerText = "로그인";
+}
+
+//로그아웃(기능)
+const logoutBtn = document.querySelector(".infoBar #logout");
+logoutBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  let token = localStorage.getItem("login-token");
+  fetch("http://52.79.242.14:8000/users/logout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+
+      if (localStorage.getItem("login-token")) {
+        localStorage.removeItem("login-token");
+        alert("로그아웃 성공");
+        window.location.href =
+          "http://127.0.0.1:5500/NEARFETCH_js_version/main%20page/main.html";
+      } else {
+        alert("로그아웃 실패");
+      }
+    })
+    .catch((error) => console.log("error:", error));
+});
 
 // //배송중인것만 배송정보 보여주기!
 // const trkStatus = document.querySelectorAll(".trkStatus"); //배송상태값

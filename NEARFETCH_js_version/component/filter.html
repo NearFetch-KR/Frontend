@@ -16,50 +16,22 @@
       <span>BRAND</span>
       <ul class="filter_category_brand_ul"></ul>
     </div>
+
+    <!-- 가격 슬라이더바 -->
     <div class="priceSlider">
+      <span>PRICE</span>
       <div class="min-max">
-        <div class="min"><label>Min</label><span id="min-value"></span></div>
-        <div class="max"><label>Max</label><span id="max-value"></span></div>
+        <div class="min"><span id="min-value"></span></div>
+        <div class="max"><span id="max-value"></span></div>
       </div>
 
+      <!-- //가격 슬라이더 -->
       <div class="min-max-range">
-        <input
-          type="range"
-          min="0"
-          max="5000"
-          value="2000"
-          class="range"
-          id="min"
-        />
-        <input
-          type="range"
-          min="5001"
-          max="10000"
-          value="8000"
-          class="range"
-          id="max"
-        />
+        <input type="range" value="500000" class="range" id="min" />
+        <input type="range" value="15000000" class="range" id="max" />
       </div>
 
       <div style="clear: both"></div>
     </div>
   </div>
 </div>
-
-<!-- 가격 슬라이더바 -->
-<!-- <div class="price-range-slider">
-                 <div class="jquery-script-ads" align="center" style="margin:10px auto"></div>
-                 <div class="price-range-block">
-                     <div id="slider-range" class="price-filter-range" name="rangeInput"></div>
-                 
-                     <div style="margin:30px auto">
-                     <div class="inputWrapper">
-                         <input type="number" min=0 max="99950000" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" /> _
-                         <input type="number" min=0 max="100000000" oninput="validity.valid||(value='100000000');" id="max_price" class="price-range-field" />
-                         <span>만원</span>
-                     </div>                                
-                     <div id="searchResults" class="search-results-block"></div>
-                 </div>
-             </div>
-   
-            </div> -->

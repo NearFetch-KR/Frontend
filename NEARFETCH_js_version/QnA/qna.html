@@ -1,89 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-     <!-- meta정보 -->
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-     <!-- 구글 폰트 -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
-     
-     <!-- 부트스트랩 -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-     
- 
-     <!-- jQuery -->
-     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-     <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-   
+  <head>
+    <!-- meta정보 -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 구글 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=BhuTuka+Expanded+One&family=Comfortaa:wght@600&family=Do+Hyeon&family=Gowun+Dodum&family=Hi+Melody&family=Nanum+Pen+Script&family=Noto+Sans+SC:wght@100;400&family=Oswald:wght@300&family=Permanent+Marker&family=Quintessential&family=Rowdies:wght@300;400&family=Sedgwick+Ave&family=Shadows+Into+Light&family=Source+Code+Pro:wght@200&family=Staatliches&family=Stylish&family=Sunflower:wght@300&family=ZCOOL+QingKe+HuangYou&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 부트스트랩 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.slim.js"
+      integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
     <title>간지나는 당신 곁엔,NearFetch</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- 헤더 -->
     <header include-html="/NEARFETCH_js_version/component/header.html"></header>
 
-
     <!-- 메인 -->
     <main>
-        <!-- qna -->
-        <div class="section qna">
-            <div class="qnaNavbar">
-                <ul>
-                    <li><a>고객 서비스</a></li>
-                    <li><a>자주 묻는 문의</a></li>
-                    <li><a>주문</a></li>
-                    <li><a>배송</a></li>
-                    <li><a>상품</a></li>
-                    <li><a>결제</a></li>
-                    <li><a>관세 및 세금</a></li>
-                    <li><a>교환 및 반품</a></li>
-                    <li><a>AS</a></li>
-                </ul>
-            </div>
-            <div class="qnaText">
-                <h2>QnA</h2>
-                <div class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">질문1</button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>강조할 내용</code> class. This is the first item's accordion body.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">질문2</button>
-                        </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">질문3</button>
-                        </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                        </div>
-                    </div>
-                </div>                 
-            </div>    
+      <!-- qna -->
+      <div class="section qna">
+        <div class="qnaNavbar">
+          <ul>
+            <li>
+              <a href="/NEARFETCH_js_version/QnA/qna.html">고객 서비스</a>
+            </li>
+            <li class="faq">자주 묻는 문의</li>
+            <li class="order">주문</li>
+            <li class="delivery">배송</li>
+            <li class="product">상품</li>
+            <li class="payment">결제</li>
+            <li class="customsNtax">관세 및 세금</li>
+            <li class="exchangeNreturn">교환 및 반품</li>
+            <li class="as">AS</li>
+          </ul>
         </div>
+        <div class="qnaText">
+          <h2></h2>
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <!-- 동적 변경 -->
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    반드시 예상수령일에만 받을 수 있나요?
+                  </button>
+                </h2>
+                <div
+                  id="collapseOne"
+                  class="accordion-collapse collapse show"
+                  aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    해외 배송은 구매일로부터 약 4-7일 정도 소요됩니다. 상품
+                    상세페이지에서 안내드린 예상수령일 기준으로 1-2일 정도
+                    차이가 있을 수 있습니다.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    반품 시 환불은 언제 받을 수 있나요?
+                  </button>
+                </h2>
+                <div
+                  id="collapseTwo"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    수거된 상품은 니어패치 국내 물류창고에 도착 후 검수를 거쳐
+                    환불이 됩니다. 따라서 국내 물류창고 도착 날짜 기준으로 1-2일
+                    내 결제하신 수단으로 환불이 진행됩니다.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    정품인가요?
+                  </button>
+                </h2>
+                <div
+                  id="collapseThree"
+                  class="accordion-collapse collapse"
+                  aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample"
+                >
+                  <div class="accordion-body">
+                    니어패치는 유럽 현지 부티크 및 아울렛과 계약을 맺어 100%
+                    정품만을 판매합니다.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- 푸터 -->
-     <footer include-html="/NEARFETCH_js_version/component/footer.html"></footer>
-    
-     <!-- 연결 css/js/jquery 파일 -->
-    <link rel="stylesheet" href="/NEARFETCH_js_version/style.css">
+    <footer include-html="/NEARFETCH_js_version/component/footer.html"></footer>
+
+    <!-- 연결 css/js/jquery 파일 -->
+    <link rel="stylesheet" href="/NEARFETCH_js_version/style.css" />
     <script defer src="/NEARFETCH_js_version/common.js"></script>
     <script defer src="/NEARFETCH_js_version/commonJquery.js"></script>
- 
+    <script src="/NEARFETCH_js_version/QnA/QnA.json"></script>
+    <script>
+      let AllItemList = JSON.parse(JSON.stringify(data));
 
-</body>
+      const qnaList = document.querySelectorAll(".qnaNavbar li");
+
+      for (let i = 0; i < qnaList.length; i++) {
+        qnaList[i].addEventListener("click", () => {
+          var clickedQna = AllItemList.filter(function (e) {
+            return e.qCategory == `${qnaList[i].className}`;
+          });
+          document.querySelector(".qnaText h2").innerText =
+            qnaList[i].innerText;
+          const accordion = document.querySelector(".accordion");
+          accordion.textContent = "";
+          for (let j = 0; j < clickedQna.length; j++) {
+            const divTag1 = document.createElement("div");
+            accordion.appendChild(divTag1);
+            divTag1.setAttribute("class", "accordion-item");
+
+            const h2 = document.createElement("h2");
+            divTag1.appendChild(h2);
+            h2.setAttribute("class", "accordion-header");
+            // h2.setAttribute("id", "flush-headingOne");
+
+            const button = document.createElement("button");
+            h2.appendChild(button);
+            button.setAttribute("class", "accordion-button collapsed");
+            button.setAttribute("type", "button");
+            button.setAttribute("data-bs-toggle", "collapse");
+            button.setAttribute("data-bs-target", "#flush-collapseOne");
+            button.setAttribute("data-bs-toggle", "collapse");
+            button.setAttribute("aria-expanded", "false");
+            // button.setAttribute("aria-controls", "flush-collapseOne");
+            const divTag2 = document.createElement("div");
+
+            divTag1.appendChild(divTag2);
+            divTag2.setAttribute("id", "flush-collapseOne");
+            divTag2.setAttribute("class", "accordion-collapse collapse");
+            // divTag2.setAttribute("aria-labelledby", "flush-headingOne");
+            divTag2.setAttribute("data-bs-parent", "#accordionFlushExample");
+
+            const divTag3 = document.createElement("div");
+            divTag2.appendChild(divTag3);
+            divTag3.setAttribute("class", "accordion-body");
+
+            const accordion_button =
+              document.querySelectorAll(".accordion-button");
+            accordion_button[j].innerText = clickedQna[j]["question"];
+
+            const accordion_body = document.querySelectorAll(".accordion-body");
+            accordion_body[j].innerText = clickedQna[j]["answer"];
+          }
+        });
+      }
+    </script>
+  </body>
 </html>
