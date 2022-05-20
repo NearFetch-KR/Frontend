@@ -30,7 +30,7 @@ timerInit();
 
 //특가 상품
 function mainHotdeal() {
-  fetch("http://52.79.242.14:8000/products/main/hotdeal", {
+  fetch("http://172.30.1.23:8000/products/main/hotdeal", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -86,7 +86,7 @@ mainHotdeal();
 
 // 메인 중간 인기 상품
 function mainHitItem() {
-  fetch("http://52.79.242.14:8000/products/main/hotitem", {
+  fetch("http://172.30.1.23:8000/products/main/hotitem", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -168,7 +168,7 @@ mainHitItem();
 
 // 메인_최하단 추천 상품
 function mainRecomInit() {
-  fetch("http://52.79.242.14:8000/products/main/recommend", {
+  fetch("http://172.30.1.23:8000/products/main/recommend", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -231,7 +231,30 @@ function mainRecomInit() {
       }
 
       // 가격
-      priceShow();
+      const price = document.querySelectorAll(".itemListWrapper .price");
+      const sale_price = document.querySelectorAll(
+        ".itemListWrapper .sale_price"
+      );
+
+      for (let i = 0; i < price.length; i++) {
+        if (sale_price[i].innerText == "") {
+          //세일 안 할 때
+          price[i].style.display = "block";
+          sale_price[i].style.display = "none";
+          price[i].textContent = price[i].textContent
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        } else {
+          sale_price[i].style.display = "block";
+          // price[i].style.color = "red";
+
+          price[i].style.textDecoration = "line-through";
+
+          sale_price[i].textContent = sale_price[i].textContent
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+      }
 
       //   장바구니 로고 클릭 시 장바구니로 추가
       const cartBtn = document.querySelectorAll(".cart");
@@ -245,11 +268,11 @@ function mainRecomInit() {
             sku_number: sku,
           };
 
-          fetch("http://52.79.242.14:8000/users/cart", {
+          fetch("http://172.30.1.23:8000/users/cart", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              // Authorization: localStorage.getItem('login-token')
+              Authorization: localStorage.getItem("login-token"),
             },
             body: JSON.stringify(param),
           })

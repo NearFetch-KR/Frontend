@@ -109,186 +109,223 @@ function noResult() {
 }
 
 // /* -----------로그인&회원가입(모달창&기능)----------- */
-window.onload = function () {
-  console.log("로그인상태 테스트1");
-  // if (localStorage.getItem("login-token")) {
-  //   document.querySelector(".InfoMenu #loginBtn").style.display = "none";
-  // } else {
-  //   document.querySelector(".InfoMenu #loginBtn").innerText = "로그인";
-  // }
 
-  function goSearch() {
-    document.myForm.action = `http://127.0.0.1:5500/NEARFETCH_js_version/search%20list/search.html`;
-    const keyword_default = document.querySelector("form .keyword");
-    searchItemList();
-  }
+// window.onload = function () {
+//   function goSearch() {
+//     document.myForm.action = `http://127.0.0.1:5500/NEARFETCH_js_version/search%20list/search.html`;
+//     const keyword_default = document.querySelector("form .keyword");
+//     searchItemList();
+//   }
 
-  const form = document.querySelector(".itemCategory .form");
-  // console.log("form test");
+//   const form = document.querySelector(".itemCategory .form");
+//   // console.log("form test");
 
-  form.addEventListener("submit", goSearch);
+//   form.addEventListener("submit", goSearch);
 
-  //   로그인 모달창
-  var loginModal = document.getElementById("loginModal");
-  var loginBtn = document.getElementById("loginBtn");
-  var loginClose = document.querySelector(".loginClose");
+//   //   로그인 모달창
+//   var loginModal = document.getElementById("loginModal");
+//   var loginBtn = document.getElementById("loginBtn");
+//   var loginClose = document.querySelector(".loginClose");
 
-  loginBtn.onclick = function () {
-    loginModal.style.display = "block";
-  };
+//   loginBtn.onclick = function () {
+//     loginModal.style.display = "block";
+//   };
 
-  loginClose.onclick = function () {
-    loginModal.style.display = "none";
-  };
+//   loginClose.onclick = function () {
+//     loginModal.style.display = "none";
+//   };
 
-  window.onclick = function (event) {
-    if (event.target == loginModal) {
-      loginModal.style.display = "none";
-    }
-  };
+//   window.onclick = function (event) {
+//     if (event.target == loginModal) {
+//       loginModal.style.display = "none";
+//     }
+//   };
 
-  //   회원가입 모달창
-  var registerModal = document.getElementById("registerModal");
-  var registerBtn = document.getElementById("registerBtn");
-  var registerClose = document.querySelector(".registerClose");
+//   //   회원가입 모달창
+//   var registerModal = document.getElementById("registerModal");
+//   var registerBtn = document.getElementById("registerBtn");
+//   var registerClose = document.querySelector(".registerClose");
 
-  registerBtn.onclick = function () {
-    registerModal.style.display = "block";
-  };
+//   registerBtn.onclick = function () {
+//     registerModal.style.display = "block";
+//   };
 
-  registerClose.onclick = function () {
-    registerModal.style.display = "none";
-  };
+//   registerClose.onclick = function () {
+//     registerModal.style.display = "none";
+//   };
 
-  window.onclick = function (event) {
-    if (event.target == registerModal) {
-      registerModal.style.display = "none";
-    }
-  };
+//   window.onclick = function (event) {
+//     if (event.target == registerModal) {
+//       registerModal.style.display = "none";
+//     }
+//   };
 
-  //회원가입(기능)
-  const mailRegister = document.querySelector(".goRegister");
-  mailRegister.addEventListener("click", (e) => {
-    let name = document.querySelector(
-      ".registerBtnWrapper .inputWrapper #name"
-    ).value;
-    let mail = document.querySelector(
-      ".registerBtnWrapper .inputWrapper #registerMail"
-    ).value;
-    let pw = document.querySelector(
-      ".registerBtnWrapper .inputWrapper #registerPW"
-    ).value;
+//   //회원가입(기능)
+//   const mailRegister = document.querySelector(".goRegister");
+//   mailRegister.addEventListener("click", (e) => {
+//     let name = document.querySelector(
+//       ".registerBtnWrapper .inputWrapper #name"
+//     ).value;
+//     let mail = document.querySelector(
+//       ".registerBtnWrapper .inputWrapper #registerMail"
+//     ).value;
+//     let pw = document.querySelector(
+//       ".registerBtnWrapper .inputWrapper #registerPW"
+//     ).value;
 
-    var checkbox1 = document.getElementById("policyCheckbox1").checked;
-    var checkbox2 = document.getElementById("policyCheckbox2").checked;
+//     var checkbox1 = document.getElementById("policyCheckbox1").checked;
+//     var checkbox2 = document.getElementById("policyCheckbox2").checked;
 
-    console.log(check1_stat);
+//     console.log(check1_stat);
 
-    let polAgreement = document.querySelector();
-    e.preventDefault();
-    let param = {
-      name: name,
-      email: mail,
-      password: pw,
-    };
-    fetch("http://52.79.242.14:8000/users/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(param),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.message == "SUCCESS") {
-          alert("회원가입이 완료되었습니다. 로그인을 진행해주세요.");
-          document.getElementById("registerModal").style.display = "none";
-        } else if (response.message == "INVALID_EMAIL") {
-          alert("이미 존재하는 이메일입니다. 다른 이메일 주소를 입력해주세요.");
-        } else if (response.message == "INVALID_PASSWORD") {
-          alert("올바른 양식으로 입력해주세요.");
-        }
-      })
-      .catch((error) => {
-        console.log("error:", error);
-      });
-  });
+//     let polAgreement = document.querySelector();
+//     e.preventDefault();
+//     let param = {
+//       name: name,
+//       email: mail,
+//       password: pw,
+//     };
+//     fetch("http://172.30.1.23:8000/users/signup", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(param),
+//     })
+//       .then((response) => response.json())
+//       .then((response) => {
+//         if (response.message == "SUCCESS") {
+//           alert("회원가입이 완료되었습니다. 로그인을 진행해주세요.");
+//           document.getElementById("registerModal").style.display = "none";
+//         } else if (response.message == "INVALID_EMAIL") {
+//           alert("이미 존재하는 이메일입니다. 다른 이메일 주소를 입력해주세요.");
+//         } else if (response.message == "INVALID_PASSWORD") {
+//           alert("올바른 양식으로 입력해주세요.");
+//         }
+//       })
+//       .catch((error) => {
+//         console.log("error:", error);
+//       });
+//   });
 
-  // 로그인(기능)
-  const mailLogin = document.querySelector(".login .mailLogin");
-  mailLogin.addEventListener("click", (e) => {
-    let mail = document.querySelector(
-      ".loginInfoWrapper .inputWrapper #loginMail"
-    ).value;
-    let pw = document.querySelector(
-      ".loginInfoWrapper .inputWrapper #loginPW"
-    ).value;
-    e.preventDefault();
-    let param = {
-      email: mail,
-      password: pw,
-    };
-    fetch("http://52.79.242.14:8000/users/signin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(param),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.message == "SUCCESS") {
-          localStorage.setItem("login-token", response.access_token);
-          alert("로그인 성공");
-          document.getElementById("loginModal").style.display = "none";
-        } else if (response.message == "INVALID_EMAIL") {
-          alert(
-            "올바르지 않은 이메일 주소입니다. 다른 이메일 주소를 입력해주세요."
-          );
-        } else if (response.message == "INVALID_PASSWORD") {
-          alert("올바르지 않은 비밀번호입니다. 다시 입력해주세요.");
-        }
-      })
-      .catch((error) => console.log("error:", error));
-  });
+//   // 로그인(기능)
+//   const mailLogin = document.querySelector(".login .mailLogin");
+//   mailLogin.addEventListener("click", (e) => {
+//     let mail = document.querySelector(
+//       ".loginInfoWrapper .inputWrapper #loginMail"
+//     ).value;
+//     let pw = document.querySelector(
+//       ".loginInfoWrapper .inputWrapper #loginPW"
+//     ).value;
+//     e.preventDefault();
+//     let param = {
+//       email: mail,
+//       password: pw,
+//     };
+//     fetch("http://172.30.1.23:8000/users/signin", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(param),
+//     })
+//       .then((response) => response.json())
+//       .then((response) => {
+//         if (response.message == "SUCCESS") {
+//           localStorage.setItem("login-token", response.access_token);
+//           alert("로그인 성공");
+//           document.getElementById("loginModal").style.display = "none";
+//         } else if (response.message == "INVALID_EMAIL") {
+//           alert(
+//             "올바르지 않은 이메일 주소입니다. 다른 이메일 주소를 입력해주세요."
+//           );
+//         } else if (response.message == "INVALID_PASSWORD") {
+//           alert("올바르지 않은 비밀번호입니다. 다시 입력해주세요.");
+//         }
+//       })
+//       .catch((error) => console.log("error:", error));
+//   });
 
-  // 카카오 로그인
-  // Kakao.init('c06d45d83cfbe0482ac643895bc7aea1'); //발급받은 키 중 javascript키를 사용해준다.
-  // // console.log(Kakao.isInitialized()); // sdk초기화여부판단
-  // function kakaoLogin() {
-  //     Kakao.Auth.login({
-  //     success: function (response) {
-  //         Kakao.API.request({
-  //         url: '/v2/user/me',
-  //         success: function (response) {
-  //             console.log(response)
-  //         },
-  //         fail: function (error) {
-  //             console.log(error)
-  //         },
-  //         })
-  //     },
-  //     fail: function (error) {
-  //         console.log(error)
-  //     },
-  //     })
-  // }
-  // //카카오로그아웃
-  // function kakaoLogout() {
-  //     if (Kakao.Auth.getAccessToken()) {
-  //     Kakao.API.request({
-  //         url: '/v1/user/unlink',
-  //         success: function (response) {
-  //             console.log(response)
-  //         },
-  //         fail: function (error) {
-  //         console.log(error)
-  //         },
-  //     })
-  //     Kakao.Auth.setAccessToken(undefined)
-  //     }
-  // }
-};
+//   // 카카오 로그인
+//   Kakao.init("c06d45d83cfbe0482ac643895bc7aea1"); //발급받은 키 중 javascript키를 사용해준다.
+//   console.log(Kakao.isInitialized()); // sdk초기화여부판단
+//   function kakaoLogin() {
+//     Kakao.Auth.login({
+//       success: function (response) {
+//         Kakao.API.request({
+//           url: "/v2/user/me",
+//           success: function (response) {
+//             console.log(response);
+//           },
+//           fail: function (error) {
+//             console.log(error);
+//           },
+//         });
+//       },
+//       fail: function (error) {
+//         console.log(error);
+//       },
+//     });
+//   }
+//   const kakaoLoginBtn = document.querySelectorAll(".kakaoLogin");
+//   for (let i = 0; i < kakaoLoginBtn.length; i++) {
+//     kakaoLoginBtn[i].addEventListener("click", kakaoLogin);
+//   }
+
+//   //로그아웃(기능)
+//   const logoutBtn = document.querySelector(".infoBar #logout");
+//   logoutBtn.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     let token = localStorage.getItem("login-token");
+//     fetch("http://172.30.1.23:8000/users/logout", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: token,
+//       },
+//     })
+//       .then((response) => response.json())
+//       .then((response) => {
+//         console.log(response);
+
+//         if (localStorage.getItem("login-token")) {
+//           localStorage.removeItem("login-token");
+//           alert("로그아웃 성공");
+//           window.location.href =
+//             "http://127.0.0.1:5500/NEARFETCH_js_version/main%20page/main.html";
+//         } else {
+//           alert("로그아웃 실패");
+//         }
+//       })
+//       .catch((error) => console.log("error:", error));
+//   });
+
+//   //카카오로그아웃
+//   function kakaoLogout() {
+//     if (Kakao.Auth.getAccessToken()) {
+//       Kakao.API.request({
+//         url: "/v1/user/unlink",
+//         success: function (response) {
+//           console.log(response);
+//         },
+//         fail: function (error) {
+//           console.log(error);
+//         },
+//       });
+//       Kakao.Auth.setAccessToken(undefined);
+//     }
+//   }
+
+//   console.log("로그인 성공 시 로그인 버튼 사라짐");
+//   if (
+//     localStorage.getItem("login-token") ||
+//     localStorage.getItem("kakao_d00e298d264188749cec865d2f70fa40")
+//   ) {
+//     document.querySelector(".InfoMenu #loginBtn").style.display = "none";
+//   } else {
+//     document.querySelector(".InfoMenu #loginBtn").innerText = "로그인";
+//   }
+// };
 
 // 할인 가격 같이 보여주기
 function priceShow() {
@@ -327,11 +364,11 @@ function goCart() {
         sku_number: sku,
       };
 
-      fetch("http://52.79.242.14:8000/users/cart", {
+      fetch("http://172.30.1.23:8000/users/cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          // Authorization: localStorage.getItem('login-token')
+          Authorization: localStorage.getItem("login-token"),
         },
         body: JSON.stringify(param),
       })
@@ -350,7 +387,7 @@ function goCart() {
 }
 
 // -----------navbar카테고리 리스트 생성-----------
-fetch(`http://52.79.242.14:8000/products/make/category`, {
+fetch(`http://172.30.1.23:8000/products/make/category`, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -563,7 +600,7 @@ fetch(`http://52.79.242.14:8000/products/make/category`, {
 // debugger;
 
 /****
-fetch("http://52.79.242.14:8000/products/list", {
+fetch("http://172.30.1.23:8000/products/list", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -657,7 +694,7 @@ fetch("http://52.79.242.14:8000/products/list", {
       };
     });
     fetch(
-      `http://52.79.242.14:8000/products/list?large_category=${gender}&medium_category=${categoryMedium}&small_category=${categorySmall}`,
+      `http://172.30.1.23:8000/products/list?large_category=${gender}&medium_category=${categoryMedium}&small_category=${categorySmall}`,
       {
         method: "GET",
         headers: {
@@ -679,7 +716,7 @@ fetch("http://52.79.242.14:8000/products/list", {
 const filterAll = [];
 
 function filterNsorter() {
-  fetch(`http://52.79.242.14:8000/products/make/filter`, {
+  fetch(`http://172.30.1.23:8000/products/make/filter`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -835,7 +872,7 @@ function filterNsorter() {
           );
 
           //필터 적용하여 데이터 요청
-          fetch(`http://52.79.242.14:8000/products/list${location.search}`, {
+          fetch(`http://172.30.1.23:8000/products/list${location.search}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

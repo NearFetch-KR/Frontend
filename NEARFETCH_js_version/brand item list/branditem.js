@@ -1,5 +1,5 @@
 //GUCCI 제품 기획전
-fetch("http://52.79.242.14:8000/products/list?brand=GUCCI", {
+fetch("http://172.30.1.23:8000/products/list?brand=GUCCI", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",

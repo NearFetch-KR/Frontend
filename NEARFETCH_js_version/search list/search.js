@@ -8,7 +8,7 @@ const convert_word = [];
 // case1.직접 검색하여 상품 찾기
 function searchItemList() {
   keyword = urlParams.get("word");
-  fetch(`http://52.79.242.14:8000/products/list${location.search}`, {
+  fetch(`http://172.30.1.23:8000/products/list${location.search}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -113,11 +113,11 @@ function searchItemList() {
             sku_number: sku,
           };
 
-          fetch("http://52.79.242.14:8000/users/cart", {
+          fetch("http://172.30.1.23:8000/users/cart", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              // Authorization: localStorage.getItem('login-token')
+              Authorization: localStorage.getItem("login-token"),
             },
             body: JSON.stringify(param),
           })
@@ -135,7 +135,7 @@ function searchItemList() {
       });
       //   filterNsorter();
       //   필터(좌);
-      fetch(`http://52.79.242.14:8000/products/make/filter`, {
+      fetch(`http://172.30.1.23:8000/products/make/filter`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -285,15 +285,12 @@ function searchItemList() {
               );
 
               //필터 적용하여 데이터 요청
-              fetch(
-                `http://52.79.242.14:8000/products/list${location.search}`,
-                {
-                  method: "GET",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                }
-              )
+              fetch(`http://172.30.1.23:8000/products/list${location.search}`, {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
                 .then((response) => response.json())
                 .then((response) => {
                   document.querySelector(" .itemListWrapper").textContent = "";
@@ -382,7 +379,7 @@ if (
 // case2.navbar 카테고리 클릭하여 상품 찾기
 function searchCategoryList() {
   fetch(
-    `http://52.79.242.14:8000/products/list${location.search}`,
+    `http://172.30.1.23:8000/products/list${location.search}`,
 
     {
       method: "GET",
@@ -501,11 +498,11 @@ function searchCategoryList() {
             sku_number: sku,
           };
 
-          fetch("http://52.79.242.14:8000/users/cart", {
+          fetch("http://172.30.1.23:8000/users/cart", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              // Authorization: localStorage.getItem('login-token')
+              Authorization: localStorage.getItem("login-token"),
             },
             body: JSON.stringify(param),
           })

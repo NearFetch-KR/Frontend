@@ -2,7 +2,7 @@
 const selectedValueList = [];
 
 function makeCartList() {
-  fetch("http://52.79.242.14:8000/users/cart", {
+  fetch("http://172.30.1.23:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/son",
@@ -127,7 +127,7 @@ function makeCartList() {
 
         removeCartImg[k].addEventListener("click", () => {
           fetch(
-            `http://52.79.242.14:8000/users/cart?cartId=${response.result[k].cart_id}`,
+            `http://172.30.1.23:8000/users/cart?cartId=${response.result[k].cart_id}`,
             {
               method: "DELETE",
               headers: {
@@ -167,31 +167,24 @@ function makeCartList() {
         ".addListTable tr .itemOption select"
       );
 
-      //수정 필요
-      function changeOption() {
-        let value_str = document.querySelectorAll(
-          ".addListTable tr .itemOption select"
-        );
+      for (let i = 0; i < selectInCart.length; i++) {
         let selectedValue =
           selectInCart[i].options[selectInCart[i].selectedIndex].text;
         selectedValueList.push(selectedValue);
       }
-
-      for (let i = 0; i < selectInCart.length; i++) {
-        selectInCart[i].addEventListener("change", changeOption);
-      }
+      console.log(selectedValueList);
 
       // 구매하기
       const proceedBtn = document.querySelector(".proceed");
       proceedBtn.addEventListener("click", () => {
-        //   console.log(selectedValue);
         let param = {
           itemOption: selectedValueList,
         };
-        fetch("http://52.79.242.14:8000/users/cart", {
+        fetch("http://172.30.1.23:8000/users/cart", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+            Authorization: localStorage.getItem("login-token"),
           },
 
           body: JSON.stringify(param),
@@ -250,7 +243,7 @@ if (
       address2: addr_detail,
     };
     let token = localStorage.getItem("login-token");
-    fetch("http://52.79.242.14:8000/users/register/location", {
+    fetch("http://172.30.1.23:8000/users/register/location", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -276,7 +269,7 @@ if (
   ).value;
 
   //저장해둔 주소 노출
-  fetch("http://52.79.242.14:8000/users/register/location", {
+  fetch("http://172.30.1.23:8000/users/register/location", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -328,7 +321,7 @@ const logoutBtn = document.querySelector(".infoBar #logout");
 logoutBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let token = localStorage.getItem("login-token");
-  fetch("http://52.79.242.14:8000/users/logout", {
+  fetch("http://172.30.1.23:8000/users/logout", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

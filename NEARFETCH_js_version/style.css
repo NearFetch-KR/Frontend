@@ -956,6 +956,7 @@ form[class="sign"]>.btnWrapper{
 
 .sortWrapper.active{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: var(--color-white);
 }
 
 .filter_gender,
@@ -1346,6 +1347,8 @@ cursor: pointer;
     width: 15%;
 } 
 
+
+
 .myInfoWrapper thead tr th:nth-child(3),
 .myInfoWrapper thead tr th:nth-child(4){
     width: 10%;    
@@ -1539,6 +1542,7 @@ color: var(--color-grey);
 /* 4.주문 정보(order.html) */
 .orderListTable{
     text-align: center;
+  
 }
 
 .orderListTable thead tr th:nth-child(1){
@@ -1667,10 +1671,9 @@ padding: 3vh;
     cursor: pointer;
 }
 
-.orderItem table{
+.orderItem table tr{
     text-align: center;
     font-size: var(--font-14px);
-
 }
 .orderItem thead > tr {
     background-color: var(--color-white);
