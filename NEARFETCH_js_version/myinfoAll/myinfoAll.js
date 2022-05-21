@@ -1,4 +1,16 @@
 // ----------------장바구니 상품 리스트 노출----------------
+window.onload = function () {
+  console.log("로그인상태 테스트2");
+  if (
+    localStorage.getItem("login-token") ||
+    localStorage.getItem("kakao_d00e298d264188749cec865d2f70fa40")
+  ) {
+    document.querySelector(".infoBar #logout").innerText = "로그아웃";
+  } else {
+    document.querySelector(".infoBar #logout").innerText = "로그인";
+  }
+};
+
 const selectedValueList = [];
 
 function makeCartList() {
@@ -307,13 +319,6 @@ function findAddr() {
       }
     },
   }).open();
-}
-
-console.log("로그인상태 테스트2");
-if (localStorage.getItem("login-token")) {
-  document.querySelector(".infoBar #logout").innerText = "로그아웃";
-} else {
-  document.querySelector(".infoBar #logout").innerText = "로그인";
 }
 
 //로그아웃(기능)
