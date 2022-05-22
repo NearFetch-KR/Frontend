@@ -158,14 +158,11 @@ img{
     }
 
     /* myinfo(장바구니) */
-   
     .addListTable .removeCart{
         position: relative;
         top: 10%;
         right: 0;
     }
-
-  
 
     .addListTable tbody tr td{
         padding:0;
@@ -224,6 +221,73 @@ img{
         display: none;
     }
 
+    nav[class="InfoLogo"]{
+        flex-direction: column;
+    }
+
+    nav[class="InfoLogo"] .appBtns{
+        margin: 20px;
+    }
+ 
+
+    .appInfo2 .show{
+        font-size: 1.5vw;
+    }
+
+    .appInfo3 .infoInner .content{
+        font-size: 20px;
+    }
+   
+    .infoWrapper .appinfo{
+        height: 80vh;
+    }
+
+    /* ups */
+    .uspContents{
+        margin:1vh;
+    }
+
+   .uspContents .uspText{
+       width: 100%;
+   }
+
+   .uspText .uspImg{
+       margin-top: 20%;
+    }
+
+    .usp .advantage{
+        width: 100%;
+        align-items: flex-start;
+        color: var(--color-darkgrey);
+        margin: 1vh;
+    }
+
+    .usp .advantage .advan>div{
+        color: var(--color-darkgrey);
+    }
+
+    .usp .advantage .advan img{
+        display: none;
+    }
+
+    
+
+    /* qna  */
+    .qna{
+        flex-direction: column;
+    }
+   
+    .qnaNavbar ul{    
+        flex-direction:row;
+        justify-content: space-around;
+    }
+
+    .qna .qnaText{
+        width: 100%;
+        padding: var(--font-20px);
+        text-align: left;
+    }
+   
     /* 푸터 */
     .FooterInfo>div{        
         margin: 0 30px;
@@ -667,9 +731,12 @@ form[class="sign"]>.btnWrapper{
 }
 
 .carouselWrapper img{
+ 
     width: 250px;
-    background: url(/images/3D.gif);
-    background-position-x: center;
+    background: url(/images/nearfetchApp.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 230px 390px;
 }
 
 
@@ -1870,7 +1937,7 @@ nav[class="InfoLogo"]{
     justify-content: space-around;
     align-items: center;
     font-weight: 800;
-    margin:10px 0;
+    padding:10px 0;
 
 }
 
@@ -1951,22 +2018,17 @@ nav[class="InfoLogo"]{
 .appinfo{
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 100vh;
 }
 
 
-.infoInner{
+.appinfo .infoInner{
     width: 80%;
-    height: 50%;
+    height: auto;
     margin-top: 5%;
 }
 
-.infoInnerTxt>div:first-child{
-    padding: 2vw;
-    line-height: 1.5;
-    font-size:3vw;
-    font-weight: 300;
-}
 
 .appinfo .show{
     color: var(--color-grey);
@@ -1977,10 +2039,14 @@ nav[class="InfoLogo"]{
     line-height: 2;
 }
 
-.appInfo2 .show{
-    padding: 50px;
-}
 
+
+.appinfo .infoInnerTitle{
+    padding: 2vw;
+    line-height: 1.5;
+    font-size:3vw;
+    font-weight: 300;
+}
 
 /* 섹션1*/
 .appinfo .intro{
@@ -1992,8 +2058,7 @@ nav[class="InfoLogo"]{
 }
 
 .brandText{
-    position: absolute;
-    top: 30vh;
+    position: relative;
     width: 6em;
     height: 2em;
     color: #fff;
@@ -2346,14 +2411,14 @@ justify-content: center;
 height: 50%;
 background-position: center;
 background: url(/images/fashion.jpg) fixed;
-background-size: 100%;
+background-size: 100% 100%;
 background-repeat: no-repeat;
 }
 
 .whyNearFetchTxt{
    color:var(--color-white);
     margin-top:15%;
-    font-size: 3vw;
+    font-size: 4vw;
     font-weight: 500;
     margin-bottom: 30%;
 }
@@ -2379,10 +2444,11 @@ background-repeat: no-repeat;
     margin: 5vh;
 }
 .advantage{
+    width: 70%;
     display: flex;
     justify-content: space-around;
-    margin: 0 10vh 10vh;
-    /* background-color: rgb(213, 235, 155); */
+    margin: 0 auto;
+
 }
 
 .uspTitle{
@@ -2404,10 +2470,12 @@ background-repeat: no-repeat;
 
 .advan>div{
     color: var(--color-white);
+    min-height: 200px;
     position: relative;
     top: 50%;
     z-index: 10;
     font-weight: 200;
+    padding: 20px;
 }
 
 .advan h3,
@@ -2458,6 +2526,10 @@ background-repeat: no-repeat;
 .qnaNavbar{
     padding:5vw 1vw;
     font-weight: 300;
+}
+.qnaNavbar ul{
+    display: flex;
+    flex-direction: column;
 }
 
 .qnaNavbar ul li{
