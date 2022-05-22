@@ -37,5 +37,7 @@ circles[3].onclick = function () {
   circles[2].style.backgroundColor = "transparent";
   circles[3].style.backgroundColor = "black";
 };
+
+//텍스트 나타나는 애니메이션
 ScrollReveal({ reset: true });
 ScrollReveal().reveal(".show", { delay: 500 });

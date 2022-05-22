@@ -7,28 +7,6 @@ fetch("http://172.30.1.23:8000/products/list?brand=GUCCI", {
 })
   .then((response) => response.json())
   .then((response) => {
-    // var hotBrandMain = response.result.filter((item) => {
-    //   if (item.gender.includes("WOMEN")) {
-    //     return true;
-    //   }
-    //   return false;
-    // });
-
-    // // 중복값 제외한 메인 상품 3개 뽑기
-    // var hotBrandMainRandom = [];
-    // for (let i = 0; i < hotBrandMain.length; i++) {
-    //   const randomItem =
-    //     hotBrandMain[Math.floor(Math.random() * hotBrandMain.length)];
-    //   if (!hotBrandMainRandom.includes(randomItem)) {
-    //     hotBrandMainRandom.push(randomItem);
-    //     if (hotBrandMainRandom.length == 3) {
-    //       break;
-    //     }
-    //   } else {
-    //     i--;
-    //   }
-    // }
-
     // 상품 리스트 태그 생성
     const searchItemListWrapper = document.querySelector(
       ".hotBrandItem>.itemListWrapper"
@@ -87,8 +65,11 @@ fetch("http://172.30.1.23:8000/products/list?brand=GUCCI", {
     // 세일 시 세일 가격
     priceShow();
 
-    goCart(); //장바구니 담기 함수
-    filterNsorter(); //필터&정렬 함수
+    //장바구니 담기 함수
+    goCart();
+
+    //필터&정렬 함수
+    filterNsorter();
   });
 
 //   현재 카테고리 위치

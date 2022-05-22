@@ -30,7 +30,7 @@ timerInit();
 
 //특가 상품
 function mainHotdeal() {
-  fetch("http://172.30.1.23:8000/products/main/hotdeal", {
+  fetch("http://15.164.251.114:8000/products/main/hotdeal", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -86,7 +86,7 @@ mainHotdeal();
 
 // 메인 중간 인기 상품
 function mainHitItem() {
-  fetch("http://172.30.1.23:8000/products/main/hotitem", {
+  fetch("http://15.164.251.114:8000/products/main/hotitem", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -137,7 +137,7 @@ function mainHitItem() {
           response.result[i][classList[3]];
       }
 
-      // 가격
+      // 할인 가격 같이 보여주기
       const price = document.querySelectorAll(".mustBuyWrapper .price");
       const sale_price = document.querySelectorAll(
         ".mustBuyWrapper .sale_price"
@@ -145,7 +145,7 @@ function mainHitItem() {
 
       for (let i = 0; i < price.length; i++) {
         if (sale_price[i].innerText == "") {
-          //세일 안 할 때
+          //  할인가격 보여주기
           price[i].style.display = "block";
           sale_price[i].style.display = "none";
           price[i].textContent = price[i].textContent
@@ -153,10 +153,7 @@ function mainHitItem() {
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         } else {
           sale_price[i].style.display = "block";
-          // price[i].style.color = "red";
-
           price[i].style.textDecoration = "line-through";
-
           sale_price[i].textContent = sale_price[i].textContent
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -168,7 +165,7 @@ mainHitItem();
 
 // 메인_최하단 추천 상품
 function mainRecomInit() {
-  fetch("http://172.30.1.23:8000/products/main/recommend", {
+  fetch("http://15.164.251.114:8000/products/main/recommend", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -231,63 +228,11 @@ function mainRecomInit() {
       }
 
       // 가격
-      const price = document.querySelectorAll(".itemListWrapper .price");
-      const sale_price = document.querySelectorAll(
-        ".itemListWrapper .sale_price"
-      );
 
-      for (let i = 0; i < price.length; i++) {
-        if (sale_price[i].innerText == "") {
-          //세일 안 할 때
-          price[i].style.display = "block";
-          sale_price[i].style.display = "none";
-          price[i].textContent = price[i].textContent
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        } else {
-          sale_price[i].style.display = "block";
-          // price[i].style.color = "red";
-
-          price[i].style.textDecoration = "line-through";
-
-          sale_price[i].textContent = sale_price[i].textContent
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-      }
+      priceShow();
 
       //   장바구니 로고 클릭 시 장바구니로 추가
-      const cartBtn = document.querySelectorAll(".cart");
-      cartBtn.forEach((el, index) => {
-        el.onclick = (e) => {
-          let parentTag = e.target.parentElement; //클릭한 요소의 부모 태그 전체
-          let sku = parentTag.childNodes[6].innerText;
-          e.preventDefault();
-
-          let param = {
-            sku_number: sku,
-          };
-
-          fetch("http://172.30.1.23:8000/users/cart", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: localStorage.getItem("login-token"),
-            },
-            body: JSON.stringify(param),
-          })
-            .then((response) => response.json())
-            .then((response) => console.log(response))
-            .then(function () {
-              let text = "장바구니로 이동하시겠습니까?";
-              if (confirm(text) == true) {
-                window.location.href =
-                  "http://127.0.0.1:5500/NEARFETCH_js_version/myinfoAll/cart.html";
-              }
-            })
-            .catch((error) => console.log("error:", error));
-        };
-      });
+      goCart();
     });
 }
 

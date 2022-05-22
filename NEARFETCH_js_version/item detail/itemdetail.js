@@ -6,7 +6,7 @@ if (
   ) > -1
 ) {
   fetch(
-    `http://172.30.1.23:8000/products/detail/${new URLSearchParams(
+    `http://15.164.251.114:8000/products/detail/${new URLSearchParams(
       location.search
     ).get("sku")}`,
     {
@@ -24,9 +24,10 @@ if (
       const ul = document.createElement("ul");
       itemImgWrapper.appendChild(ul);
       ul.setAttribute("class", "itemImages");
+
       for (let i = 0; i < response.detail.itemImg.length; i += 1) {
         const li = document.createElement("li");
-        itemImgWrapper.appendChild(li); //사진 갯수만큼 li태그 추가
+        ul.appendChild(li); //사진 갯수만큼 li태그 추가
 
         const img = document.createElement("img");
         li.appendChild(img);
@@ -196,7 +197,7 @@ if (
           itemOption: changeValue(),
         };
 
-        fetch("http://172.30.1.23:8000/users/cart", {
+        fetch("http://15.164.251.114:8000/users/cart", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

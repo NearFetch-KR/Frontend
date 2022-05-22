@@ -33,50 +33,208 @@ body {
 
 }
 
+/* 반응형 적용을 위한 사진 사이즈 */
+img{
+    max-width: 100%;
+    height: auto;
+}
 
-/* 반응형 컴포넌트 */
 
+/* 미디어쿼리 */
 /* 스몰 */
-@media(max-width:576px){
+@media(max-width:320px){
   
-    /* 유연하게 해야할 것 */
-   
-    /* 사이즈 조절할 것 */
-
-    /* 감출 것 */
-
-    /* 옮길 것 */
- 
 
 }
 
+/* 미듐 */
 @media(max-width:768px){
-    /* addDown.html  */
-    nav[class="InfoLogo"]{
-        display:block;
-        text-align: center;
+    /* 검색창*/
+    input[class="keyword"],
+    .form{
+        position: relative;
+        top:150%;
+        margin-right: 0;
     }
+
+    form[class="form"]{
+        margin-right: 50%;
+        transform: translateX(50%);
+        -webkit-transform: translateX(50%);
+        -moz-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        -o-transform: translateX(50%);
+    }
+
+    .itemCategory .dropbtn{
+        width: 90%;
+    }
+
+    .InfoLogo .modal-content{
+        width: 95%;
+    }
+
+    .section{
+        margin-bottom: 100px;
+    }
+    
+    .headerwrapper .dropdown-content {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .headerwrapper .dropdown-content .categoryMedium{
+        margin: 2px;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: inline-block;
+        width: 100%;
+    }
+
+    /* 메인화면 */
+    .MainLogoWrapper{
+        padding: var(--font-16px);
+    }
+
+    .itemListWrapper ul li .itemImg{
+        width: 90%;
+        height: 90%;
+    }
+  
+    .itemListWrapper ul{
+        width: 100%;
+    }
+
+    .itemListWrapper ul li{
+        width:200px;
+    }
+
+    .filterWrapper.active{
+        z-index: 100;
+        width: 180px;
+    }
+
+    .itemListWrapper.active {
+    position: relative;
+     }
+
+    .itemListWrapper.active ul{
+        width: 100%;
+        justify-content: right;
+    }
+
+    /* myinfo(주소 저장) */
+    .myInfoList{
+        flex-direction: column;
+    }
+
+    .myInfoList .infoBar{
+        width: 100%;
+    } 
+
+    .myInfoList .infoBar ul{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .myInfoList .myInfo{
+        width: 100%;
+    }
+    .myInfoList #myInfoWrapper{
+        flex-direction: column;
+    border: none;
+    }
+
+    .myInfoList #myInfoWrapper .imgNextoMyinfo,
+    .myInfoList #myInfoWrapper .myInfoAddress{
+        width: 100%;
+    }
+
+    .addressBox input{
+        width: 100%;
+    }
+
+    /* myinfo(장바구니) */
+   
+    .addListTable .removeCart{
+        position: relative;
+        top: 10%;
+        right: 0;
+    }
+
+  
+
+    .addListTable tbody tr td{
+        padding:0;
+    }
+
+
+    /* itemdetail.html */
+    .buy .itemDetail{
+        width: 100%;
+    }
+    .itemBuy{
+        margin-top: 25%;  
+    }
+
+    .buy .itemBuyBtn{
+        position: fixed;
+        padding: 20px;
+        width: 100%;
+      bottom: 0%;
+      right: 0;
+      margin-top: auto;
+    }
+
+    .buy .informWrapper{
+        /* border: none;
+        position: absolute;
+        width: 400px;
+        height: 100%;
+        top:150%;
+        right: 0;
+        flex-direction: row;
+        padding:0; */
+        display: none;
+    }
+
+    /* pay.html */
+    .pay{
+        flex-direction: column;
+    }
+
+    .pay .payInfo,
+    .pay .orderInfo{
+        width: 100%;
+    }
+
+    .pay .contactInfo label{
+        width: 11%;
+    }
+
+    .pay .contactInfo input{
+        width: 100px;
+    }
+
+    /* appDown.html */
+    .circleWrap{
+        display: none;
+    }
+
+    /* 푸터 */
+    .FooterInfo>div{        
+        margin: 0 30px;
+    }
+   
+    .FooterInfo{
+       flex-direction: column;
+       margin-bottom: 0;
+    } 
 }
 
-@media (max-width:480px){
-	
-	html{
-		/* font-size:80%; *16px*62.5%에서 80%로 키우겠다 */
-	}
-	/* mobile 새로 만들어서 html에 추가해두기 */
-	.l_col_mobile_12_12{width:100%;} /*12칸 중 12칸 사용*/
-	.l_col_mobile_11_12{width:91.6666667%;} /*12칸 중 11칸 사용*/
-	.l_col_mobile_10_12{width:83.3333333%;} /*12칸 중 10칸 사용*/
-	.l_col_mobile_9_12{width:75%;} /*12칸 중 9칸 사용*/
-	.l_col_mobile_8_12{width:66.666667%;} /*12칸 중 8칸 사용*/
-	.l_col_mobile_7_12{width:58.3333333%;} /*12칸 중 7칸 사용*/
-	.l_col_mobile_6_12{width:50%;} /*12칸 중 6칸 사용*/
-	.l_col_mobile_5_12{width:41.666667%;} /*12칸 중 5칸 사용*/
-	.l_col_mobile_4_12{width:33.3333333%;} /*12칸 중 4칸 사용*/
-	.l_col_mobile_3_12{width:25%;} /*12칸 중 3칸 사용*/
-	.l_col_mobile_2_12{width:16.666667%;} /*12칸 중 2칸 사용*/
-	.l_col_mobile_1_12{width:8.3333333%;} /*12칸 중 1칸 사용*/
-}
 
 /* ul,i,a,li Reset  */
 ul{
@@ -103,7 +261,6 @@ h2{
     padding: 3vh;
     font-size: var(--font-30px);
     font-weight: 300;
-    /* background-color: red; */
 }
 
 h3{
@@ -290,6 +447,7 @@ main{
   }
  
   .dropdown:hover .dropdown-content {
+      width: 200px;
     display: flex;
   }
 
@@ -300,7 +458,7 @@ main{
 }
 
 /* 검색창 */
-input[name="word"]{
+input[class="keyword"]{
     height: 40px;
     width: 250px;
     border:0.5px solid var(--color-grey);
@@ -321,6 +479,7 @@ input[name="word"]{
     flex-wrap: wrap;
     width: 90%;
     margin: auto;
+    justify-content: center;
 }
 
 
@@ -624,6 +783,7 @@ form[class="sign"]>.btnWrapper{
   }
 
   .carousel {
+   
     position: relative;
     filter: drop-shadow(0 0 10px rgba(192, 192, 192, 0.562));
     perspective: 100px;
@@ -631,6 +791,8 @@ form[class="sign"]>.btnWrapper{
 }
   
   .carousel__viewport {
+    max-width: 100%;
+    height: auto;
     top: 0;
     right: 0;
     bottom: 0;
@@ -646,9 +808,9 @@ form[class="sign"]>.btnWrapper{
     position: relative;
     flex: 0 0 100%;
     width: 100%;
-    height: 500px;
+    height: 400px;
     counter-increment: item;
-    background-color: rgb(235, 235, 235);
+    /* background-color: rgb(235, 235, 235); */
   }
 
   .carousel__snapper img{
@@ -754,9 +916,8 @@ form[class="sign"]>.btnWrapper{
   }
 
   .HotDealContents{
-      width: 60%;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     margin: 0 auto;
     padding: 20px;
   }
@@ -770,49 +931,34 @@ form[class="sign"]>.btnWrapper{
 
   .HotDealContents .divWrapper{
       position: relative;
-      top: -90%;
-      font-size: 3vh;
-    font-weight: 300;
-      color: rgba(83, 83, 83, 0.473);
-    
+      top: -50%;
+      font-size: var(--font-40px);
+    font-weight: 800;
+ 
   }
-
-/* .HotDealContents .itemWrapper{
-    border: 3px solid red;
-    width: 400px;
-    height: 400px;
-} */
 
 
 /* 섹션3_당장 사야할 것들  */
   .mustBuyWrapper{
     display: flex;                                
     justify-content: center;
-    width: 100%;
     margin: 50px 0px;
+    flex-wrap: wrap;
   }
   
   .MustBuyNow .itemWrapper{
-    box-sizing: content-box;
-    width: 400px;
-    height: 400px;
+    width: 350px;
     margin:10px;
     border: 1px solid var(--color-grey);
+    padding:10px;
   }
   
   .MustBuyNow .itemWrapper img{
-    width: 100%;
-    height: 400px;
+    /* width: 100%; */
+    padding: 10px;
+    height: auto;
   }
 
-  .MustBuyNow .itemWrapper>.divWrapper{
-    position: relative;
-    bottom:60%;
-    color: var(--color-white);
-    font-weight: 200;
-    background-color: rgba(0, 0, 0, 0.308);
-    padding:10px;
-}
 
 .divWrapper>.itemName{
     font-size: var(--font-20px);
@@ -822,15 +968,16 @@ form[class="sign"]>.btnWrapper{
   .videoWrapper img{
     width: 100%;
   }
-  
+
   .videoWrapper a{
     position: relative;
-    bottom:30vh;
+    background-color: rgba(197, 197, 197, 0.507);
+    top: -100px;
     border-bottom: 1px solid var(--color-white);
-    font-size: 3vw;
+    font-size: var(--font-30px);
     font-weight: 300;
-    padding: 1vh;
-    color: rgb(255, 255, 255)
+    padding: var(--font-14px);
+    color: rgb(255, 255, 255);
 }
   
   /* 섹션5_추천리스트 */
@@ -1103,6 +1250,7 @@ cursor: pointer;
 /* 상품 상세 사진(좌) */
 .buy{
     display: flex;
+    flex-direction: row;
 }
 
 .itemDetail{
@@ -1319,7 +1467,6 @@ cursor: pointer;
 }
 
 .infoBar ul li:nth-child(1){
-    font-size: 1.5vw;
     font-weight: 700;
 }
 
@@ -1380,6 +1527,7 @@ color: var(--color-grey);
 
 .totalNBtn .proceed{
     margin: 1vh;
+    width: 100%;
 }
 
 
