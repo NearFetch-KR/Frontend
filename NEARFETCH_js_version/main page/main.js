@@ -30,7 +30,7 @@ timerInit();
 
 //특가 상품
 function mainHotdeal() {
-  fetch("http://15.164.251.114:8000/products/main/hotdeal", {
+  fetch("http://192.168.1.30:8000/products/main/hotdeal", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -86,7 +86,7 @@ mainHotdeal();
 
 // 메인 중간 인기 상품
 function mainHitItem() {
-  fetch("http://15.164.251.114:8000/products/main/hotitem", {
+  fetch("http://192.168.1.30:8000/products/main/hotitem", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -165,7 +165,7 @@ mainHitItem();
 
 // 메인_최하단 추천 상품
 function mainRecomInit() {
-  fetch("http://15.164.251.114:8000/products/main/recommend", {
+  fetch("http://192.168.1.30:8000/products/main/recommend", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

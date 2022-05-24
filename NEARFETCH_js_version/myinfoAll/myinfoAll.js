@@ -15,7 +15,7 @@ window.onload = function () {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let token = localStorage.getItem("login-token");
-    fetch("http://15.164.251.114:8000/users/logout", {
+    fetch("http://192.168.1.30:8000/users/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ window.onload = function () {
 const selectedValueList = [];
 
 function makeCartList() {
-  fetch("http://15.164.251.114:8000/users/cart", {
+  fetch("http://192.168.1.30:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/son",
@@ -52,7 +52,7 @@ function makeCartList() {
   })
     .then((response) => response.json())
     .then((response) => {
-      // console.log(response.result);
+      console.log(response.result);
       for (let k = 0; k < response.result.length; k++) {
         const addItemListWrapper = document.querySelector(
           ".addListTable tbody"
@@ -74,9 +74,15 @@ function makeCartList() {
           td.setAttribute("class", tdClassList[i]);
         }
 
+        const aTag = document.createElement("a");
+        aTag.setAttribute("class", "imgWrapAtag");
+
         const addImg = document.querySelectorAll("tbody .addImg");
         const img = document.createElement("img");
-        addImg[k].appendChild(img);
+        addImg[k].appendChild(aTag);
+        aTag.appendChild(img);
+        aTag.href = `/NEARFETCH_js_version/item%20detail/itemdetail.html?sku=${response.result[k]["sku_number"]}`;
+
         const imgInner = document.querySelectorAll(".addImg img");
         imgInner[k].src = response.result[k].image;
 
@@ -111,7 +117,6 @@ function makeCartList() {
         let selectedOptionIdx = response.result[k].option.indexOf(
           response.result[k].selectedOption
         );
-        // console.log(response.result[k].selectedOption, selectedOptionIdx);
 
         const selectList = document.querySelectorAll(".itemOption select");
 
@@ -135,7 +140,6 @@ function makeCartList() {
         itemName[k].textContent = response.result[k].name;
 
         itemQt[k].textContent = response.result[k].quantity;
-        //   itemOption[k].textContent = response.result[k].option;
         price[k].textContent = response.result[k].price;
         sale_price[k].textContent = response.result[k].sale_price;
 
@@ -151,7 +155,7 @@ function makeCartList() {
 
         removeCartImg[k].addEventListener("click", () => {
           fetch(
-            `http://15.164.251.114:8000/users/cart?cartId=${response.result[k].cart_id}`,
+            `http://192.168.1.30:8000/users/cart?cartId=${response.result[k].cart_id}`,
             {
               method: "DELETE",
               headers: {
@@ -204,7 +208,7 @@ function makeCartList() {
         let param = {
           itemOption: selectedValueList,
         };
-        fetch("http://15.164.251.114:8000/users/cart", {
+        fetch("http://192.168.1.30:8000/users/cart", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -267,7 +271,7 @@ if (
       address2: addr_detail,
     };
     let token = localStorage.getItem("login-token");
-    fetch("http://15.164.251.114:8000/users/register/location", {
+    fetch("http://192.168.1.30:8000/users/register/location", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -293,7 +297,7 @@ if (
   ).value;
 
   //저장해둔 주소 노출
-  fetch("http://15.164.251.114:8000/users/register/location", {
+  fetch("http://192.168.1.30:8000/users/register/location", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -339,7 +343,7 @@ if (
     "http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html"
   ) > -1
 ) {
-  fetch("http://15.164.251.114:8000/users/cart", {
+  fetch("http://192.168.1.30:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

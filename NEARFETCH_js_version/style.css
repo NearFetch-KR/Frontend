@@ -41,30 +41,30 @@ img{
 
 
 /* 미디어쿼리 */
-/* 스몰 */
-@media(max-width:320px){
+/* XS */
+/* @media screen and (max-width:320px){
+    header{
+        background-color: greenyellow;
+    }
+    body{
+        background-color: blue;
+    }
+
+
+    main{
+        background-color: yellow;
+    }
   
 
-}
 
-/* 미듐 */
-@media(max-width:768px){
+
+} */
+
+
+
+/* M */
+@media screen and (max-width:768px){
     /* 검색창*/
-    input[class="keyword"],
-    .form{
-        position: relative;
-        top:150%;
-        margin-right: 0;
-    }
-
-    form[class="form"]{
-        margin-right: 50%;
-        transform: translateX(50%);
-        -webkit-transform: translateX(50%);
-        -moz-transform: translateX(50%);
-        -ms-transform: translateX(50%);
-        -o-transform: translateX(50%);
-    }
 
     .itemCategory .dropbtn{
         width: 90%;
@@ -72,25 +72,24 @@ img{
 
     .InfoLogo .modal-content{
         width: 95%;
+        top: 65%;
     }
 
     .section{
         margin-bottom: 100px;
     }
-    
-    .headerwrapper .dropdown-content {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .headerwrapper .dropdown-content .categoryMedium{
-        margin: 2px;
-    }
 
     .dropdown:hover .dropdown-content {
-        display: inline-block;
-        width: 100%;
+        width:100px;
+      display: flex;
+      flex-direction: column;
     }
+
+    .dropdown-content .categoryMedium{
+        margin: 2px;
+        display: block;
+    }   
+    
 
     /* 메인화면 */
     .MainLogoWrapper{
@@ -106,9 +105,16 @@ img{
         width: 100%;
     }
 
+    .itemListWrapper.active ul{
+        font-size: 30px;
+        /* width: 30%; */
+    }
+
     .itemListWrapper ul li{
         width:200px;
     }
+ 
+  
 
     .filterWrapper.active{
         z-index: 100;
@@ -162,6 +168,10 @@ img{
         position: relative;
         top: 10%;
         right: 0;
+    }
+
+    .addListTable tbody tr{
+        padding: 10px;
     }
 
     .addListTable tbody tr td{
@@ -439,15 +449,18 @@ main{
 
 .itemCategory{
     display: flex;
-    justify-content:space-around;
+    flex-direction: column;
+    justify-content:center;
     padding: 5px;
-    border-bottom: 0.5px solid var(--color-grey);
 }
 
 .topnav{
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     justify-content: center;
+    padding: 10px;
+    border-bottom: 0.5px solid var(--color-grey);
+
 }
 
   .topnav>.icon {
@@ -466,6 +479,7 @@ main{
 
   /* 숨길 내용 */
   .dropdown-content {
+      width:1000px;
     display: none;
     position: absolute;
     z-index: 100;
@@ -511,23 +525,22 @@ main{
   }
  
   .dropdown:hover .dropdown-content {
-      width: 200px;
+      width:auto;
     display: flex;
+    flex-direction: row;
   }
 
 .itemCategory>form{
     display: flex;
-    justify-content: right;
-    width: 100%;
+    justify-content: center;
+    padding: 10px;
 }
 
 /* 검색창 */
 input[class="keyword"]{
-    height: 40px;
-    width: 250px;
-    border:0.5px solid var(--color-grey);
+    height: 40px; 
+    width: 300px;
     text-indent: var(--font-30px);
-    margin-right: var(--font-30px);
 }
 
 .itemCategory button{
@@ -1006,15 +1019,14 @@ form[class="sign"]>.btnWrapper{
 
 
 /* 섹션3_당장 사야할 것들  */
-  .mustBuyWrapper{
-    display: flex;                                
+  .mustBuyWrapper{    display: flex;                                
     justify-content: center;
     margin: 50px 0px;
     flex-wrap: wrap;
   }
   
   .MustBuyNow .itemWrapper{
-    width: 350px;
+
     margin:10px;
     border: 1px solid var(--color-grey);
     padding:10px;
