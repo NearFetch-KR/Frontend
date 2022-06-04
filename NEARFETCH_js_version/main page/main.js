@@ -1,6 +1,6 @@
 // 섹션2_타이머
 function getTime() {
-  const target = new Date("Fri May 27 2022 00:00:00 GMT+0900");
+  const target = new Date("Fri June 24 2022 00:00:00 GMT+0900");
   const today = new Date();
   const gap = target - today;
   const d = String(Math.floor(gap / (1000 * 60 * 60 * 24))).padStart(2, "0"); // 일
@@ -30,7 +30,7 @@ timerInit();
 
 //특가 상품
 function mainHotdeal() {
-  fetch("http://192.168.1.30:8000/products/main/hotdeal", {
+  fetch("http://172.30.1.111:8000/products/main/hotdeal", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -86,7 +86,7 @@ mainHotdeal();
 
 // 메인 중간 인기 상품
 function mainHitItem() {
-  fetch("http://192.168.1.30:8000/products/main/hotitem", {
+  fetch("http://172.30.1.111:8000/products/main/hotitem", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -165,7 +165,7 @@ mainHitItem();
 
 // 메인_최하단 추천 상품
 function mainRecomInit() {
-  fetch("http://192.168.1.30:8000/products/main/recommend", {
+  fetch("http://172.30.1.111:8000/products/main/recommend", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

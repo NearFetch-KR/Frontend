@@ -1,0 +1,461 @@
+html,body,h1,h2,h3,p,ol,ul,li,button,svg,main,a{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box;
+  }
+
+  main{
+    height: 100vh;
+    padding: var(--font-30px);
+}
+  
+  .App {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+
+
+  :root{
+    /* 컬러 */
+    --color-white:white;
+    --color-lightgrey:rgb(241, 241, 241);
+    --color-grey:#d3d3d3;
+    --color-darkgrey:#222222;
+    --color-black:black;
+  
+    /* 폰트 크기 */
+    --font-14px:14px;
+    --font-16px:16px;
+    --font-20px:20px;
+    --font-30px:30px;
+    --font-40px:40px;
+  
+  }
+
+  /* ul,i,a,li Reset  */
+  ul{
+    list-style-type: none;
+    margin-left:0;
+    padding: 0;
+  }
+  
+  i{
+    border: none;
+    text-decoration: none;
+  }
+  
+  a{
+    text-decoration-line: none !important;
+    color:var(--color-darkgrey)!important;
+  }
+  
+  li{
+    list-style: none;
+  }
+
+  .row>h3{
+      font-weight: 200;
+      font-size: var(--font-40px);
+  }
+  
+  button{
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 10px;
+    border:none;
+  }
+  
+  button:hover{
+    cursor: pointer;
+  }
+  
+  button:active{
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+  }
+
+  /* 장바구니 리스트 */
+  tbody>tr{
+    border-bottom: 1px solid var(--color-grey);
+  }
+
+  tbody button{
+      background-color: transparent;
+      color: var(--color-black);
+  }
+
+  /* 메인 로고 */
+.navbar-brand{
+    font-size: 50px;
+}
+
+.infoMenu .nav-link{
+    padding:0.5rem;
+}
+
+
+
+.infoMenu{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+main .customerName{
+    font-size: var(--font-30px);
+    font-weight: 200;
+}
+
+
+.navbar{
+    border-bottom: 1px solid rgb(133, 133, 133);
+}
+
+.seeMoreWrapper{
+    padding: var(--font-30px);
+}
+
+
+
+.main-bg{
+    background-image: url(https://media.matchesfashion.com/apps/Content/Homepage/Heroes/c9d6a3ce-920c-4b3c-a43e-eb8e5812483a-0427-WW-HP-hero-1-large.jpg?width=1180&quality=95);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 500px;
+}
+.App>ul>li{
+    font-size: 30px;
+}
+
+.row{
+    padding: 100px 0;
+}
+
+
+.col-md-3 .itemImg{
+    width: 250px;
+}
+
+.container-fluid{
+    flex-direction: column;
+    /* height: 100px; */
+    
+}
+
+.col-md-3{
+    width: 200px;
+    padding: 30px 0;
+    border:1px solid var(--color-darkgrey);
+}
+
+ /* 타이머 */
+ .Timer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:var(--color-darkgrey);
+  }
+
+ .Timer>ul>li>div:first-child{
+    font-size: var(--font-30px);
+    min-width: var(--font-16px);
+  }
+
+  .Timer>ul>li>div:nth-child(2){
+    font-size: var(--font-16px);
+  }
+
+  .Timer ul{
+    padding-left: 0;
+  }
+
+  .Timer ul>li{
+    display: inline-block;
+  }
+
+  /* 특가상품보기 */
+  .HotDealContents{
+      display: flex;
+      justify-content: center;
+  }
+
+  .HotDealContents .itemWrapper{
+      width: 30%;
+      margin: var(--font-14px);
+  }
+
+  .HotDeal h3{
+      margin-top:10vh ;
+      font-weight: 200;
+      font-size: var(--font-40px);
+  }
+
+  .HotDeal .col-md-3{
+      border: none;
+  }
+
+  .HotDeal .col-md-3 img{
+      width: 400px;
+  }
+
+  .itemWrapper .itemDesWrapper{
+      position: relative;
+      top: -40%;
+      font-weight: 200;
+  }
+
+  .itemDesWrapper span{
+      font-weight: 500;
+  }
+
+  .itemWrapper .itemDesWrapper .itemBrand{
+    font-size: var(--font-30px);
+
+  }
+  
+
+  /* 상세보기 */
+  .itemBuy{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top:30%;
+    right: 10vw;
+    z-index: 5;
+    width: 30%;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .itemBuyBtn{
+      display: flex;
+      flex-direction: column;
+  }
+.itemDes{
+    margin:5px;
+}
+ 
+  .itemDes .itemBrand{
+    font-size: var(--font-20px);
+  }
+  
+  .itemDes .price{
+    font-size: 1.3vw;
+  }
+  
+  .itemDes .itemName{
+    color:var(--color-grey);
+  }
+  
+  
+  .itemBuyBtn button,
+  .itemBuyBtn select,
+  .itemBuyBtn div{
+    margin: 0.5vh;
+    padding: 1vh;
+    font-size: 0.9vw;
+  }
+
+
+  button[class="goCart"]{
+      background-color: var(--color-white);
+      color:var(--color-black);
+      border: 1px solid var(--color-darkgrey);
+  }
+  .buy{
+      display: flex;
+      padding: 20px;
+  }
+
+  .itemDetailWrapper .itemDetail{
+      width: 50%;
+  }
+
+  .itemDetailWrapper .itemDetail img{
+      padding: 10px;
+  }
+
+.price:after,
+.sale_price:after{
+    content: '원';
+}
+
+.itemDetailWrapper .moreInfo{
+    margin: 10vh 0;
+}
+
+.itemDetailWrapper .moreInfo .start{
+    padding: 5vh;
+}
+.moreInfo>div{
+    font-size: 20px;
+    padding: 5px;
+    color: rgb(133, 133, 133);
+    font-weight: 200;
+}
+
+
+/* 전환 애니메이션 */
+.start{
+    opacity: 0;
+}
+
+.end{
+    opacity: 1;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+}
+
+  /* 추천상품(케러설) */
+  .sideRecommend{
+    margin: 1vw;
+}
+
+.sideRecommend .row h2{
+  text-align: left;
+  font-weight: 200;
+}
+
+.sideRecommend .row {
+  overflow: scroll;
+  background-color: rgb(235, 235, 235);
+}
+
+.row__inner {
+  transition: transform;
+  white-space: nowrap;
+  -webkit-transition: transform;
+  -moz-transition: transform;
+  -ms-transition: transform;
+  -o-transition: transform;
+}
+
+.RecomItem {
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all;
+  transform-origin: center left;
+}
+
+.RecomItem__img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.RecomItem__details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top:60%;
+  opacity: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  transition: opacity .5s;
+  -webkit-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  color: white;
+  font-size: 1.1vw;
+  font-weight: 200;
+}
+
+.RecomItem__details .itemName{
+    font-size: 1.5vw;
+    font-weight: 500;
+}
+
+.RecomItem__details .materials,
+.RecomItem__details .skuNum{
+    display: none;
+}
+
+.RecomItem:hover .RecomItem__details {
+  opacity: 1;
+}
+
+.row__inner:hover .RecomItem {
+  opacity: 0.3;
+}
+
+.row__inner:hover .RecomItem:hover {
+  transform: scale(1.1);
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transition: transform 0 .5s;
+  -webkit-transition: transform 0 .5s;
+  -moz-transition: transform 0 .5s;
+  -ms-transition: transform 0 .5s;
+  -o-transition: transform 0 .5s;
+}
+
+.RecomItem:hover ~ .RecomItem {
+  transform: translate3d(20%, 0, 0);
+  -webkit-transform: translate3d(20%, 0, 0);
+  -moz-transform: translate3d(20%, 0, 0);
+  -ms-transform: translate3d(20%, 0, 0);
+  -o-transform: translate3d(20%, 0, 0);
+
+}
+
+
+/* 장바구니 */
+Table{
+    margin: 5vh 0;
+}
+thead>tr{
+    background-color: white;
+    color: black;
+}
+tbody img{
+    width: 100px;
+}
+/* 푸터 */
+.FooterInfo{
+    display: flex;
+    justify-content: space-around;
+    color:var(--color-darkgrey);
+    border-top: 1px solid var(--color-grey);
+    letter-spacing: 3px;
+
+}
+
+.FooterInfo>div{
+    text-align: left;
+    padding: var(--font-30px);
+}
+
+.FooterInfo>div>h3{
+    margin:20px -10px;
+    font-size: 1.5vw;
+}
+
+.FooterInfo>div>ul>li{
+    list-style-type: disc;
+    font-size: var(--font-14px);
+    padding: 3px;
+    font-weight: 200;
+}
+
+.FooterInfo>div>ul>li:hover{
+    background-color:var(--color-lightgrey);
+}

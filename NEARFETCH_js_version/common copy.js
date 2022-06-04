@@ -142,7 +142,7 @@ window.onload = function () {
       email: mail,
       password: pw,
     };
-    fetch("http://172.30.1.40:8000/users/signup", {
+    fetch("http://172.30.1.19:8000/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -171,7 +171,7 @@ window.onload = function () {
       email: mail,
       password: pw,
     };
-    fetch("http://172.30.1.40:8000/users/signin", {
+    fetch("http://172.30.1.19:8000/users/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -192,7 +192,7 @@ window.onload = function () {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let token = localStorage.getItem("login-token");
-    fetch("http://172.30.1.40:8000/users/logout", {
+    fetch("http://172.30.1.19:8000/users/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -210,7 +210,7 @@ window.onload = function () {
 
 // 마지막 섹션(추천 상품)_확정코드
 function mainRecomInit() {
-  fetch("http://172.30.1.40:8000/products/list", {
+  fetch("http://172.30.1.19:8000/products/list", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -304,7 +304,7 @@ mainRecomInit();
 // --------------------------------------------
 // 장바구니 카트 로고 눌러서 장바구니에 넣기(공용)
 function goCart() {
-  fetch("http://172.30.1.40:8000/products/list", {
+  fetch("http://172.30.1.19:8000/products/list", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -326,7 +326,7 @@ function goCart() {
             sku_number: sku,
           };
 
-          fetch("http://172.30.1.40:8000/users/cart", {
+          fetch("http://172.30.1.19:8000/users/cart", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -360,7 +360,7 @@ goCart();
 //         console.log(parentTag);
 //         }})
 
-//     fetch(`http://172.30.1.40:8000/products/detail/${sku_number}`, {
+//     fetch(`http://172.30.1.19:8000/products/detail/${sku_number}`, {
 //         method: "GET",
 //         headers: {
 //             "Content-Type": "application/json",
@@ -393,7 +393,7 @@ itemBuyCart.addEventListener("click", (e) => {
     itemOption: selectedValue,
   };
 
-  fetch("http://172.30.1.40:8000/users/cart", {
+  fetch("http://172.30.1.19:8000/users/cart", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -430,7 +430,7 @@ itemBuyCart.addEventListener("click", (e) => {
 //         //상품 리스트 다 내놔
 //         // fetch(`http://172.168.41.89:8000/products/list`, {
 
-//         fetch(`http://172.30.1.40:8000/products/list?large_category=${gender}&medium_category=${categoryMedium}&small_category=${categorySmall}`, {
+//         fetch(`http://172.30.1.19:8000/products/list?large_category=${gender}&medium_category=${categoryMedium}&small_category=${categorySmall}`, {
 //             method: "GET",
 //             headers: {
 //                 "Content-Type": "application/json",
@@ -490,7 +490,7 @@ itemBuyCart.addEventListener("click", (e) => {
 // // ver2
 // function searchRecomInit(){
 
-//     fetch("http://172.30.1.40:8000/products/list", {
+//     fetch("http://172.30.1.19:8000/products/list", {
 //         method: "GET",
 //         headers: {
 //             "Content-Type": "application/json",
@@ -513,7 +513,7 @@ itemBuyCart.addEventListener("click", (e) => {
 //             e.preventDefault()
 
 //             //상품 리스트 다 내놔
-//             fetch(`http://172.30.1.40:8000/products/list?large_category=${gender}&medium_category=${categoryMedium}&small_category=${categorySmall}`, {
+//             fetch(`http://172.30.1.19:8000/products/list?large_category=${gender}&medium_category=${categoryMedium}&small_category=${categorySmall}`, {
 //                 method: "GET",
 //                 headers: {
 //                     "Content-Type": "application/json",
@@ -639,7 +639,7 @@ itemBuyCart.addEventListener("click", (e) => {
 function showItemDetail() {
   window.location.href = `http://127.0.0.1:5500/item%20detail/itemdetail.html`;
 
-  fetch("http://172.30.1.40:8000/products/list", {
+  fetch("http://172.30.1.19:8000/products/list", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -799,7 +799,7 @@ function showItemDetail() {
           itemOption: selectedValue,
         };
 
-        fetch("http://172.30.1.40:8000/users/cart", {
+        fetch("http://172.30.1.19:8000/users/cart", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -867,7 +867,7 @@ saveAddressBtn.addEventListener("click", (e) => {
     address2: addr_detail,
   };
   let token = localStorage.getItem("login-token");
-  fetch("http://172.30.1.40:8000/users/register/location", {
+  fetch("http://172.30.1.19:8000/users/register/location", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -893,7 +893,7 @@ const addr_detail_saved = document.querySelector(
 ).value;
 
 //저장해둔 주소 노출
-fetch("http://172.30.1.40:8000/users/register/location", {
+fetch("http://172.30.1.19:8000/users/register/location", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -1042,7 +1042,7 @@ totalAmount.textContent = sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 // ----------------장바구니 상품 리스트 노출----------------
 function makeCartList() {
-  fetch("http://172.30.1.40:8000/users/cart", {
+  fetch("http://172.30.1.19:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

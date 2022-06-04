@@ -1,4 +1,5 @@
 // ----------------장바구니 상품 리스트 노출----------------
+const proceedNowItem = [];
 window.onload = function () {
   console.log("로그인상태 테스트2");
   if (
@@ -15,7 +16,7 @@ window.onload = function () {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let token = localStorage.getItem("login-token");
-    fetch("http://192.168.1.30:8000/users/logout", {
+    fetch("http://172.30.1.59:8000/users/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +44,7 @@ window.onload = function () {
 const selectedValueList = [];
 
 function makeCartList() {
-  fetch("http://192.168.1.30:8000/users/cart", {
+  fetch("http://172.30.1.59:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/son",
@@ -52,7 +53,6 @@ function makeCartList() {
   })
     .then((response) => response.json())
     .then((response) => {
-      console.log(response.result);
       for (let k = 0; k < response.result.length; k++) {
         const addItemListWrapper = document.querySelector(
           ".addListTable tbody"
@@ -146,6 +146,7 @@ function makeCartList() {
         //할인 가격 보여주기
         priceShow2();
 
+        // 아이템 삭제
         const removeCart = document.querySelectorAll(".priceWrapper");
         const removeImgTag = document.createElement("img");
         removeCart[k].appendChild(removeImgTag);
@@ -155,7 +156,7 @@ function makeCartList() {
 
         removeCartImg[k].addEventListener("click", () => {
           fetch(
-            `http://192.168.1.30:8000/users/cart?cartId=${response.result[k].cart_id}`,
+            `http://172.30.1.59:8000/users/cart?cartId=${response.result[k].cart_id}`,
             {
               method: "DELETE",
               headers: {
@@ -200,7 +201,7 @@ function makeCartList() {
           selectInCart[i].options[selectInCart[i].selectedIndex].text;
         selectedValueList.push(selectedValue);
       }
-      console.log(selectedValueList);
+      // console.log(selectedValueList);
 
       // 구매하기
       const proceedBtn = document.querySelector(".proceed");
@@ -208,7 +209,7 @@ function makeCartList() {
         let param = {
           itemOption: selectedValueList,
         };
-        fetch("http://192.168.1.30:8000/users/cart", {
+        fetch("http://172.30.1.59:8000/users/cart", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -219,9 +220,11 @@ function makeCartList() {
         })
           .then((response) => response.json())
           .then((response) => {
-            console.log(response.result);
             window.location.href = `http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html`;
           });
+        proceedNowItem.push(response.result);
+        console.log(proceedNowItem);
+        //////////////////
       });
     });
 }
@@ -271,7 +274,7 @@ if (
       address2: addr_detail,
     };
     let token = localStorage.getItem("login-token");
-    fetch("http://192.168.1.30:8000/users/register/location", {
+    fetch("http://172.30.1.59:8000/users/register/location", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -297,7 +300,7 @@ if (
   ).value;
 
   //저장해둔 주소 노출
-  fetch("http://192.168.1.30:8000/users/register/location", {
+  fetch("http://172.30.1.59:8000/users/register/location", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -343,7 +346,7 @@ if (
     "http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html"
   ) > -1
 ) {
-  fetch("http://192.168.1.30:8000/users/cart", {
+  fetch("http://172.30.1.59:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

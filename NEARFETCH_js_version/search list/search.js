@@ -8,7 +8,7 @@ const convert_word = []; //정제된 검색어
 // case1.직접 검색하여 상품 찾기
 function searchItemList() {
   keyword = urlParams.get("word");
-  fetch(`http://192.168.1.30:8000/products/list${location.search}`, {
+  fetch(`http://172.30.1.111:8000/products/list${location.search}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -106,7 +106,7 @@ function searchItemList() {
 
       //   filterNsorter();
       //   필터(좌);
-      fetch(`http://192.168.1.30:8000/products/make/filter`, {
+      fetch(`http://172.30.1.111:8000/products/make/filter`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -251,7 +251,7 @@ function searchItemList() {
 
               //필터 적용하여 데이터 요청
               fetch(
-                `http://192.168.1.30:8000/products/list${location.search}`,
+                `http://172.30.1.111:8000/products/list${location.search}`,
                 {
                   method: "GET",
                   headers: {
@@ -347,7 +347,7 @@ if (
 // case2.navbar 카테고리 클릭하여 상품 찾기
 function searchCategoryList() {
   fetch(
-    `http://192.168.1.30:8000/products/list${location.search}`,
+    `http://172.30.1.111:8000/products/list${location.search}`,
 
     {
       method: "GET",
@@ -445,7 +445,7 @@ function searchCategoryList() {
             sku_number: sku,
           };
 
-          fetch("http://192.168.1.30:8000/users/cart", {
+          fetch("http://172.30.1.111:8000/users/cart", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 //   -----------itemdetail.html(=상품 상세보기 페이지) 에서만 해당 코드 실행-----------
+const proceedNowItem = [];
 
 if (
   location.href.indexOf(
@@ -6,7 +7,7 @@ if (
   ) > -1
 ) {
   fetch(
-    `http://192.168.1.30:8000/products/detail/${new URLSearchParams(
+    `http://172.30.1.111:8000/products/detail/${new URLSearchParams(
       location.search
     ).get("sku")}`,
     {
@@ -197,7 +198,7 @@ if (
           itemOption: changeValue(),
         };
 
-        fetch("http://192.168.1.30:8000/users/cart", {
+        fetch("http://172.30.1.111:8000/users/cart", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -220,23 +221,12 @@ if (
       // 구매하기(수정중)
       const proceedNowBtn = document.querySelector(".proceedNow");
       proceedNowBtn.addEventListener("click", () => {
-        let param = {
-          itemOption: changeValue(),
-        };
-        fetch("http://192.168.1.30:8000/users/cart", {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: localStorage.getItem("login-token"),
-          },
+        proceedNowItem.push(response.detail);
 
-          body: JSON.stringify(param),
-        })
-          .then((response) => response.json())
-          .then((response) => {
-            console.log(response.result);
-            window.location.href = `http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html`;
-          });
+        // console.log(response.detail, changeValue());
+        console.log(proceedNowItem);
+
+        // window.location.href = `http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html`;
       });
     });
   // });
