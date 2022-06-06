@@ -191,7 +191,7 @@ window.onload = function () {
       email: mail,
       password: pw,
     };
-    fetch("http://172.30.1.149:8000/users/signup", {
+    fetch("http://192.168.0.171:8000/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -228,7 +228,7 @@ window.onload = function () {
       email: mail,
       password: pw,
     };
-    fetch("http://172.30.1.149:8000/users/signin", {
+    fetch("http://192.168.0.171:8000/users/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -283,7 +283,7 @@ window.onload = function () {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let token = localStorage.getItem("login-token");
-    fetch("http://172.30.1.149:8000/users/logout", {
+    fetch("http://192.168.0.171:8000/users/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -381,7 +381,7 @@ function goCart() {
         sku_number: sku,
       };
 
-      fetch("http://172.30.1.149:8000/users/cart", {
+      fetch("http://192.168.0.171:8000/users/cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -612,7 +612,7 @@ fetch(`http://172.30.1.111:8000/products/make/category`, {
 const filterAll = []; //
 
 function filterNsorter() {
-  fetch(`http://172.30.1.149:8000/products/make/filter`, {
+  fetch(`http://192.168.0.171:8000/products/make/filter`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -760,7 +760,7 @@ function filterNsorter() {
           );
 
           //필터 적용하여 데이터 요청
-          fetch(`http://172.30.1.149:8000/products/list${location.search}`, {
+          fetch(`http://192.168.0.171:8000/products/list${location.search}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

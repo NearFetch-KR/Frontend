@@ -1,7 +1,9 @@
 import { render } from "react-dom";
 import { useParams } from "react-router-dom";
+
+//메인_추천상품
 let data=[];
-  fetch("http://172.30.1.111:8000/products/main/recommend", {
+  fetch("http://192.168.0.172:8000/products/main/recommend", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -10,11 +12,15 @@ let data=[];
     .then((response) => response.json())
     .then((response) => {
       data.push(...response.result)
+      data.map((a,i)=>{
+        data[i].count=1;
+      })
     })
 
 
+// 메인_특가상품
 let Hotdealdata=[];
-  fetch("http://172.30.1.111:8000/products/main/hotdeal", {
+  fetch("http://192.168.0.172:8000/products/main/hotdeal", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -23,6 +29,9 @@ let Hotdealdata=[];
   .then((response) => response.json())
   .then((response) => { 
     Hotdealdata.push(...response.result)
+    Hotdealdata.map((a,i)=>{
+      Hotdealdata[i].count=1;
+    })
   })
 
 

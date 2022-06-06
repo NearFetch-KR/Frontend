@@ -16,7 +16,7 @@ window.onload = function () {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let token = localStorage.getItem("login-token");
-    fetch("http://172.30.1.59:8000/users/logout", {
+    fetch("http://192.168.0.171:8000/users/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ window.onload = function () {
 const selectedValueList = [];
 
 function makeCartList() {
-  fetch("http://172.30.1.59:8000/users/cart", {
+  fetch("http://192.168.0.171:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/son",
@@ -156,7 +156,7 @@ function makeCartList() {
 
         removeCartImg[k].addEventListener("click", () => {
           fetch(
-            `http://172.30.1.59:8000/users/cart?cartId=${response.result[k].cart_id}`,
+            `http://192.168.0.171:8000/users/cart?cartId=${response.result[k].cart_id}`,
             {
               method: "DELETE",
               headers: {
@@ -209,7 +209,7 @@ function makeCartList() {
         let param = {
           itemOption: selectedValueList,
         };
-        fetch("http://172.30.1.59:8000/users/cart", {
+        fetch("http://192.168.0.171:8000/users/cart", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -274,7 +274,7 @@ if (
       address2: addr_detail,
     };
     let token = localStorage.getItem("login-token");
-    fetch("http://172.30.1.59:8000/users/register/location", {
+    fetch("http://192.168.0.171:8000/users/register/location", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -300,7 +300,7 @@ if (
   ).value;
 
   //저장해둔 주소 노출
-  fetch("http://172.30.1.59:8000/users/register/location", {
+  fetch("http://192.168.0.171:8000/users/register/location", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -346,7 +346,7 @@ if (
     "http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html"
   ) > -1
 ) {
-  fetch("http://172.30.1.59:8000/users/cart", {
+  fetch("http://192.168.0.171:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

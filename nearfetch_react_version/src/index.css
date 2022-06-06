@@ -5,7 +5,7 @@ html,body,h1,h2,h3,p,ol,ul,li,button,svg,main,a{
   }
 
   main{
-    height: 100vh;
+    min-height: 100vh;
     padding: var(--font-30px);
 }
   
@@ -90,7 +90,11 @@ html,body,h1,h2,h3,p,ol,ul,li,button,svg,main,a{
 
   /* 메인 로고 */
 .navbar-brand{
-    font-size: 50px;
+    font-size: var(--font-40px)!important;
+}
+
+.navbar-brand:hover{
+    cursor: pointer;
 }
 
 .infoMenu .nav-link{
@@ -119,15 +123,50 @@ main .customerName{
     padding: var(--font-30px);
 }
 
+.carouselWrapper{
+    overflow: hidden;
+}
 
+.carousel{
+    width: 300vw;
+    height: 100%;
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -ms-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+}
 
-.main-bg{
-    background-image: url(https://media.matchesfashion.com/apps/Content/Homepage/Heroes/c9d6a3ce-920c-4b3c-a43e-eb8e5812483a-0427-WW-HP-hero-1-large.jpg?width=1180&quality=95);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.carousel .inner{
+    width: 100vw;
+    float: left;
+}
+
+.carousel img{
     width: 100%;
-    height: 500px;
+    height: 600px;
+}
+
+
+
+.carouselBtnWrapper .carouselBtn{
+    margin: 5px;
+}
+
+.carouselBtnWrapper{
+    padding: var(--font-14px);
+    position: relative;
+    bottom: 80px;
+}
+
+.carouselBtnWrapper button{
+    background-color: var(--color-grey);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin: 10px;
 }
 .App>ul>li{
     font-size: 30px;
@@ -303,6 +342,36 @@ main .customerName{
 }
 
 
+.myInfoTitle{
+    font-size: var(--font-40px);
+    font-weight: 300;
+    padding: var(--font-20px);
+}
+.myInfoList{
+    min-height: 80vh;
+    display: flex;
+}
+
+.myInfoList>div{
+    padding: var(--font-20px);
+    font-weight: 200;
+}
+
+.myInfoList .infoBar{
+    width: 20%;
+}
+
+.myInfoList .infoBar li{
+    margin: 10px;
+    font-size: var(--font-20px);
+}
+
+.myInfoList .infoBarInner{
+    width: 80%;
+    background-color: whitesmoke;
+}
+
+
 /* 전환 애니메이션 */
 .start{
     opacity: 0;
@@ -429,6 +498,7 @@ thead>tr{
 tbody img{
     width: 100px;
 }
+
 /* 푸터 */
 .FooterInfo{
     display: flex;
@@ -458,4 +528,51 @@ tbody img{
 
 .FooterInfo>div>ul>li:hover{
     background-color:var(--color-lightgrey);
+}
+
+/* 반응형 */
+@media only screen and (max-width: 1024px){
+    .col-md-3{
+        border: none;
+    }
+    
+    .HotDealContents{
+        flex-direction: column;
+    }
+
+    .HotDealContents .itemWrapper{
+        width: 100%;
+    }
+
+    .buy{
+        flex-direction: column;
+    }
+
+    .itemDetailWrapper .itemDetail{
+        width: 100%;
+    }
+
+    .itemBuy{
+        position: absolute;
+        top: 30%;
+        width: 80%;
+    }
+
+    .itemqt{
+        display: flex;
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .itemDetail img{
+        width: 80%;
+    }
+
+    .FooterInfo{
+        flex-direction: column;
+    }
+
+    .FooterInfo>div{
+        margin: 10px 20px;
+    }
 }

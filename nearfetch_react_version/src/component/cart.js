@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import {Table} from 'react-bootstrap';
 import {useDispatch,useSelector} from 'react-redux';
-import {increaseCart} from '../store.js';
+import {addItem,removeItem,increaseItem,decreaseItem} from '../store.js';
 
 
 function Cart(){
     let state=useSelector((state)=>state)
     let dispatch=useDispatch()
-    let [min_qt,setmin_qt]=useState(1)
-        
+  
     return(
     <main>
     <h6 className="customerName">{state.name.name}님의 장바구니</h6>
+        
     <Table>
         <thead>
             <tr>
@@ -21,16 +21,18 @@ function Cart(){
                 <th>옵션</th>
                 <th>가격</th>
                 <th>수량</th>
-                <th>추가</th>
                 <th>삭제</th>
             </tr>
         </thead>
         <tbody>
+
             {state.cartlist.map((a,i)=>{
+               
+
                 return <tr key={i}>
                     <td>{i}</td>
                     <td>
-                        <img src={state.cartlist[i].itemImg[0]}/>
+                        <img className="itemImg" src={state.cartlist[i].itemImg[0]}/>
                     </td>
                     <td>
                         {state.cartlist[i].itemBrand}<br/>
@@ -38,27 +40,39 @@ function Cart(){
                     </td>
                     <td>{state.cartlist[i].itemOption}</td>
                     <td>
-                        {state.cartlist[i].price}<br/>
-                        {state.cartlist[i].sale_price}
+                        <div className='price'>
+                           {state.cartlist[i].price*(state.cartlist[i].count)}
+                        </div>
+                      
                     </td>
-                    <td>{min_qt}</td>
-               
-                    <td>
+                    <td className='itemqt'>
                         <button onClick={()=>{
-                            setmin_qt(min_qt+1)
+                           dispatch(decreaseItem(i))
+                        }}>-</button>
+                        <span>
+                        {state.cartlist[i].count}
+                        </span>
+                        <button onClick={()=>{
+                           dispatch(increaseItem(i))
                         }}>+</button>
                     </td>
                     <td>
-                        <button onClick={()=>{
-                            console.log('삭제')
+                        <button onClick={(e)=>{
+                            dispatch(removeItem(i))
                         }}>x</button>
                     </td>
                 </tr>
             })}
+        
+
         </tbody>
     </Table> 
+    
+  
+    
     </main>
     )
+    
 }
 
 export default Cart

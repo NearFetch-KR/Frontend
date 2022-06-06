@@ -4,26 +4,41 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 let name=createSlice({
     name:"name",
-    initialState:{name:"koni",age:32},
+    initialState:{name:"koni"},
 })
+
 
 
 let cartlist=createSlice({
     name:"cartlist",
     initialState:[],
     reducers:{
-    increaseCart(state, action){
-        let idx = state.findIndex((a)=>{ return a.product_id === action.payload })
-        state[idx].count+=1
-        },
+
+    // 장바구니 추가
     addItem(state, action){
-    state.push(action.payload)
-    }   
+        state.push(action.payload)
+    },
+
+    // 장바구니 상품 수량 증가
+    increaseItem(state,action){
+        state[action.payload].count++
+    },
+
+    // 장바구니 상품 수량 감소
+    decreaseItem(state,action){
+        if(state[action.payload].count>1){
+            state[action.payload].count--
+        }
+    },
+
+    // 장바구니 삭세
+    removeItem(state,action){
+        state.splice(action.payload,1)
+    } 
     }
 })
 
-
-export let {increaseCart,addItem}=cartlist.actions
+export let {addItem,removeItem,increaseItem,decreaseItem}=cartlist.actions
 
 export default configureStore({
   reducer: { 
@@ -31,3 +46,5 @@ export default configureStore({
       cartlist:cartlist.reducer
   }
 }) 
+
+
