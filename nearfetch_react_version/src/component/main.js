@@ -83,6 +83,7 @@ import {useEffect,useState } from 'react';
       return(
         <>
         <div className="carouselWrapper">
+
             <div className='carousel'>
               <div className="inner">
                 <img src="https://assets-proxy.matchesfashion.com/ctf/r34dnfrgyjo9/1rEpuRUCqJRm7Bg47h0sw2/130b1fe5db8007908d303df7a52badae/0504-WW-ACFT-ROW-04.jpg" alt="" />
@@ -94,7 +95,10 @@ import {useEffect,useState } from 'react';
                 <img src="https://assets-proxy.matchesfashion.com/ctf/r34dnfrgyjo9/pnxXBmzMGegSpbwWMcxvF/30eb0ece9c7f4b8bef3a06f2715b819d/0302-WW-SS-ROW-06_FADE-2.jpg" alt="" />
               </div>
             </div>
+     
+
           </div>
+        <div className='hi'>WELCOME TO NEARFETCH</div>
           <div className='carouselBtnWrapper'>
             <button className='carouselBtn1'> </button>
             <button className='carouselBtn2'> </button>

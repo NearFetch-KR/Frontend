@@ -119,7 +119,7 @@ function Detail(props){
 }
 
 function GetRecommItem(props){
-    fetch(`http://192.168.0.172:8000/products/detail/${props.currentItem.skuNum}`, {
+    fetch(`http://13.125.216.70:8000/products/detail/${props.currentItem.skuNum}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

@@ -75,7 +75,7 @@ function App() {
               })} 
               <div className='seeMoreWrapper'>
                 <button className="seeMore" onClick={()=>{
-                axios.get('http://192.168.0.172:8000/products/main/recommend')
+                axios.get('http://13.125.216.70:8000/products/main/recommend')
                 .then((a)=>{
                   let copyResult=[...item,...a.data.result]
                   setItem(copyResult)
