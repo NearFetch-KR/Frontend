@@ -44,7 +44,10 @@ import {useEffect,useState } from 'react';
     let navigate=useNavigate(); 
       return (<div className='col-md-3 itemWrapper'>
         <img className="itemImg" onClick={()=>{navigate('/detail/'+props.item.product_id)}} src={props.item.itemImg[0]}/> 
-        {/* <img className="itemImg" onClick={()=>{console.log(props.item)}} src={props.item.itemImg[0]}/>  */}
+        {/* <img className="itemImg" onClick={()=>{
+ 
+        localStorage.getItem('RecentlyViews').push(props.item);
+            }} src={props.item.itemImg[0]}/>  */}
         
         <div className='itemName'>{props.item.itemName}</div>
         <div className='itemBrand'>{props.item.itemBrand}</div>

@@ -54,7 +54,8 @@ html,body,h1,h2,h3,p,ol,ul,li,button,svg,main,a{
     list-style: none;
   }
 
-  .row>h3{
+  .row>h3,
+  .recentlyViews>h3{
       font-weight: 200;
       font-size: var(--font-40px);
   }
@@ -267,6 +268,10 @@ main .customerName{
     font-size: var(--font-30px);
 
   }
+
+  .recentlyViews .row{
+      overflow: scroll;
+  }
   
 
   /* 상세보기 */
@@ -405,7 +410,7 @@ main .customerName{
   font-weight: 200;
 }
 
-.sideRecommend .row {
+.sideRecommend .row{
   overflow: scroll;
   background-color: rgb(235, 235, 235);
 }
@@ -436,7 +441,7 @@ main .customerName{
   object-fit: cover;
 }
 
-.RecomItem__details {
+.sideRecommend .RecomItem__details {
   position: absolute;
   bottom: 0;
   left: 0;

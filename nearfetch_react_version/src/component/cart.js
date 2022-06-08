@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import {useState,memo } from 'react';
 import {Table} from 'react-bootstrap';
 import {useDispatch,useSelector} from 'react-redux';
 import {addItem,removeItem,increaseItem,decreaseItem} from '../store.js';
 
+//꼭 필요할 때만 랜더링 되게 만들기
+let Child=memo(function(){
+    return <div>자식입니다</div>
+    console.log('자식재랜더링')
+})
 
 function Cart(){
     let state=useSelector((state)=>state)
     let dispatch=useDispatch()
-  
+    let [count,setCount]=useState(0)
+
     return(
     <main>
+    <Child/>
+    
+    <button onClick={()=>{setCount(count+1)}}>재랜더링 버튼</button>
     <h6 className="customerName">{state.name.name}님의 장바구니</h6>
         
     <Table>

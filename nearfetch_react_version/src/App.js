@@ -1,4 +1,4 @@
-import {useState } from 'react';
+import {useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Navbar,Container,Nav,Row} from 'react-bootstrap';
@@ -16,6 +16,16 @@ function App() {
   let [hotdeal_item,sethotdeal_item]=useState(Hotdealdata);//핫딜상룸 2개
   let [item,setItem]=useState(data);//추천상품 40개
   let navigate=useNavigate(); 
+
+  //최근 본 상품
+  useEffect(()=>{
+    localStorage.setItem('RecentlyViews',JSON.stringify([]))
+    localStorage.setItem('UserName','Koni')
+
+},[])
+
+let RecentlyViewsList=JSON.parse(localStorage.getItem('RecentlyViews'))
+
 
   return (
     
@@ -73,9 +83,10 @@ function App() {
               {item.map((a,i)=>{
                 return <Item item={item[i]} i={i} key={i}/>
               })} 
+
               <div className='seeMoreWrapper'>
                 <button className="seeMore" onClick={()=>{
-                axios.get('http://13.125.216.70:8000/products/main/recommend')
+                axios.get('http://172.30.1.172:8000/products/main/recommend')
                 .then((a)=>{
                   let copyResult=[...item,...a.data.result]
                   setItem(copyResult)
@@ -86,11 +97,43 @@ function App() {
                 }}>더 많은 BAGS 보기</button>
               </div>
             </div>
+
+            <div className='recentlyViews'>
+              <h3>👀최근 본 상품👀</h3>
+                <div className="row">
+              
+                  <div className="row__inner">  
+                  
+                      {RecentlyViewsList.map((a,i)=>{
+                          return (
+                          <>
+                          <div className="RecomItem" key={i}>
+                              <div className="RecomItem__content">
+                                  <a className="imgWrapAtag">
+                                  <img className="RecomItem__img" onClick={()=>{navigate('/detail/'+RecentlyViewsList[i].product_id)}} src={JSON.parse(localStorage.getItem('RecentlyViews'))[i].itemImg[0]}/>
+                                  </a>
+                              </div>
+                              <div className="RecomItem__details">
+                                  <div className="itemBrand">{RecentlyViewsList[i].itemBrand}</div>
+                                  <div className="itemName">{RecentlyViewsList[i].itemName}</div>
+                                  <div className="price">{RecentlyViewsList[i].price}</div>
+                              </div>
+                          </div>
+                          </>
+                          )
+                      })}
+                  </div>
+                </div>
+            </div>
+
             </>
           }/>
    
       
           
+          {/* -------------------------------------- */}
+                      {/* 페이지이동 */}
+          {/* -------------------------------------- */}
           {/* 상품 상세 보기 */}
           <Route path="/detail/:product_id" element={
             <Detail item={item}/>

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 //메인_추천상품
 let data=[];
-  fetch("http://13.125.216.70:8000/products/main/recommend", {
+  fetch("http://172.30.1.172:8000/products/main/recommend", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -20,7 +20,7 @@ let data=[];
 
 // 메인_특가상품
 let Hotdealdata=[];
-  fetch("http://13.125.216.70:8000/products/main/hotdeal", {
+  fetch("http://172.30.1.172:8000/products/main/hotdeal", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",

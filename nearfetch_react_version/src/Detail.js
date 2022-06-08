@@ -35,13 +35,21 @@ function Detail(props){
     const [currentItem,setcurrentItem]=useState(selectedItem)
     let navigate=useNavigate(); 
     let dispatch=useDispatch()
+        
+    useEffect(()=>{
+        //일단 가져오기
+        let recentlyViewItem=localStorage.getItem('RecentlyViews') 
+        recentlyViewItem=JSON.parse(recentlyViewItem)
+        recentlyViewItem.push(currentItem)
+        localStorage.setItem('RecentlyViews',JSON.stringify(recentlyViewItem))
+    },[])
+    
+
 
    
     return (
     <div className="itemDetailWrapper">
-
         <div className="buy">
-
             <div className="itemDetail">
                 {currentItem.itemImg.map((a,i)=>{
                     return <img src={currentItem.itemImg[i]}/> 
@@ -119,7 +127,7 @@ function Detail(props){
 }
 
 function GetRecommItem(props){
-    fetch(`http://13.125.216.70:8000/products/detail/${props.currentItem.skuNum}`, {
+    fetch(`http://172.30.1.172:8000/products/detail/${props.currentItem.skuNum}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
