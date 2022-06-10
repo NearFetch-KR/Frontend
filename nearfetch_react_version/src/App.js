@@ -9,6 +9,7 @@ import {data,Hotdealdata} from './component/fetch.js';
 import Footer from './component/footer.js';
 import Cart from './component/cart.js'
 import {OrderList,HotdealItem,Item,Myinfo,ShowCarousel} from './component/main.js';
+import NavbarSection  from './component/nav.js'
 
 
 
@@ -17,58 +18,38 @@ function App() {
   let [item,setItem]=useState(data);//추천상품 40개
   let navigate=useNavigate(); 
 
-  //최근 본 상품
+
+  // LocalStorage에 저장할 데이터
   useEffect(()=>{
-    localStorage.setItem('RecentlyViews',JSON.stringify([]))
-    localStorage.setItem('UserName','Koni')
+    localStorage.setItem('RecentlyViews',JSON.stringify([])) //최근 본 상품
+    // localStorage.setItem('CartLists',JSON.stringify([])) //장바구니 데이터
+    localStorage.setItem('UserName','Koni') //유저 정보
 
 },[])
 
-let RecentlyViewsList=JSON.parse(localStorage.getItem('RecentlyViews'))
+let RecentlyViewsList=JSON.parse(localStorage.getItem('RecentlyViews'))//최근 본 상품
+// let CartLists=JSON.parse(localStorage.getItem('CartLists'))//장바구니 데이터
+
 
 
   return (
     
     <div className="App">
-      <Navbar expand="lg">
-        <Container fluid>
-          <div className='infoMenu'>
-            <Nav.Link onClick={()=>{navigate("/myinfo")}} className="myinfo">내정보</Nav.Link>  
-            <Nav.Link onClick={()=>{navigate("/cart")}} className="cart">장바구니</Nav.Link>
-          </div>
-      
-          <Navbar.Brand onClick={()=>{navigate("/")}} >NEARFETCH</Navbar.Brand>
-          <br/>
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
-              navbarScroll
-              >
-              <Nav.Link onClick={()=>{navigate("/designers")}}>DESIGNERS</Nav.Link>
-              <Nav.Link onClick={()=>{navigate("/women")}}>WOMEN</Nav.Link>
-              <Nav.Link onClick={()=>{navigate("/men")}}>MEN</Nav.Link>
-              <Nav.Link onClick={()=>{navigate("/sale")}}>SALE</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
 
-
+    {/* 네비게이션바 */}
+     <NavbarSection/>
+    
       {/* 페이지  구분*/}
         <Routes>
           {/* 메인페이지 */}
           <Route path="/" element={
             <>
           <ShowCarousel/>
-        
-
 
             {/* 특가 상품 */}
             <div className="section HotDeal">
               <h3>오늘만 이 가격, 실화🤫</h3>
               <div className='HotDealContents'>
-                
                 {hotdeal_item.map((a,i)=>{
                   return <HotdealItem hotdeal_item={hotdeal_item[i]} i={i} key={i}/>
                 })} 
@@ -101,9 +82,7 @@ let RecentlyViewsList=JSON.parse(localStorage.getItem('RecentlyViews'))
             <div className='recentlyViews'>
               <h3>👀최근 본 상품👀</h3>
                 <div className="row">
-              
                   <div className="row__inner">  
-                  
                       {RecentlyViewsList.map((a,i)=>{
                           return (
                           <>
@@ -125,7 +104,6 @@ let RecentlyViewsList=JSON.parse(localStorage.getItem('RecentlyViews'))
                   </div>
                 </div>
             </div>
-
             </>
           }/>
    
@@ -149,6 +127,8 @@ let RecentlyViewsList=JSON.parse(localStorage.getItem('RecentlyViews'))
             <Route path="orderlist" element={<OrderList/>}/>
             <Route path="cart" element={<Cart/>}/>
           </Route> 
+
+          {/* 오류 페이지 */}
           <Route path="*" element={<div>없는 페이지입니다(error code:404)</div>}/> 
         </Routes>
       <Footer/>

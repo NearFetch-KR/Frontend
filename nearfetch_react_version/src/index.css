@@ -126,6 +126,7 @@ main .customerName{
 
 .carouselWrapper{
     overflow: hidden;
+    height: 500px;
 }
 
 .hi{

@@ -20,20 +20,20 @@ import {useEffect,useState } from 'react';
            })
     })
     
-    const [currentItem,setcurrentItem]=useState(props.hotdeal_item)
+    // const [currentItem,setcurrentItem]=useState(props.hotdeal_item)
    
   
       return ( 
       <div className='col-md-3 itemWrapper'>
-        {/* <img className="itemImg" onClick={()=>{navigate('/detail/'+currentItem.product_id)}} src={currentItem.itemImg[0]}/>  */}
-        <img className="itemImg" onClick={()=>{console.log(currentItem)}} src={currentItem.itemImg[0]}/> 
+        <img className="itemImg" onClick={()=>{navigate('/detail/'+props.hotdeal_item.product_id)}} src={props.hotdeal_item.itemImg[0]}/> 
+        {/* <img className="itemImg" onClick={()=>{console.log(props.hotdeal_item)}} src={props.hotdeal_item.itemImg[0]}/>  */}
 
         <div className='itemDesWrapper'>
-        <div className='itemBrand'>{currentItem.itemBrand}</div>
-          <div className='itemName'>{currentItem.itemName}</div>
-          <span>{Math.ceil((currentItem.price-currentItem.sale_price)/currentItem.price*100)}% DISCOUNT</span>
-          <div className='price'>{currentItem.price}</div>
-          <div className='sale_price'>{currentItem.sale_price}</div>
+            <div className='itemBrand'>{props.hotdeal_item.itemBrand}</div>
+            <div className='itemName'>{props.hotdeal_item.itemName}</div>
+            <span>{Math.ceil((props.hotdeal_item.price-props.hotdeal_item.sale_price)/props.hotdeal_item.price*100)}% DISCOUNT</span>
+            <div className='price'>{props.hotdeal_item.price}</div>
+            <div className='sale_price'>{props.hotdeal_item.sale_price}</div>
         </div>
       </div>
       )

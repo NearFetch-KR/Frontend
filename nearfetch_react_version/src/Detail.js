@@ -17,6 +17,7 @@ function DeliveryDate(){
     const arrivalMonth = document.querySelector(
       ".expectedArrival .arrivalMonth"
     );
+  
     const arrivalDate = document.querySelector(
       ".expectedArrival .arrivalDate"
     );
@@ -44,11 +45,13 @@ function Detail(props){
         localStorage.setItem('RecentlyViews',JSON.stringify(recentlyViewItem))
     },[])
     
-
+    
 
    
     return (
     <div className="itemDetailWrapper">
+    {/* {console.log(JSON.parse(localStorage.getItem('CartLists')))} */}
+
         <div className="buy">
             <div className="itemDetail">
                 {currentItem.itemImg.map((a,i)=>{

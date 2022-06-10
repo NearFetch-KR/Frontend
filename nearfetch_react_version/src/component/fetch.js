@@ -36,4 +36,3 @@ let Hotdealdata=[];
 
 
 export {data,Hotdealdata}
-  
