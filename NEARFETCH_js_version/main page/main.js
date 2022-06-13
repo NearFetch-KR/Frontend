@@ -1,3 +1,20 @@
+//섹션_1 캐러셀
+function ShowCarousel(){
+  document.querySelector(".carouselBtn1").addEventListener('click',()=>{
+    document.querySelector('.carousel').style.transform='translate(0vw)'
+     })
+  
+      document.querySelector(".carouselBtn2").addEventListener('click',()=>{
+    document.querySelector('.carousel').style.transform='translate(-100vw)'
+     })
+     
+     document.querySelector(".carouselBtn3").addEventListener('click',()=>{
+      document.querySelector('.carousel').style.transform='translate(-200vw)'
+      })
+}
+ShowCarousel();
+
+    
 // 섹션2_타이머
 function getTime() {
   const target = new Date("Fri June 24 2022 00:00:00 GMT+0900");
@@ -30,7 +47,7 @@ timerInit();
 
 //특가 상품
 function mainHotdeal() {
-  fetch("http://192.168.0.171:8000/products/main/hotdeal", {
+  fetch("http://13.209.72.165:8000/products/main/hotdeal", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -86,7 +103,7 @@ mainHotdeal();
 
 // 메인 중간 인기 상품
 function mainHitItem() {
-  fetch("http://192.168.0.171:8000/products/main/hotitem", {
+  fetch("http://13.209.72.165:8000/products/main/hotitem", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -165,7 +182,7 @@ mainHitItem();
 
 // 메인_최하단 추천 상품
 function mainRecomInit() {
-  fetch("http://192.168.0.171:8000/products/main/recommend", {
+  fetch("http://13.209.72.165:8000/products/main/recommend", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

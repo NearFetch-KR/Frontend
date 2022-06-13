@@ -1,5 +1,5 @@
 //   -----------itemdetail.html(=상품 상세보기 페이지) 에서만 해당 코드 실행-----------
-const proceedNowItem = [];
+
 
 if (
   location.href.indexOf(
@@ -7,7 +7,7 @@ if (
   ) > -1
 ) {
   fetch(
-    `http://192.168.0.171:8000/products/detail/${new URLSearchParams(
+    `http://13.209.72.165:8000/products/detail/${new URLSearchParams(
       location.search
     ).get("sku")}`,
     {
@@ -19,7 +19,7 @@ if (
   )
     .then((response) => response.json())
     .then((response) => {
-      response;
+    
       // 좌//이미지
       const itemImgWrapper = document.querySelector(".buy>.itemDetail");
       const ul = document.createElement("ul");
@@ -167,28 +167,8 @@ if (
       }
 
       // 할인 가격 노출
-      const price = document.querySelectorAll(".price");
-      const sale_price = document.querySelectorAll(".sale_price");
-
-      for (let i = 0; i < price.length; i++) {
-        if (sale_price[i].innerText == "") {
-          //세일 안 할 때
-          price[i].style.display = "block";
-          sale_price[i].style.display = "none";
-          price[i].textContent = price[i].textContent
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        } else {
-          sale_price[i].style.display = "block";
-          // price[i].style.color = "red";
-
-          price[i].style.textDecoration = "line-through";
-
-          sale_price[i].textContent = sale_price[i].textContent
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-      }
+      priceShow()
+     
 
       //   itemdetail.html에서 바로 장바구니에 넣기
       itemBuyCart.addEventListener("click", (e) => {
@@ -198,7 +178,7 @@ if (
           itemOption: changeValue(),
         };
 
-        fetch("http://192.168.0.171:8000/users/cart", {
+        fetch("http://13.209.72.165:8000/users/cart", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -208,41 +188,31 @@ if (
         })
           .then((response) => response.json())
           .then((response) => console.log(response))
-          .then(function () {
-            let text = "장바구니로 이동하시겠습니까?";
-            if (confirm(text) == true) {
-              window.location.href =
-                "http://127.0.0.1:5500/NEARFETCH_js_version/myinfoAll/cart.html";
-            }
-          })
+          .then(fetchCart())
           .catch((error) => console.log("error:", error));
       });
 
-      // 구매하기(수정중)
+      // 구매하기
       const proceedNowBtn = document.querySelector(".proceedNow");
       proceedNowBtn.addEventListener("click", () => {
-        proceedNowItem.push(response.detail);
-
-        // console.log(response.detail, changeValue());
-        console.log(proceedNowItem);
-
-        // window.location.href = `http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html`;
+        localStorage.setItem("buyNow",JSON.stringify(response.detail))
+        window.location.href = `http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html`;
+       make();
       });
     });
   // });
 }
 
+
 //링크 공유하기
 function clip() {
-  var url = ""; // <a>태그에서 호출한 함수인 clip 생성
+  var url = ""; 
   var textarea = document.createElement("textarea");
-  //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
-
-  document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
-  url = window.document.location.href; //url에는 현재 주소값을 넣어줌
-  textarea.value = url; // textarea 값에 url를 넣어줌
-  textarea.select(); //textarea를 설정
-  document.execCommand("copy"); // 복사
-  document.body.removeChild(textarea); //extarea 요소를 없애줌
-  alert("URL이 복사되었습니다."); // 알림창
+  document.body.appendChild(textarea); 
+  url = window.document.location.href; 
+  textarea.value = url;
+  textarea.select(); 
+  document.execCommand("copy");
+  document.body.removeChild(textarea); 
+  alert("URL이 복사되었습니다."); 
 }

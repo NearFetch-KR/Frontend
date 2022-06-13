@@ -1,14 +1,13 @@
 //* ----------------상품 리스트(검색)/search.html---------------- *//
 // 필터 요소 담을 객체
-const data2 = {};
-
+const filteredData = {};
 urlParams = new URLSearchParams(location.search);
 const convert_word = []; //정제된 검색어
 
 // case1.직접 검색하여 상품 찾기
 function searchItemList() {
   keyword = urlParams.get("word");
-  fetch(`http://172.30.1.111:8000/products/list${location.search}`, {
+  fetch(`http://13.209.72.165:8000/products/list${location.search}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -17,28 +16,9 @@ function searchItemList() {
     .then((response) => response.json())
     .then((response) => {
       convert_word.push(response.convert_word);
+
       // 정렬(우)
-      var sortDetail = document.querySelector(".sortDetail"); //가려진 부분
-      var sortWrapper = document.querySelector(".sortWrapper"); //sortingBox
-      var updownBtn = document.querySelector(".updownBtn"); //정렬 화살표(상하)
-      sortWrapper.addEventListener("click", () => {
-        sortDetail.classList.toggle("active");
-        sortWrapper.classList.toggle("active");
-        updownBtn.classList.toggle("active");
-      });
-
-      const highToRow = document.querySelector(".sortDetail .highToRow a"); //높은가격순
-      const rowToHigh = document.querySelector(".sortDetail .rowToHigh a"); //낮은가격순
-      const views = document.querySelector(".sortDetail .views a"); //인기순(=view순)
-      const sortDetailList = [highToRow, rowToHigh, views];
-
-      for (let k = 0; k < sortDetailList.length; k++) {
-        sortDetailList[k].addEventListener("click", (e) => {
-          let url = new URL(location.href);
-          url.searchParams.set("order", sortDetailList[k].innerText);
-          sortDetailList[k].href = url.toString();
-        });
-      }
+      sorter()
 
       //   검색한 단어 위치
       document.querySelector("#currentGender>a").innerText = keyword;
@@ -104,9 +84,8 @@ function searchItemList() {
       const cartBtn = document.querySelectorAll(".cart");
       goCart();
 
-      //   filterNsorter();
       //   필터(좌);
-      fetch(`http://172.30.1.111:8000/products/make/filter`, {
+      fetch(`http://13.209.72.165:8000/products/make/filter`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -202,9 +181,9 @@ function searchItemList() {
                 .querySelector(".filter_category")
                 .getElementsByClassName("active");
               //data 객체 내 key값 생성
-              data2.gender = [];
-              data2.categorySmall = [];
-              data2.brand = [];
+              filteredData.gender = [];
+              filteredData.categorySmall = [];
+              filteredData.brand = [];
 
               //추가로 클릭된 필터를 data 객체 내 추가
               for (let i = 0; i < filteredList.length; i++) {
@@ -214,29 +193,29 @@ function searchItemList() {
                     .innerText;
                 if (aa == "GENDER") {
                   //gender에 해당한다면
-                  data2["gender"].push(filteredList[i].innerText); //data객체 내 gender에 추가
+                  filteredData["gender"].push(filteredList[i].innerText); //data객체 내 gender에 추가
                 } else if (aa == "SMALL CATEGORY") {
-                  data2["categorySmall"].push(filteredList[i].innerText);
+                  filteredData["categorySmall"].push(filteredList[i].innerText);
                 } else if (aa == "BRAND") {
-                  data2["brand"].push(filteredList[i].innerText);
+                  filteredData["brand"].push(filteredList[i].innerText);
                 }
               }
 
-              for (let k = 0; k < Object.values(data2).length; k++) {
-                for (let j = 0; j < Object.keys(data2).length; j++) {
-                  if (Object.values(data2)[k][j] !== undefined) {
+              for (let k = 0; k < Object.values(filteredData).length; k++) {
+                for (let j = 0; j < Object.keys(filteredData).length; j++) {
+                  if (Object.values(filteredData)[k][j] !== undefined) {
                     filterAll.push(
-                      Object.keys(data2)[k] + "=" + Object.values(data2)[k][j]
+                      Object.keys(filteredData)[k] + "=" + Object.values(filteredData)[k][j]
                     );
                   }
                 }
               }
 
               const fill = [];
-              for (var key in data2) {
-                if (data2.hasOwnProperty(key)) {
-                  for (let i = 0; i < data2[key].length; i++) {
-                    fill.push(`${key}=${data2[key][i]}`);
+              for (var key in filteredData) {
+                if (filteredData.hasOwnProperty(key)) {
+                  for (let i = 0; i < filteredData[key].length; i++) {
+                    fill.push(`${key}=${filteredData[key][i]}`);
                   }
                 }
               }
@@ -251,7 +230,7 @@ function searchItemList() {
 
               //필터 적용하여 데이터 요청
               fetch(
-                `http://172.30.1.111:8000/products/list${location.search}`,
+                `http://13.209.72.165:8000/products/list${location.search}`,
                 {
                   method: "GET",
                   headers: {
@@ -261,6 +240,7 @@ function searchItemList() {
               )
                 .then((response) => response.json())
                 .then((response) => {
+                  console.log(response)
                   document.querySelector(" .itemListWrapper").textContent = "";
                   const itemListWrapper =
                     document.querySelector(" .itemListWrapper");
@@ -329,7 +309,6 @@ function searchItemList() {
                   }
                 });
 
-              // console.log(response.price_bar.min, response.price_bar.max);
             };
           });
         });
@@ -347,7 +326,7 @@ if (
 // case2.navbar 카테고리 클릭하여 상품 찾기
 function searchCategoryList() {
   fetch(
-    `http://172.30.1.111:8000/products/list${location.search}`,
+    `http://13.209.72.165:8000/products/list${location.search}`,
 
     {
       method: "GET",
@@ -358,28 +337,10 @@ function searchCategoryList() {
   )
     .then((response) => response.json())
     .then((response) => {
+      
       // 정렬(우)
-      var sortDetail = document.querySelector(".sortDetail"); //가려진 부분
-      var sortWrapper = document.querySelector(".sortWrapper"); //sortingBox
-      var updownBtn = document.querySelector(".updownBtn"); //정렬 화살표(상하)
-      sortWrapper.addEventListener("click", () => {
-        sortDetail.classList.toggle("active");
-        sortWrapper.classList.toggle("active");
-        updownBtn.classList.toggle("active");
-      });
+      sorter()
 
-      const highToRow = document.querySelector(".sortDetail .highToRow a"); //높은가격순
-      const rowToHigh = document.querySelector(".sortDetail .rowToHigh a"); //낮은가격순
-      const views = document.querySelector(".sortDetail .views a"); //인기순(=view순)
-      const sortDetailList = [highToRow, rowToHigh, views];
-
-      for (let k = 0; k < sortDetailList.length; k++) {
-        sortDetailList[k].addEventListener("click", (e) => {
-          let url = new URL(location.href);
-          url.searchParams.set("order", sortDetailList[k].innerText);
-          sortDetailList[k].href = url.toString();
-        });
-      }
 
       //   현재 카테고리 위치
       document.querySelector("#currentGender>a").innerText = gender;
@@ -391,6 +352,7 @@ function searchCategoryList() {
       //   아이템 들어갈 자리
       const ul = document.createElement("ul");
       searchItemListWrapper.appendChild(ul);
+
       for (let i = 0; i < response.result.length; i += 1) {
         const cart = document.createElement("img");
         cart.setAttribute("class", "cart");
@@ -445,7 +407,7 @@ function searchCategoryList() {
             sku_number: sku,
           };
 
-          fetch("http://172.30.1.111:8000/users/cart", {
+          fetch("http://13.209.72.165:8000/users/cart", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -455,44 +417,11 @@ function searchCategoryList() {
           })
             .then((response) => response.json())
             .then((response) => console.log(response))
-            .then(function () {
-              let text = "장바구니로 이동하시겠습니까?";
-              if (confirm(text) == true) {
-                window.location.href =
-                  "http://127.0.0.1:5500/NEARFETCH_js_version/myinfoAll/cart.html";
-              }
-            })
+            .then(fetchCart())
             .catch((error) => console.log("error:", error));
         };
       });
-
-      filterNsorter();
-
-      //   //실제 가격바
-      //   var minSlider = document.getElementById("min");
-      //   var maxSlider = document.getElementById("max");
-
-      //   //    response의 최저값으로 시작
-      //   minSlider.min = response.price_bar.min;
-
-      //   //    response의 최대값으로 끝남
-      //   maxSlider.max = response.price_bar.max;
-
-      //   //빈칸에 찍히는 최저값, 최대값
-      //   var outputMin = document.getElementById("min-value");
-      //   var outputMax = document.getElementById("max-value");
-
-      //   outputMin.innerHTML = minSlider.value;
-      //   outputMax.innerHTML = maxSlider.value;
-
-      //   minSlider.oninput = function () {
-      //     outputMin.innerHTML = this.value;
-      //   };
-
-      //   maxSlider.oninput = function () {
-      //     outputMax.innerHTML = this.value;
-      //   };
-      //   console.log(response.price_bar.min);
+  
     });
 }
 

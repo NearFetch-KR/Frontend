@@ -1,22 +1,28 @@
 // ----------------장바구니 상품 리스트 노출----------------
+
+let payDoneItem=JSON.parse(localStorage.getItem('payDoneItem'))
+
+//로그인 시 로그인>로그아웃으로 innerText변경
+if (
+  localStorage.getItem("login-token") ||
+  localStorage.getItem("kakao_d00e298d264188749cec865d2f70fa40")
+) {
+  document.getElementById("logout").innerText = "로그아웃";
+} else {
+  document.getElementById("logout").innerText = "로그인";
+}
+
+
 const proceedNowItem = [];
 window.onload = function () {
-  console.log("로그인상태 테스트2");
-  if (
-    localStorage.getItem("login-token") ||
-    localStorage.getItem("kakao_d00e298d264188749cec865d2f70fa40")
-  ) {
-    document.querySelector(".infoBar #logout").innerText = "로그아웃";
-  } else {
-    document.querySelector(".infoBar #logout").innerText = "로그인";
-  }
+ 
 
   //로그아웃(기능)
-  const logoutBtn = document.querySelector(".infoBar #logout");
+  const logoutBtn = document.getElementById("logout");
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     let token = localStorage.getItem("login-token");
-    fetch("http://192.168.0.171:8000/users/logout", {
+    fetch("http://13.209.72.165:8000/users/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +50,7 @@ window.onload = function () {
 const selectedValueList = [];
 
 function makeCartList() {
-  fetch("http://192.168.0.171:8000/users/cart", {
+  fetch("http://13.209.72.165:8000/users/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/son",
@@ -144,7 +150,7 @@ function makeCartList() {
         sale_price[k].textContent = response.result[k].sale_price;
 
         //할인 가격 보여주기
-        priceShow2();
+        priceShow();
 
         // 아이템 삭제
         const removeCart = document.querySelectorAll(".priceWrapper");
@@ -156,7 +162,7 @@ function makeCartList() {
 
         removeCartImg[k].addEventListener("click", () => {
           fetch(
-            `http://192.168.0.171:8000/users/cart?cartId=${response.result[k].cart_id}`,
+            `http://13.209.72.165:8000/users/cart?cartId=${response.result[k].cart_id}`,
             {
               method: "DELETE",
               headers: {
@@ -201,7 +207,6 @@ function makeCartList() {
           selectInCart[i].options[selectInCart[i].selectedIndex].text;
         selectedValueList.push(selectedValue);
       }
-      // console.log(selectedValueList);
 
       // 구매하기
       const proceedBtn = document.querySelector(".proceed");
@@ -209,7 +214,7 @@ function makeCartList() {
         let param = {
           itemOption: selectedValueList,
         };
-        fetch("http://192.168.0.171:8000/users/cart", {
+        fetch("http://13.209.72.165:8000/users/cart", {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -223,8 +228,7 @@ function makeCartList() {
             window.location.href = `http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html`;
           });
         proceedNowItem.push(response.result);
-        console.log(proceedNowItem);
-        //////////////////
+      
       });
     });
 }
@@ -274,7 +278,7 @@ if (
       address2: addr_detail,
     };
     let token = localStorage.getItem("login-token");
-    fetch("http://192.168.0.171:8000/users/register/location", {
+    fetch("http://13.209.72.165:8000/users/register/location", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -300,7 +304,7 @@ if (
   ).value;
 
   //저장해둔 주소 노출
-  fetch("http://192.168.0.171:8000/users/register/location", {
+  fetch("http://13.209.72.165:8000/users/register/location", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -346,103 +350,248 @@ if (
     "http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html"
   ) > -1
 ) {
-  fetch("http://192.168.0.171:8000/users/cart", {
-    method: "GET",
+  var referrer=document.referrer//직전 페이지
+  const itemdetailpage="itemdetail.html";
+  const cartpage="cart.html";
+  console.log("detail에서왔니:",referrer.includes(itemdetailpage))
+  console.log("cart에서왔니:",referrer.includes(cartpage))
+
+
+// itemdetail에서 넘어왔을 경우
+  if(referrer.includes(itemdetailpage)==true){
+
+    let buyNowItem=JSON.parse(localStorage.getItem('buyNow'))
+ 
+      const payitemListWrapper = document.querySelector(
+        ".orderInfoDetail tbody"
+      );
+      const tr = document.createElement("tr");
+      payitemListWrapper.appendChild(tr);
+
+      for (let i = 0; i < 5; i++) {
+        const tdClassList = [
+          "addImg",
+          "contents",
+          "itemOption",
+          "itemQt",
+          "priceWrapper",
+        ];
+        const td = document.createElement("td");
+        tr.appendChild(td);
+        td.setAttribute("class", tdClassList[i]);
+      }
+
+      const addImg = document.querySelector("tbody .addImg");
+      const img = document.createElement("img");
+      addImg.appendChild(img);
+      const imgInner = document.querySelector(".addImg img");
+      imgInner.src = buyNowItem.itemImg[0];
+
+      const contents = document.querySelector("tbody .contents");
+      const contentsClassList = ["itemBrand", "itemName"];
+      for (let j = 0; j < contentsClassList.length; j++) {
+        const div = document.createElement("div");
+        contents.appendChild(div);
+        div.setAttribute("class", contentsClassList[j]);
+      }
+
+      const priceWrapper = document.querySelector("tbody .priceWrapper");
+      const priceClassList = ["price", "sale_price"];
+      for (let j = 0; j < priceClassList.length; j++) {
+        const div = document.createElement("div");
+        priceWrapper.appendChild(div);
+        div.setAttribute("class", priceClassList[j]);
+      }
+
+      document.querySelector(".itemBrand").textContent=buyNowItem.itemBrand
+      document.querySelector(".itemName").textContent=buyNowItem.itemName
+      document.querySelector(".itemOption").textContent=buyNowItem.itemOption
+      document.querySelector(".itemQt").textContent=1
+      document.querySelector(".price").textContent=buyNowItem.price
+      document.querySelector(".sale_price").textContent=buyNowItem.sale_price
+      document.querySelector(".totalAmount").style.display="none"
+
+      const price = document.querySelector(".price");
+      const sale_price = document.querySelector(".sale_price");
+      const totalAmount=document.querySelector(".totalAmount span").innerText;
+    // 할인 가격 보여주기
+    if (sale_price.innerText == "") {
+      price.style.display = "block";
+      sale_price.style.display = "none";
+      price.textContent = price.textContent
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");  
+    } else {
+      sale_price.style.display = "block";
+      price.style.textDecoration = "line-through";
+      sale_price.textContent = sale_price.textContent
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  
+    const proceedPayBtn=document.querySelector(".proceedPay")
+    proceedPayBtn.addEventListener('click',()=>{
+   å
+        window.location.href=`http://127.0.0.1:5500/NEARFETCH_js_version/pay/paydone.html`;
+        
+    })
+  }else if(referrer.includes(cartpage)==true){
+    //cart에서 넘어왔을 경우
+    fetch("http://13.209.72.165:8000/users/cart", {
+        method: "GET",
+        headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("login-token"),
+        },
+    })
+        .then((response) => response.json())
+        .then((response) => {
+        console.log(response.result)
+        for (let k = 0; k < response.result.length; k++) {
+            const payitemListWrapper = document.querySelector(
+            ".orderInfoDetail tbody"
+            );
+            const tr = document.createElement("tr");
+            payitemListWrapper.appendChild(tr);
+
+            for (let i = 0; i < 5; i++) {
+            const tdClassList = [
+                "addImg",
+                "contents",
+                "itemOption",
+                "itemQt",
+                "priceWrapper",
+                // "removeCart",
+            ];
+            const td = document.createElement("td");
+            tr.appendChild(td);
+            td.setAttribute("class", tdClassList[i]);
+            }
+
+            const addImg = document.querySelectorAll("tbody .addImg");
+            const img = document.createElement("img");
+            addImg[k].appendChild(img);
+            const imgInner = document.querySelectorAll(".addImg img");
+            imgInner[k].src = response.result[k].image;
+
+            const contents = document.querySelectorAll("tbody .contents");
+            const contentsClassList = ["itemBrand", "itemName"];
+            for (let j = 0; j < contentsClassList.length; j++) {
+            const div = document.createElement("div");
+            contents[k].appendChild(div);
+            div.setAttribute("class", contentsClassList[j]);
+            }
+
+            const priceWrapper = document.querySelectorAll("tbody .priceWrapper");
+            const priceClassList = ["price", "sale_price"];
+            for (let j = 0; j < priceClassList.length; j++) {
+            const div = document.createElement("div");
+            priceWrapper[k].appendChild(div);
+            div.setAttribute("class", priceClassList[j]);
+            }
+
+            const itemOption = document.querySelectorAll(".itemOption");
+            const divTag = document.createElement("div");
+            itemOption[k].appendChild(divTag);
+
+            const price = document.querySelectorAll(".priceWrapper>.price");
+            const sale_price = document.querySelectorAll(
+            ".priceWrapper>.sale_price"
+            );
+
+            const itemQt = document.querySelectorAll(".itemQt");
+            const itemBrand = document.querySelectorAll(".itemBrand");
+            const itemName = document.querySelectorAll(".itemName");
+
+            itemBrand[k].textContent = response.result[k].brand;
+            itemName[k].textContent = response.result[k].name;
+
+            itemQt[k].textContent = response.result[k].quantity;
+            itemOption[k].textContent = response.result[k].selectedOption; //옵션값
+            price[k].textContent = response.result[k].price;
+            sale_price[k].textContent = response.result[k].sale_price;
+        }
+
+        const totalAmount = document.querySelector(".totalAmount>span");
+        const price = document.querySelectorAll("tr .price");
+        const sale_price = document.querySelectorAll("tr .sale_price");
+
+        // 할인 가격 보여주기
+        priceShow();
+
+        //  장바구니, 주문창 총 금액 계산
+        const priceArry = [];
+        for (i = 0; i < response.result.length; i++) {
+            if (response.result[i].sale_price !== null) {
+            priceArry.push(Number(sale_price[i].innerText.split(",").join("")));
+            } else {
+            priceArry.push(Number(price[i].innerText.split(",").join("")));
+            }
+        }
+
+        const sum = priceArry.reduce((a, b) => a + b);
+        totalAmount.textContent = sum
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    })
+  }
+
+}
+
+//로그아웃
+//이메일 로그아웃(기능)
+const logoutBtn = document.querySelector(".infoBar #logout");
+logoutBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  let token = localStorage.getItem("login-token");
+  fetch("http://13.209.72.165:8000/users/logout", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: localStorage.getItem("login-token"),
+      Authorization: token,
     },
   })
     .then((response) => response.json())
     .then((response) => {
-      for (let k = 0; k < response.result.length; k++) {
-        const payitemListWrapper = document.querySelector(
-          ".orderInfoDetail tbody"
-        );
-        const tr = document.createElement("tr");
-        payitemListWrapper.appendChild(tr);
+      console.log(response);
 
-        for (let i = 0; i < 5; i++) {
-          const tdClassList = [
-            "addImg",
-            "contents",
-            "itemOption",
-            "itemQt",
-            "priceWrapper",
-            // "removeCart",
-          ];
-          const td = document.createElement("td");
-          tr.appendChild(td);
-          td.setAttribute("class", tdClassList[i]);
-        }
-
-        const addImg = document.querySelectorAll("tbody .addImg");
-        const img = document.createElement("img");
-        addImg[k].appendChild(img);
-        const imgInner = document.querySelectorAll(".addImg img");
-        imgInner[k].src = response.result[k].image;
-
-        const contents = document.querySelectorAll("tbody .contents");
-        const contentsClassList = ["itemBrand", "itemName"];
-        for (let j = 0; j < contentsClassList.length; j++) {
-          const div = document.createElement("div");
-          contents[k].appendChild(div);
-          div.setAttribute("class", contentsClassList[j]);
-        }
-
-        const priceWrapper = document.querySelectorAll("tbody .priceWrapper");
-        const priceClassList = ["price", "sale_price"];
-        for (let j = 0; j < priceClassList.length; j++) {
-          const div = document.createElement("div");
-          priceWrapper[k].appendChild(div);
-          div.setAttribute("class", priceClassList[j]);
-        }
-
-        const itemOption = document.querySelectorAll(".itemOption");
-        const divTag = document.createElement("div");
-        itemOption[k].appendChild(divTag);
-
-        const price = document.querySelectorAll(".priceWrapper>.price");
-        const sale_price = document.querySelectorAll(
-          ".priceWrapper>.sale_price"
-        );
-
-        const itemQt = document.querySelectorAll(".itemQt");
-        const itemBrand = document.querySelectorAll(".itemBrand");
-        const itemName = document.querySelectorAll(".itemName");
-
-        itemBrand[k].textContent = response.result[k].brand;
-        itemName[k].textContent = response.result[k].name;
-
-        itemQt[k].textContent = response.result[k].quantity;
-        itemOption[k].textContent = response.result[k].selectedOption; //옵션값
-        price[k].textContent = response.result[k].price;
-        sale_price[k].textContent = response.result[k].sale_price;
+      if (localStorage.getItem("login-token")) {
+        localStorage.removeItem("login-token");
+        alert("로그아웃 성공");
+        window.location.href =
+          "http://127.0.0.1:5500/NEARFETCH_js_version/main%20page/main.html";
+      } else {
+        alert("로그아웃 실패");
       }
+    })
+    .catch((error) => console.log("error:", error));
+});
 
-      const totalAmount = document.querySelector(".totalAmount>span");
-      const price = document.querySelectorAll("tr .price");
-      const sale_price = document.querySelectorAll("tr .sale_price");
-
-      // 할인 가격 보여주기
-      priceShow2();
-
-      //  장바구니, 주문창 총 금액 계산
-      const priceArry = [];
-      for (i = 0; i < response.result.length; i++) {
-        if (response.result[i].sale_price !== null) {
-          priceArry.push(Number(sale_price[i].innerText.split(",").join("")));
-        } else {
-          priceArry.push(Number(price[i].innerText.split(",").join("")));
-        }
-      }
-
-      const sum = priceArry.reduce((a, b) => a + b);
-      totalAmount.textContent = sum
-        .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//카카오 로그아웃
+function kakaoLogout() {
+  if (Kakao.Auth.getAccessToken()) {
+    Kakao.API.request({
+      url: "/v1/user/unlink",
+      success: function (response) {
+        console.log(response);
+      },
+      fail: function (error) {
+        console.log(error);
+      },
     });
+    Kakao.Auth.setAccessToken(undefined);
+  }
 }
+
+
+
+// if (
+//   location.href.indexOf(
+//     "http://127.0.0.1:5500/NEARFETCH_js_version/pay/pay.html"
+//   ) > -1
+// ) {
+ 
+// }
 
 // //배송중인것만 배송정보 보여주기!
 // const trkStatus = document.querySelectorAll(".trkStatus"); //배송상태값

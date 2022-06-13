@@ -1,5 +1,5 @@
 //GUCCI 제품 기획전
-fetch("http://172.30.1.23:8000/products/list?brand=GUCCI", {
+fetch("http://13.209.72.165:8000/products/list?brand=GUCCI", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -68,8 +68,7 @@ fetch("http://172.30.1.23:8000/products/list?brand=GUCCI", {
     //장바구니 담기 함수
     goCart();
 
-    //필터&정렬 함수
-    filterNsorter();
+  
   });
 
 //   현재 카테고리 위치

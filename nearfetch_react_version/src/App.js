@@ -83,7 +83,8 @@ let RecentlyViewsList=JSON.parse(localStorage.getItem('RecentlyViews'))//최근 
               <h3>👀최근 본 상품👀</h3>
                 <div className="row">
                   <div className="row__inner">  
-                      {RecentlyViewsList.map((a,i)=>{
+                   
+                     {RecentlyViewsList.map((a,i)=>{
                           return (
                           <>
                           <div className="RecomItem" key={i}>

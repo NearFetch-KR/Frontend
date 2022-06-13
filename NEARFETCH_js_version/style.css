@@ -130,6 +130,11 @@ img{
         justify-content: right;
     }
 
+    .mainHot>.hotBrandDes{
+        position:relative;
+        top:-150px;
+    }
+
     /* myinfo(주소 저장) */
     .myInfoList{
         flex-direction: column;
@@ -176,6 +181,10 @@ img{
 
     .addListTable tbody tr td{
         padding:0;
+    }
+
+    .orderListTable{
+        width: 80%;
     }
 
 
@@ -279,6 +288,13 @@ img{
     .usp .advantage .advan img{
         display: none;
     }
+
+    /*appDown*/
+    .keyBox{
+        width: 100%;
+    }
+
+   
 
     
 
@@ -556,7 +572,7 @@ input[class="keyword"]{
     flex-wrap: wrap;
     width: 90%;
     margin: auto;
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 
@@ -737,14 +753,15 @@ form[class="sign"]>.btnWrapper{
     display: flex;
     flex-direction: column;
 }
-.carouselWrapper{
+.appInfo2 .carouselWrapper{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.carouselWrapper img{
- 
+
+.appInfo2 .carouselWrapper img{
+
     width: 250px;
     background: url(/images/nearfetchApp.gif);
     background-repeat: no-repeat;
@@ -862,83 +879,61 @@ form[class="sign"]>.btnWrapper{
     -ms-overflow-style: none;
   }
 
-  .carousel {
-   
-    position: relative;
-    filter: drop-shadow(0 0 10px rgba(192, 192, 192, 0.562));
-    perspective: 100px;
-    -webkit-filter: drop-shadow(0 0 10px rgba(192, 192, 192, 0.562));
+.newsList .carouselWrapper{
+    overflow: hidden;
+    height: 600px;
 }
-  
-  .carousel__viewport {
-    max-width: 100%;
-    height: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    overflow-x: scroll;
-    counter-reset: item;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-  }
-  
-  .carousel__slide {
-    position: relative;
-    flex: 0 0 100%;
-    width: 100%;
-    height: 400px;
-    counter-increment: item;
-    /* background-color: rgb(235, 235, 235); */
-  }
 
-  .carousel__snapper img{
-      height: 100%;
-  }
-  
- 
-  .carousel__slide:before {
-    content: counter(item);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%,-40%,70px);
-    color: #fff;
-  }
-  
-  .carousel__snapper {
-    position: absolute;
-    top: 0;
-    left: 0;
+.newsList .hi{
+    position: relative;
+    bottom: 400px;
+    font-size: 70px;
+    color: var(--color-white);
+    font-weight: 900;
+    border: 10px solid rgb(79, 161, 83);
+}
+
+
+.newsList .carousel{
+    display: flex;
+    width: 300vw;
+    height: 100%;
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -ms-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
+}
+
+.newsList .carousel .inner{
+    width: 100vw;
+    float: left;
+}
+
+.newsList .carousel img{
     width: 100%;
     height: 100%;
-    scroll-snap-align: center;
-  }
-  
-  @media (hover: hover) {
-    .carousel__snapper {
-      animation-name: tonext, snap;
-      animation-timing-function: ease;
-      animation-duration: 4s;
-      animation-iteration-count: infinite;
-    }
-  
-    .carousel__slide:last-child .carousel__snapper {
-      animation-name: tostart, snap;
-    }
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .carousel__snapper {
-      animation-name: none;
-    }
-  }
-  
-  .carousel:hover .carousel__snapper,
-  .carousel:focus-within .carousel__snapper {
-    animation-name: none;
-  }
+}
+
+
+.newsList .carouselBtnWrapper{
+    position: relative;
+    bottom:200px;
+}
+
+.newsList .carouselBtnWrapper button{
+   width: 20px;
+   height: 20px;
+   border-radius:50%;
+   -webkit-border-radius:50%;
+   -moz-border-radius:50%;
+   -ms-border-radius:50%;
+   -o-border-radius:50%;
+   margin: 5px;
+   background-color: var(--color-white);
+}
+
+
   
   .loginClose,
   .registerClose{
@@ -1019,16 +1014,15 @@ form[class="sign"]>.btnWrapper{
 
 
 /* 섹션3_당장 사야할 것들  */
-  .mustBuyWrapper{    display: flex;                                
+  .mustBuyWrapper{    
+      display: flex;                                
     justify-content: center;
     margin: 50px 0px;
-    flex-wrap: wrap;
+
   }
   
   .MustBuyNow .itemWrapper{
-
     margin:10px;
-    border: 1px solid var(--color-grey);
     padding:10px;
   }
   
@@ -1606,57 +1600,9 @@ color: var(--color-grey);
 
 .totalNBtn .proceed{
     margin: 1vh;
-    width: 100%;
+ 
 }
 
-
-/* 1.좋아요(like.html) */
-/* .myInfoWrapper{
-    display: flex;
-    flex-direction: column;
-}
-.likeWrapper{
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 20vh;
-}
-
-.likeWrapper .likeItem{
-    width: 23%;
-    margin: 2vh 1vh;
-    padding: 2vh;
-    text-align: center;
-    min-height: 50vh;
-    background-color: red;
-}
-
-
-.likeItem div:nth-child(3){
-    padding-top: 1vh;
-    font-size: 1.2vw;
-}
-
-.likeItem img:first-child{
-    float: right;
-    width: 1vw;
-    padding-bottom: 1vh;
-}
-
-.likeItem img:first-child:active{
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
-}
-
-.likeItem img{
-    max-width: 100%;
-}
-
-.likeItem button{
-    width: 100%;
-} */
 
 /* 2.장바구니(cart.html) */
 .rowOne div{
@@ -1931,6 +1877,12 @@ padding: 3vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.payDoneBtn a{
+    background-color: var(--color-black);
+    color: white;
+    padding: 1vh;
 }
 
 .payDoneNotice img,
@@ -2556,13 +2508,14 @@ background-repeat: no-repeat;
 
 .qnaText{
     width: 80%;
-
+}
 
 .accordion{
     margin: 3vw;
+    text-align: left;
+
 }
 .accordion-collapse{
-    text-align: left;
     margin-left: 1vw;
 }
 
