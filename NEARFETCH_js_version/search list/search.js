@@ -397,31 +397,8 @@ function searchCategoryList() {
 
       // 카트 로고 눌러서 장바구니 담기
       const cartBtn = document.querySelectorAll(".cart");
-      cartBtn.forEach((el, index) => {
-        el.onclick = (e) => {
-          let parentTag = e.target.parentElement; //클릭한 요소의 부모 태그 전체
-          let sku = parentTag.childNodes[6].innerText;
-          e.preventDefault();
+      goCart();
 
-          let param = {
-            sku_number: sku,
-          };
-
-          fetch("http://13.209.72.165:8000/users/cart", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: localStorage.getItem("login-token"),
-            },
-            body: JSON.stringify(param),
-          })
-            .then((response) => response.json())
-            .then((response) => console.log(response))
-            .then(fetchCart())
-            .catch((error) => console.log("error:", error));
-        };
-      });
-  
     });
 }
 

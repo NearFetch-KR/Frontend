@@ -204,6 +204,25 @@ if (
 }
 
 
+//추천상품과 겹치지 않게 스크롤이벤트 처리
+function scrolling(){
+  window.addEventListener('scroll',()=>{
+    const target = document.querySelector('.itemDetail');
+    const itemBuySection = target.clientHeight
+    let value=this.window.scrollY
+
+    if(value>itemBuySection*0.9){
+      document.querySelector(".buy .itemBuy").style.display="none"
+    }else(
+      document.querySelector(".buy .itemBuy").style.display="block"
+    )
+  })
+}
+
+scrolling()
+
+
+
 //링크 공유하기
 function clip() {
   var url = ""; 

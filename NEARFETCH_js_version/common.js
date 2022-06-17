@@ -1,4 +1,16 @@
-// let AllItemList = JSON.parse(JSON.stringify(data));
+// class 클래스 extends HTMLElement{
+//   connectedCallback(){
+//     let 속성=this.getAttribute('속성')
+//     this.innerHTML=`${속성}인풋입니다<input>`
+//   }
+//   static get observedAttributes(){
+//     return ['속성']
+//   }
+//   attributeChangedCallback(){
+//     console.log(this.getAttribute('속성'))
+//   }
+// }
+// customElements.define('custom-input',클래스)
 /* ---------------공용---------------- */
 // html include
 function includeRouter(cb) {
@@ -107,19 +119,13 @@ function noResult() {
   }
 }
 
+
+
+
 // /* -----------로그인&회원가입(모달창&기능)----------- */
 
-window.onload = function () {
-  console.log("로그인 성공 시 로그인 버튼 사라짐");
-  if (
-    localStorage.getItem("login-token") ||
-    localStorage.getItem("kakao_d00e298d264188749cec865d2f70fa40")
-  ) {
-    document.getElementById("loginBtn").style.display = "none";
-    
-  } else {
-    document.getElementById("loginBtn").innerText = "로그인";
-  }
+//로드 
+window.addEventListener('load',()=>{
 
   // 검색
   function goSearch() {
@@ -128,60 +134,75 @@ window.onload = function () {
     searchItemList();
   }
 
+
   const form = document.querySelector(".itemCategory .form");
-  console.log("form test");
   form.addEventListener("submit", goSearch);
 
-  //   로그인 모달창
-  var loginModal = document.getElementById("loginModal");
-  var loginBtn = document.getElementById("loginBtn");
-  var loginClose = document.querySelector(".loginClose");
+  //로그인
+  var loginModal = document.getElementById("loginModal"); //로그인 모달창
+  var loginBtn = document.getElementById("loginBtn"); //로그인버튼(바깥)
+  var loginClose = document.querySelector(".loginClose"); //로그인 모달창 닫기
 
-  loginBtn.onclick = function () {
+  if (
+    localStorage.getItem("login-token") ||
+    localStorage.getItem("kakao_d00e298d264188749cec865d2f70fa40")
+  ) {
+    loginBtn.style.display = "none";
+
+  } else {
+    loginBtn.innerText = "로그인";
+  }
+
+  //바깥 로그인 버튼 누르면 모달창 띄우기
+  function goLogin(){
     loginModal.style.display = "block";
 
-        // 로그인(기능)
-      const mailLogin = document.querySelector(".login .mailLogin");
-      mailLogin.addEventListener("click", (e) => {
-        let mail = document.querySelector(
-          ".loginInfoWrapper .inputWrapper #loginMail"
-        ).value;
-        let pw = document.querySelector(
-          ".loginInfoWrapper .inputWrapper #loginPW"
-        ).value;
-        e.preventDefault();
-        let param = {
-          email: mail,
-          password: pw,
-        };
-        fetch("http://13.209.72.165:8000/users/signin", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(param),
-        })
-          .then((response) => response.json())
-          .then((response) => {
-            if (response.message == "SUCCESS") {
-              localStorage.setItem("login-token", response.access_token);
-              alert("로그인 성공");
-              document.getElementById("loginModal").style.display = "none";
-            } else if (response.message == "INVALID_EMAIL") {
-              alert(
-                "올바르지 않은 이메일 주소입니다. 다른 이메일 주소를 입력해주세요."
-              );
-            } else if (response.message == "INVALID_PASSWORD") {
-              alert("올바르지 않은 비밀번호입니다. 다시 입력해주세요.");
-            }
-          })
-          .catch((error) => console.log("error:", error));
-      });
+    // 이메일 로그인(기능)
+    const mailLoginBtn = document.querySelector(".login .mailLogin"); //이메일 로그인 진행 버튼 
+    mailLoginBtn.addEventListener("click", (e)=>{
 
-      // 카카오 로그인
+      let mail = document.querySelector(
+        ".loginInfoWrapper .inputWrapper #loginMail"
+      ).value;
+      let pw = document.querySelector(
+        ".loginInfoWrapper .inputWrapper #loginPW"
+      ).value;
+      e.preventDefault();
+      let param = {
+        email: mail,
+        password: pw,
+      };
+      fetch("http://13.209.72.165:8000/users/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(param),
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          if (response.message == "SUCCESS") {
+            localStorage.setItem("login-token", response.access_token);
+            alert("로그인 성공");
+            document.getElementById("loginModal").style.display = "none";
+          } else if (response.message == "INVALID_EMAIL") {
+            alert(
+              "올바르지 않은 이메일 주소입니다. 다른 이메일 주소를 입력해주세요."
+            );
+          } else if (response.message == "INVALID_PASSWORD") {
+            alert("올바르지 않은 비밀번호입니다. 다시 입력해주세요.");
+          }
+        })
+        .catch((error) => console.log("error:", error));
+    });
+   
+
+    //카카오 로그인
+    const kakaoLoginBtn=document.querySelector(".btnWrapper .kakaoLogin")
+    kakaoLoginBtn.addEventListener('click',kakaoLogin)
+    function kakaoLogin() {
       Kakao.init("c06d45d83cfbe0482ac643895bc7aea1"); //발급받은 키 중 javascript키를 사용해준다.
-      console.log(Kakao.isInitialized()); // sdk초기화여부판단
-      function kakaoLogin() {
+  
         Kakao.Auth.login({
           success: function (response) {
             Kakao.API.request({
@@ -199,11 +220,10 @@ window.onload = function () {
           },
         });
       }
-      const kakaoLoginBtn = document.querySelectorAll(".kakaoLogin");
-      for (let i = 0; i < kakaoLoginBtn.length; i++) {
-        kakaoLoginBtn[i].addEventListener("click", kakaoLogin);
-      }
-  };
+  }
+
+  loginBtn.addEventListener('click',goLogin)
+
 
   loginClose.onclick = function () {
     loginModal.style.display = "none";
@@ -217,12 +237,55 @@ window.onload = function () {
 
   //   회원가입 모달창
   var registerModal = document.getElementById("registerModal");
-  var registerBtn = document.getElementById("registerBtn");
+  var registerBtn = document.getElementById("registerBtn");//가입버튼(바깥)
   var registerClose = document.querySelector(".registerClose");
 
-  registerBtn.onclick = function () {
+    function goRegister(){
     registerModal.style.display = "block";
-  };
+    const mailRegister = document.querySelector(".btnWrapper .goRegister"); //회원가입 진행 버튼
+    mailRegister.addEventListener("click", (e)=>{
+      let name = document.querySelector(
+        ".registerBtnWrapper .inputWrapper #name"
+      ).value;
+      let mail = document.querySelector(
+        ".registerBtnWrapper .inputWrapper #registerMail"
+      ).value;
+      let pw = document.querySelector(
+        ".registerBtnWrapper .inputWrapper #registerPW"
+      ).value;
+    
+      e.preventDefault();
+      let param = {
+        name: name,
+        email: mail,
+        password: pw,
+      };
+      fetch("http://13.209.72.165:8000/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(param),
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          if (response.message == "SUCCESS") {
+            alert("회원가입이 완료되었습니다. 로그인을 진행해주세요.");
+            document.getElementById("registerModal").style.display = "none";
+          } else if (response.message == "INVALID_EMAIL") {
+            alert("이미 존재하는 이메일입니다. 다른 이메일 주소를 입력해주세요.");
+          } else if (response.message == "INVALID_PASSWORD") {
+            alert("올바른 양식으로 입력해주세요.");
+          }
+        })
+        .catch((error) => {
+          console.log("error:", error);
+        });
+    })
+
+  }
+  registerBtn.addEventListener('click',goRegister)
+
 
   registerClose.onclick = function () {
     registerModal.style.display = "none";
@@ -234,53 +297,9 @@ window.onload = function () {
     }
   };
 
-  //회원가입(기능)
-  const mailRegister = document.querySelector(".goRegister");
-  mailRegister.addEventListener("click", (e) => {
-    let name = document.querySelector(
-      ".registerBtnWrapper .inputWrapper #name"
-    ).value;
-    let mail = document.querySelector(
-      ".registerBtnWrapper .inputWrapper #registerMail"
-    ).value;
-    let pw = document.querySelector(
-      ".registerBtnWrapper .inputWrapper #registerPW"
-    ).value;
+  let pp=document.querySelector(".sign .kakaoLogin")
 
-  
-    e.preventDefault();
-    let param = {
-      name: name,
-      email: mail,
-      password: pw,
-    };
-    fetch("http://13.209.72.165:8000/users/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(param),
-    })
-      .then((response) => response.json())
-      .then((response) => {
-        if (response.message == "SUCCESS") {
-          alert("회원가입이 완료되었습니다. 로그인을 진행해주세요.");
-          document.getElementById("registerModal").style.display = "none";
-        } else if (response.message == "INVALID_EMAIL") {
-          alert("이미 존재하는 이메일입니다. 다른 이메일 주소를 입력해주세요.");
-        } else if (response.message == "INVALID_PASSWORD") {
-          alert("올바른 양식으로 입력해주세요.");
-        }
-      })
-      .catch((error) => {
-        console.log("error:", error);
-      });
-  });
-
- 
-
-  
-};
+});
 
 // ---------------할인 가격 같이 보여주기---------------
 

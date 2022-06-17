@@ -42,28 +42,37 @@ img{
 
 /* 미디어쿼리 */
 /* XS */
-/* @media screen and (max-width:320px){
-    header{
-        background-color: greenyellow;
+@media screen and (max-width:576px){
+   .filter_category.active{
+       width: 90%;
+   }
+
+   .uspContents .uspText{
+       flex-direction: column;
+   }
+
+   .uspContents .uspText:nth-child(odd) .uspImg{
+    width: 100%;
+    margin-top: 0;
+}
+
+    .uspContents .uspText:nth-child(even) .uspImg{
+        display: none;
     }
-    body{
-        background-color: blue;
-    }
+
+   .uspText .uspList{
+       width: 100%;
+   }
 
 
-    main{
-        background-color: yellow;
-    }
-  
-
-
-
-} */
+ 
+}
 
 
 
 /* M */
 @media screen and (max-width:768px){
+
     /* 검색창*/
 
     .itemCategory .dropbtn{
@@ -96,33 +105,12 @@ img{
         padding: var(--font-16px);
     }
 
-    .itemListWrapper ul li .itemImg{
-        width: 90%;
-        height: 90%;
-    }
-  
-    .itemListWrapper ul{
-        width: 100%;
-    }
-
-    .itemListWrapper.active ul{
-        font-size: 30px;
-        /* width: 30%; */
-    }
-
     .itemListWrapper ul li{
-        width:200px;
-    }
- 
-  
-
-    .filterWrapper.active{
-        z-index: 100;
-        width: 180px;
+        width:45%;
     }
 
     .itemListWrapper.active {
-    position: relative;
+        right: -40%;
      }
 
     .itemListWrapper.active ul{
@@ -130,10 +118,40 @@ img{
         justify-content: right;
     }
 
-    .mainHot>.hotBrandDes{
-        position:relative;
-        top:-150px;
+    .itemListWrapper.active ul Li{
+        width: 70%;
     }
+    
+
+    .mainHot>.hotBrandDes{
+        transform: translateY(150px);        
+        -webkit-transform: translateY(150px);
+        -moz-transform: translateY(150px);
+        -ms-transform: translateY(150px);
+        -o-transform: translateY(150px);
+}
+
+
+    .mustBuyWrapper{
+        flex-wrap: wrap;
+    }
+
+    .mustBuyWrapper .itemWrapper{
+        width: 45%;
+    }
+
+    .mustBuyWrapper .itemWrapper .imgWrapAtag{
+        background-color: rgb(125, 125, 168);
+        min-height: 200px;
+    }
+
+   
+
+    .HotDealContents .itemWrapper .divWrapper{
+        font-size: var(--font-30px)
+    }
+
+   
 
     /* myinfo(주소 저장) */
     .myInfoList{
@@ -164,9 +182,7 @@ img{
         width: 100%;
     }
 
-    .addressBox input{
-        width: 100%;
-    }
+
 
     /* myinfo(장바구니) */
     .addListTable .removeCart{
@@ -175,27 +191,27 @@ img{
         right: 0;
     }
 
-    .addListTable tbody tr{
-        padding: 10px;
-    }
-
     .addListTable tbody tr td{
-        padding:0;
+        padding:var(--font-20px) 0;
     }
 
+  
     .orderListTable{
-        width: 80%;
+        max-width: 100%;
+        font-size: 70%;
+        border: 5px solid red;
     }
-
 
     /* itemdetail.html */
-    .buy .itemDetail{
+   
+      .buy .itemDetail{
         width: 100%;
     }
     .itemBuy{
         margin-top: 25%;  
     }
 
+  
     .buy .itemBuyBtn{
         position: fixed;
         padding: 20px;
@@ -206,16 +222,9 @@ img{
     }
 
     .buy .informWrapper{
-        /* border: none;
-        position: absolute;
-        width: 400px;
-        height: 100%;
-        top:150%;
-        right: 0;
-        flex-direction: row;
-        padding:0; */
         display: none;
     }
+
 
     /* pay.html */
     .pay{
@@ -239,6 +248,8 @@ img{
     .circleWrap{
         display: none;
     }
+
+   
 
     nav[class="InfoLogo"]{
         flex-direction: column;
@@ -289,14 +300,19 @@ img{
         display: none;
     }
 
+    .usp .advantage{
+        flex-direction: column;
+    }
+
+    .usp .advantage .advan{
+        width: 100%;
+    }
+
     /*appDown*/
     .keyBox{
         width: 100%;
     }
 
-   
-
-    
 
     /* qna  */
     .qna{
@@ -313,11 +329,24 @@ img{
         padding: var(--font-20px);
         text-align: left;
     }
+
+    .qna .qnaNavbar ul{
+        flex-direction: row;
+        align-items: center;
+        padding: 0 var(--font-20px);
+    }
    
+   
+    .accordion-body{
+        padding: 1rem 3rem;
+    
+    }
     /* 푸터 */
     .FooterInfo>div{        
         margin: 0 30px;
     }
+
+ 
    
     .FooterInfo{
        flex-direction: column;
@@ -570,9 +599,9 @@ input[class="keyword"]{
 .itemListWrapper ul{
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+ 
     margin: auto;
-    /* justify-content: center; */
+    justify-content: center;
 }
 
 
@@ -890,7 +919,6 @@ form[class="sign"]>.btnWrapper{
     font-size: 70px;
     color: var(--color-white);
     font-weight: 900;
-    border: 10px solid rgb(79, 161, 83);
 }
 
 
@@ -1012,6 +1040,15 @@ form[class="sign"]>.btnWrapper{
  
   }
 
+  .itemWrapper{
+    margin:10px;
+    padding:10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+
+ 
 
 /* 섹션3_당장 사야할 것들  */
   .mustBuyWrapper{    
@@ -1021,20 +1058,16 @@ form[class="sign"]>.btnWrapper{
 
   }
   
-  .MustBuyNow .itemWrapper{
-    margin:10px;
-    padding:10px;
-  }
-  
-  .MustBuyNow .itemWrapper img{
-    /* width: 100%; */
-    padding: 10px;
-    height: auto;
-  }
 
 
-.divWrapper>.itemName{
+.divWrapper>.itemBrand{
     font-size: var(--font-20px);
+    font-weight: 500;
+}
+
+.divWrapper{
+    font-size: var(--font-20px);
+    font-weight: 200;
 }
 
 /* 섹션4_난리난 브랜드 */
@@ -1168,11 +1201,14 @@ form[class="sign"]>.btnWrapper{
 }
 
 
+
 .itemListWrapper.active{
     position: relative;
-    right: -20vw;
+    right: -20%;
     width:75%;
 }
+
+
 
 .sortWrapper.active{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -1324,10 +1360,6 @@ cursor: pointer;
 .buy{
     display: flex;
     flex-direction: row;
-}
-
-.itemDetail{
-    width: 50%;
 }
 
 .itemDetail img{
@@ -1654,8 +1686,8 @@ color: var(--color-grey);
 }
 
 .myInfoWrapper button{
-    width:10vw;
     margin-top: 10vh;
+    padding: 5px 10px;
 }
 
 .addImg img{
@@ -2442,6 +2474,10 @@ background-repeat: no-repeat;
     padding: 20px;
 }
 
+.advan{
+    margin: 5px;
+}
+
 .advan h3,
 .uspList>h4{
     font-size: 2vw;
@@ -2452,7 +2488,7 @@ background-repeat: no-repeat;
     position: relative;
     top: 0;
     width:400px;
-    height:80% ;
+    height:500px;
     filter: brightness(50%);
     -webkit-filter: brightness(50%);
 }
@@ -2500,8 +2536,8 @@ background-repeat: no-repeat;
     padding: 0.6vw
 }
 
-.qnaNavbar ul li:nth-child(1){
-    font-size: 1.5vw;
+.qnaNavbar ul .faq{
+    font-size: var(--font-20px);
     font-weight: 500;
     text-decoration: underline;
 }
@@ -2509,6 +2545,15 @@ background-repeat: no-repeat;
 .qnaText{
     width: 80%;
 }
+
+.qnaText h3{
+    text-align: center;
+    font-size: 2vw;
+    font-weight: 300;
+    padding: 1vh;
+}
+
+
 
 .accordion{
     margin: 3vw;
